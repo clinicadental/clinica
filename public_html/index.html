@@ -8,26 +8,77 @@
         <link href="css/bootstrap.css" type="text/css" rel="stylesheet">
     </head>
     <body>
-        <!--<h1>INDEX CLÍNICA</h1>
-	<h1>INDEX CLÍNICA2</h1>
-                
-        <div class="formulario">
-            <h2>Introducir cliente</h2>
-            <form method="post" action="">
-                <label>Nombre</label><input type="text"/>
-                <label>Cojones</label><input type="text"/>
-                <label>Nombre</label><input type="text"/>
-            </form>
-        </div>-->
-        <div id='menu'>
-            <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
+        <div class='container'>
+            <h1 class='text-center'>CLINICA DENTAL AMOR DE COCO</h1>
+            <div>
+                <ul class='list-unstyled'>
+                    <li>LISTADO DE CLIENTES
+                        <!--TABLA DE CLIENTES-->
+                        <ul>
+                            <li>Añadir cliente</li>
+                            <li>Modificar cliente</li>
+                            <li>Eliminar cliente</li>
+                        </ul>
+                    </li>
+                    <li>HISTORIAL DE CITAS
+                        <!--TABLA DE CITAS-->
+                        <ul>
+                            <li>Añadir cita</li>
+                            <li>Modificar cita</li>
+                            <li>Eliminar cita</li>
+                        </ul>
+                    </li>
+                    <li>LISTADO DE PROVEEDORES
+                        <!--TABLA DE PROVEEDORES-->
+                        <ul>
+                            <li>Añadir proveedor</li>
+                            <li>Modificar proveedor</li>
+                            <li>Eliminar proveedor</li>
+                        </ul>
+                    </li>
+                    <li>INVENTARIO DE MATERIALES
+                        <!--TABLA DE MATERIALES-->
+                    </li>
+                    <li>PERSONAL
+                        <form role='form'>
+                            <label class='radio-inline'>
+                                <input type='radio' name='tipo-personal' value='todo' checked='checked'/>Todo
+                            </label>
+                            <div id='menu-todo'>
+                                <!--TABLA DE PERSONAL-->
+                            </div>
+                            <label class='radio-inline'>
+                                <input type='radio' name='tipo-personal' value='dentistas'/>Dentistas
+                            </label>
+                            <div id='menu-dentistas'>
+                                <!--TABLA DE DENTISTAS-->
+                                <ul>
+                                    <li>Alta de dentista</li>
+                                    <li>Modificar dentista</li>
+                                    <li>Baja de dentista</li>
+                                </ul>
+                            </div>
+                            <label class='radio-inline'>
+                                <input type='radio' name='tipo-personal' value='administrativos'/>Administrativos
+                            </label>
+                            <div id='menu-administrativos'>
+                                <!--TABLA DE ADMINISTRATIVOS-->
+                                <ul>
+                                    <li>Alta de administrativo</li>
+                                    <li>Modificar administrativo</li>
+                                    <li>Baja de administrativo</li>
+                                </ul>    
+                            </div>
+                        </form>
+                    </li>
+                    <li>CONTROL DE PAGOS
+                        <!--TABLA DE PAGOS-->
+                    </li>
+                    <li>SALAS
+                        <!--TABLA DE SALAS-->
+                    </li>
+                </ul>
+            </div>
         </div>
     </body>
 </html>
