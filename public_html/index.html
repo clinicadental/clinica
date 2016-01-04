@@ -6,6 +6,7 @@
         <script type="text/javascript" src="objetos.js"></script>
         <script type="text/javascript" src="funciones.js"></script>
         <link href="css/bootstrap.css" type="text/css" rel="stylesheet">
+        <link href="css/estilos.css" type="text/css" rel="stylesheet">
     </head>
     <body>
         <div class='container'>
@@ -62,9 +63,9 @@
                                 <div id='menu-dentistas'>
                                     <!--TABLA DE DENTISTAS-->
                                     <ul>
-                                        <li>Alta de dentista</li>
-                                        <li>Modificar dentista</li>
-                                        <li>Baja de dentista</li>
+                                        <li class="alta">Alta de dentista</li>
+                                        <li class="mod">Modificar dentista</li>
+                                        <li class="baja">Baja de dentista</li>
                                     </ul>
                                 </div>
                                 <label class='radio-inline'>
@@ -93,6 +94,94 @@
                     </li>
                 </ul>
             </div>
+            
+            <div class="formulario col-xs-4 col-xs-offset-4" id="form-alta-dentista">
+                <h2>Alta dentista</h2>
+                <form method="post" action="" class="form-horizontal" name="formPersonal">
+                    <div class="form-group" id="bloque-alta-id">
+                        <label class="control-label" for="idPersonal">ID</label>
+                        <input type="text" class="form-control" id="idPersonal"/>
+                    </div>
+                    <div class="form-group" id="bloque-alta-nombre">
+                        <label class="control-label" for="nombre-alta-dentista">Nombre</label>
+                        <input type="text" class="form-control" id="nombre-alta-dentista"/>
+                    </div>
+                    <div class="form-group" id="bloque-alta-apellido">
+                        <label class="control-label" for="apellido-alta-dentista">Apellidos</label>
+                        <input type="text" class="form-control" id="apellido-alta-dentista"/>
+                    </div>
+                    <div class="form-group" id="bloque-alta-fecha">
+                        <p><strong>Fecha alta</strong></p>
+                        <label class="control-label" for="diaPersonal">Día</label>
+                        <select class="form-control" id="dia-alta-dentista">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
+                        </select>
+                        <label class="control-label" for="mesPersonal">Mes</label>
+                        <select class="form-control" id="mes-alta-dentista">
+                            <option value="1">Enero</option>
+                            <option value="2">Febrero</option>
+                            <option value="3">Marzo</option>
+                            <option value="4">Abril</option>
+                            <option value="5">Mayo</option>
+                            <option value="6">Junio</option>
+                            <option value="7">Julio</option>
+                            <option value="8">Agosto</option>
+                            <option value="9">Septiembre</option>
+                            <option value="10">Octubre</option>
+                            <option value="11">Noviembre</option>
+                            <option value="12">Diciembre</option>
+                        </select>
+                        <label class="control-label" for="anyoPersonal">Año</label>
+                        <select class="form-control" id="anyo-alta-dentista">
+                            <option value="1990">1990</option>
+                            <option value="1990">1990</option>
+                            <option value="1990">1990</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="bloqueNumColeg">
+                        <label class="control-label" for="numColeg">Número de colegiado</label>
+                        <input type="text" class="form-control" id="numColeg"/>
+                    </div>
+                    
+                    
+                    <input type="submit" class="btn btn-primary" value="Enviar" id="btnAltaDentista"/>
+                    <input type="reset" class="btn btn-warning" value="Borrar"/>
+                        
+                </form>
+            </div>
         </div>
+        
+        <script type="text/javascript" src="js/objetos.js"></script>
+        <script type="text/javascript" src="js/funciones.js"></script>
     </body>
 </html>
