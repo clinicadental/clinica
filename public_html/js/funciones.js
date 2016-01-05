@@ -1,5 +1,5 @@
-/*window.addEventListener('load',asignarEventos,false);*/
-window.addEventListener('load',mostrarSecciones,false);
+window.addEventListener('load',asignarEventos,false);
+/*window.addEventListener('load',mostrarSecciones,false);*/
 var oClinica=new Clinica();
 
 window.onload = function() {
