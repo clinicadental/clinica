@@ -42,6 +42,7 @@ function comprobarRadio(){
     }
 }
 
+/*ASIGNAR EVENTOS*/
 function asignarEventos(){
     var oAltaCliente=document.getElementById('altaCliente');
     oAltaCliente.addEventListener('click',mostrarFormAltaCliente,false);
@@ -66,6 +67,7 @@ function asignarEventos(){
     radioDentista.addEventListener('click', comprobarRadio, false);
 }
 
+/*MOSTRAR FORMULARIOS*/
 function mostrarFormAltaCliente(){
     var oFormulario=document.querySelector("#form-alta-clientes");
     oFormulario.style.display="block";
@@ -110,6 +112,7 @@ function mostrarFormAltaPersonal(){
     oFormulario.style.display="block";
 }
 
+/*VALIDACIONES*/
 function validarSinNumeros(evento){
     
     var oEvento = evento || window.event
