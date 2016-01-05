@@ -1,6 +1,13 @@
 window.addEventListener('load',asignarEventos,false);
 var oClinica=new Clinica();
 
+window.onload = function() {
+  Calendar.setup({
+    inputField: "fecha",
+    ifFormat:   "%d / %m / %Y",
+    button:     "selector"
+  });};
+
 function asignarEventos(){
     
     var oFormPersonal=document.getElementById("btnAltaDentista");
@@ -44,7 +51,7 @@ function validar(evento){
     }
     else{
          
-       evento.preventDefault();  
+       oEvento.preventDefault();  
        alert("error");
        return false;
     }
@@ -60,13 +67,23 @@ function validarCamposTexto(){
     var sDia=document.getElementById("dia-alta-dentista").value;
     var sMes=document.getElementById("mes-alta-dentista").value;
     var sAnyo=document.getElementById("anyo-alta-dentista").value;
+    var iNumCol=document.getElementById("numColeg").value;
     var bValido=true;
     
-    if(sId===""){
+    var patronId=/([A-Z]{1})+([0-9]{5})/;
+    var patronNum=/([1-9]{1})+([0-9]{4})/;
+    
+    if(!patronId.test(sId)){
         
         var oBloque=document.getElementById("bloque-alta-id");
         oBloque.className='form-group has-error';
         bValido=false;
+    }
+    else{
+        
+        var oBloque=document.getElementById("bloque-alta-id");
+        oBloque.className='form-group';
+        bValido=true;
     }
     
     if(sNombre===""){
@@ -75,12 +92,37 @@ function validarCamposTexto(){
         oBloque.className='form-group has-error';
         bValido=false;
     }
+    else{
+        
+        var oBloque=document.getElementById("bloque-alta-nombre");
+        oBloque.className='form-group';
+        bValido=true;
+    }
     
     if(sApellidos===""){
         
         var oBloque=document.getElementById("bloque-alta-apellido");
         oBloque.className='form-group has-error';
         bValido=false;
+    }
+    else{
+        
+        var oBloque=document.getElementById("bloque-alta-apellido");
+        oBloque.className='form-group';
+        bValido=true;
+    }
+    
+    if(!patronNum.test(iNumCol)){
+        
+        var oBloque=document.getElementById("bloqueNumColeg");
+        oBloque.className='form-group has-error';
+        bValido=false;
+    }
+    else{
+        
+        var oBloque=document.getElementById("bloqueNumColeg");
+        oBloque.className='form-group';
+        bValido=true;
     }
     
     return bValido;
