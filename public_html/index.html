@@ -83,6 +83,107 @@
                 </ul>
             </div>
         </nav>
+        <div class='container'>
+            
+            <!--ALTA CLIENTES-->
+            <div class='col-xs-4 col-xs-offset-4' id='form-alta-clientes'>
+                <h2>Alta cliente</h2>
+                <form method='post' class='form-horizontal' name='formClientes'>
+                    <div class='form-group'>
+                        <label class='control-label' for='idCliente'>ID</label>
+                        <input type='text' class='form-control' id='idCliente'/>
+                        <span>Consta de una letra mayúscula y 5 números.</span>
+                    </div>
+                    <div class='form-group'>
+                        <label class='control-label' for='nombreCliente'>Nombre</label>
+                        <input type='text' class='form-control' id='nombreCliente'/>
+                    </div>
+                    <div class='form-group'>
+                        <label class='control-label' for='apellidosCliente'>Apellidos</label>
+                        <input type='text' class='form-control' id='apellidosCliente'/>
+                    </div>
+                    <div class='form-group'>
+                        <label class='control-label' for='telefonoCliente'>Teléfono</label>
+                        <input type='text' class='form-control' id='telefonoCliente'/>
+                    </div>
+                    <div class='form-group'>
+                        <input type='submit' class='btn btn-primary' value='Enviar' id='btnAltaCliente'/>
+                        <input type='reset' class='btn btn-warning' value='Borrar'/>
+                    </div>
+                </form>
+            </div>
+            
+            <!--ALTA CITAS-->
+            <div class='col-xs-4 col-xs-offset-4' id='form-alta-citas'>
+                <h2>Alta cita</h2>
+                <form method='post' class='form-horizontal' name='formCitas'>
+                    <div class='form-group'>
+                        <label class='control-label' for='dentistaCita'>Dentista</label>
+                        <select class='form-control' id='dentistaCita'>
+                            <option>--seleccione un dentista--</option>
+                        </select>
+                    </div>
+                    <div class='form-group'>
+                        <label class='control-label' for='clienteCita'>Cliente</label>
+                        <select class='form-control' id='clienteCita'>
+                            <option>--seleccione un cliente--</option>
+                        </select>
+                    </div>
+                    <div class='form-group'>
+                        <label class='control-label' for='fechaCita'>Fecha</label>
+                        <input type='text' class='form-control' name='date' id='fechaCita' readonly='readonly'/>
+                        <img src='jscalendar-1.0/img.gif' alt='' id='selector'/>
+                        <span>Pulsa sobre el icono del calendario.</span>
+                    </div>
+                    <div class='form-group'>
+                        <label class='control-label' for='salaCita'>Sala</label>
+                        <select class='form-control' id='salaCita'>
+                            <option>--seleccione una sala--</option>
+                        </select>
+                    </div>
+                    <div class='form-group'>
+                        <label class='control-label' for='procedimientoCita'>Procedimiento</label>
+                        <input type='text' class='form-control' id='procedimientoCita'/>
+                    </div>
+                    <div class='form-group'>
+                        <label class='control-label' for='descripcionCita'>Descripción</label>
+                        <textarea class='form-control' id='descripcionCita'></textarea>
+                    </div>
+                    <div class='form-group'>
+                        <label class='checkbox-inline' for='atendidaCita'>Atendida
+                            <input type='checkbox' id='atendidaCita'/>
+                        </label>
+                    </div>
+                    <div class='form-group'>
+                        <input type='submit' class='btn btn-primary' value='Enviar' id='btnAltaCita'/>
+                        <input type='reset' class='btn btn-warning' value='Borrar'/>
+                    </div>
+                </form>
+            </div>
+            
+            <!--ALTA PROVEEDOR-->
+            <div class='col-xs-4 col-xs-offset-4' id='form-alta-proveedores'>
+                <h2>Alta proveedor</h2>
+                <form method='post' class='form-horizontal' name='formProveedores'>
+                    <div class='form-group'>
+                        <label class='control-label' for='idProveedor'>ID</label>
+                        <input type='text' class='form-control' id='idProveedor'/>
+                        <span>Consta de una letra mayúscula y 5 números.</span>
+                    </div>
+                    <div class='form-group'>
+                        <label class='control-label' for='nombreProveedor'>Nombre</label>
+                        <input type='text' class='form-control' id='nombreProveedor'/>
+                    </div>
+                    <div class='form-group'>
+                        <label class='control-label' for='telefonoProveedor'>Teléfono</label>
+                        <input type='text' class='form-control' id='telefonoProveedor'/>
+                    </div>
+                    <div class='form-group'>
+                        <input type='submit' class='btn btn-primary' value='Enviar' id='btnAltaProveedor'/>
+                        <input type='reset' class='btn btn-warning' value='Borrar'/>
+                    </div>
+                </form>
+            </div>
         
         <!--ALTA PERSONAL-->
         <div class="container">
