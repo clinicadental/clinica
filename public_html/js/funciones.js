@@ -1,4 +1,5 @@
 window.addEventListener('load',asignarEventos,false);
+window.addEventListener('load',mostrarSecciones,false);
 var oClinica=new Clinica();
 
 function asignarEventos(){
@@ -86,3 +87,48 @@ function validarCamposTexto(){
     return bValido;
 }
 
+/*MOSTRAR SECCIONES DEL MENÚ*/
+function mostrarSecciones(){
+    var listadoClientes=document.querySelector("#listadoClientes");
+    listadoClientes.addEventListener('click',mostrarMenuClientes,false); 
+    var historialCitas=document.querySelector("#historialCitas");
+    historialCitas.addEventListener('click',mostrarMenuCitas,false);
+    var listadoProveedores=document.querySelector("#listadoProveedores");
+    listadoProveedores.addEventListener('click',mostrarMenuProveedores,false);
+    var inventarioMateriales=document.querySelector("#inventarioMateriales");
+    inventarioMateriales.addEventListener('click',mostrarMenuMateriales,false);
+    var personal=document.querySelector("#personal");
+    personal.addEventListener('click',mostrarMenuPersonal,false);
+    var controlPagos=document.querySelector("#controlPagos");
+    controlPagos.addEventListener('click',mostrarMenuPagos,false);
+    var salas=document.querySelector("#salas");
+    salas.addEventListener('click',mostrarMenuSalas,false);
+}
+
+function mostrarMenuClientes(){
+    var menuClientes=document.getElementById("menu-clientes");
+}
+
+function mostrarMenuCitas(){
+    var menuCitas=document.getElementById("menu-citas");
+}
+
+function mostrarMenuProveedores(){
+    var menuProveedores=document.getElementById("menu-proveedores");
+}
+
+function mostrarMenuMateriales(){
+    var menuMateriales=document.getElementById("menu-materiales");
+}
+
+function mostrarMenuPersonal(){
+    var menuPersonal=document.getElementById("menu-personal");
+}
+
+function mostrarMenuPagos(){
+    var menuPagos=document.getElementById("menu-pagos");
+}
+
+function mostrarMenuSalas(){
+    var menuSalas=document.getElementById("menu-salas");
+}
