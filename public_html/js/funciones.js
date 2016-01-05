@@ -1,4 +1,4 @@
-window.addEventListener('load',asignarEventos,false);
+/*window.addEventListener('load',asignarEventos,false);*/
 window.addEventListener('load',mostrarSecciones,false);
 var oClinica=new Clinica();
 
@@ -129,7 +129,7 @@ function validarCamposTexto(){
     return bValido;
 }
 
-/*MOSTRAR SECCIONES DEL MENÚ*/
+/*MOSTRAR SECCIONES DEL MENÚ
 function mostrarSecciones(){
     var listadoClientes=document.querySelector("#listadoClientes");
     listadoClientes.addEventListener('click',mostrarMenuClientes,false); 
@@ -180,4 +180,4 @@ function mostrarMenuPagos(){
 function mostrarMenuSalas(){
     var menuSalas=document.getElementById("menu-salas");
     menuSalas.setAttribute('class','visible');
-}
+}*/
