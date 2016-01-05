@@ -107,28 +107,35 @@ function mostrarSecciones(){
 
 function mostrarMenuClientes(){
     var menuClientes=document.getElementById("menu-clientes");
+    menuClientes.setAttribute('class','visible');
 }
 
 function mostrarMenuCitas(){
     var menuCitas=document.getElementById("menu-citas");
+    menuCitas.setAttribute('class','visible');
 }
 
 function mostrarMenuProveedores(){
     var menuProveedores=document.getElementById("menu-proveedores");
+    menuProveedores.setAttribute('class','visible');
 }
 
 function mostrarMenuMateriales(){
     var menuMateriales=document.getElementById("menu-materiales");
+    menuMateriales.setAttribute('class','visible');
 }
 
 function mostrarMenuPersonal(){
     var menuPersonal=document.getElementById("menu-personal");
+    menuPersonal.setAttribute('class','visible');
 }
 
 function mostrarMenuPagos(){
     var menuPagos=document.getElementById("menu-pagos");
+    menuPagos.setAttribute('class','visible');
 }
 
 function mostrarMenuSalas(){
     var menuSalas=document.getElementById("menu-salas");
+    menuSalas.setAttribute('class','visible');
 }
