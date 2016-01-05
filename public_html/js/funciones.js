@@ -65,9 +65,7 @@ function validarCamposTexto(){
     var sId=document.getElementById("idPersonal").value;
     var sNombre=document.getElementById("nombre-alta-dentista").value;
     var sApellidos=document.getElementById("apellido-alta-dentista").value;
-    var sDia=document.getElementById("dia-alta-dentista").value;
-    var sMes=document.getElementById("mes-alta-dentista").value;
-    var sAnyo=document.getElementById("anyo-alta-dentista").value;
+    var sFecha=document.getElementById("fecha");
     var iNumCol=document.getElementById("numColeg").value;
     var bValido=true;
     
@@ -111,6 +109,11 @@ function validarCamposTexto(){
         var oBloque=document.getElementById("bloque-alta-apellido");
         oBloque.className='form-group';
         bValido=true;
+    }
+    
+    if(sFecha===""){
+        
+        bValido=false;
     }
     
     if(!patronNum.test(iNumCol)){
