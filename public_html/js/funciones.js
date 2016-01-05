@@ -98,13 +98,7 @@ function validarCamposTexto(){
     
     var patronId=/([A-Z]{1})+([0-9]{5})/;
     var patronNum=/([1-9]{1})+([0-9]{4})/;
-    
-    if(sTipo===""){
-        
-        alert("Seleccione puesto");
-        bValido=false;
-    }
-    
+       
     if(!patronId.test(sId)){
         
         var oBloque=document.getElementById("bloque-alta-id");
