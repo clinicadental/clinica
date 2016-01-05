@@ -9,6 +9,41 @@ function Clinica(){
     this.materiales=new Array();	
 }
 
+Clinica.prototype.altaPersonal=function(oPersonal){
+    
+    var oPersonalExistente=this.buscaPersonal(oPersonal.id);
+    
+    if(typeof oPersonalExistente==="undefined"){
+        
+        this.personal.push(oPersonal);
+        alert("Personal añadido");
+    }
+    else{
+        
+        alert("Ya existe un miembro con ese ID");
+    }
+}
+Clinica.prototype.buscaPersonal=function(sId){
+    
+    var oPersonal;
+    
+    if(this.personal.length<1){
+        
+    }
+    else{
+        
+        for(var i=0;i<this.personal.length;i++){
+            
+            if(this.personal[i].id==sId){
+                
+                oPersonal=this.personal[i];
+            }
+        }
+    }
+    
+    return oPersonal;
+}
+
 //1. PERSONAL
 function Personal(iId, sNombre, sApellidos, dFechaAlta){
     this.id=iId;

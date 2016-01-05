@@ -31,7 +31,7 @@ function comprobarRadio(){
 
 function asignarEventos(){
     
-    var oFormPersonal=document.getElementById("btnAltaDentista");
+    var oFormPersonal=document.getElementById("btnAltaPersonal");
     document.getElementById("nombre-alta-dentista").addEventListener('keypress',validarSinNumeros,false);
     document.getElementById("apellido-alta-dentista").addEventListener('keypress',validarSinNumeros,false);
     oFormPersonal.addEventListener('click', validar, false);
@@ -70,14 +70,14 @@ function validar(evento){
     
     var oEvento = evento || window.event  
     
+    oEvento.preventDefault(); 
     
-    if(validarCamposTexto(this) && confirm("¿Desea enviar el formulario?")){
+    if(validarCamposTexto()){
        
        return true;
     }
     else{
-         
-       oEvento.preventDefault();  
+          
        alert("error");
        return false;
     }
@@ -90,12 +90,20 @@ function validarCamposTexto(){
     var sId=document.getElementById("idPersonal").value;
     var sNombre=document.getElementById("nombre-alta-dentista").value;
     var sApellidos=document.getElementById("apellido-alta-dentista").value;
-    var sFecha=document.getElementById("fecha");
+    var sFecha=document.getElementById("fecha").value;
     var iNumCol=document.getElementById("numColeg").value;
+    var iDepart=document.getElementById("departamento").value;
+    var sTipo=document.formPersonal.tipo.value;
     var bValido=true;
     
     var patronId=/([A-Z]{1})+([0-9]{5})/;
     var patronNum=/([1-9]{1})+([0-9]{4})/;
+    
+    if(sTipo===""){
+        
+        alert("Seleccione puesto");
+        bValido=false;
+    }
     
     if(!patronId.test(sId)){
         
@@ -107,7 +115,7 @@ function validarCamposTexto(){
         
         var oBloque=document.getElementById("bloque-alta-id");
         oBloque.className='form-group';
-        bValido=true;
+
     }
     
     if(sNombre===""){
@@ -120,7 +128,7 @@ function validarCamposTexto(){
         
         var oBloque=document.getElementById("bloque-alta-nombre");
         oBloque.className='form-group';
-        bValido=true;
+
     }
     
     if(sApellidos===""){
@@ -133,7 +141,7 @@ function validarCamposTexto(){
         
         var oBloque=document.getElementById("bloque-alta-apellido");
         oBloque.className='form-group';
-        bValido=true;
+
     }
     
     if(sFecha===""){
@@ -141,19 +149,42 @@ function validarCamposTexto(){
         bValido=false;
     }
     
-    if(!patronNum.test(iNumCol)){
-        
-        var oBloque=document.getElementById("bloqueNumColeg");
-        oBloque.className='form-group has-error';
-        bValido=false;
+    if (bValido){
+        if(sTipo=="1"){
+
+            if(isNaN(iDepart) || iDepart===""){
+
+                var oBloque=document.getElementById("bloqueDepartamento");
+                oBloque.className='form-group has-error';
+                bValido=false;
+            }
+            else{
+
+                var oBloque=document.getElementById("bloqueDepartamento");
+                oBloque.className='form-group';
+                var oPersonal=new Administrativo(sId, sNombre, sApellidos, sFecha, iDepart);
+                oClinica.altaPersonal(oPersonal);
+            }   
+
+        }
+        else{
+            if(sTipo=="2"){
+                if(!patronNum.test(iNumCol)){
+
+                    var oBloque=document.getElementById("bloqueNumColeg");
+                    oBloque.className='form-group has-error';
+                    bValido=false;
+                }
+                else{
+
+                    var oBloque=document.getElementById("bloqueNumColeg");
+                    oBloque.className='form-group';
+                    var oPersonal=new Dentista(sId, sNombre, sApellidos, sFecha, iNumCol);
+                    oClinica.altaPersonal(oPersonal);
+                }
+            }
+        }
     }
-    else{
-        
-        var oBloque=document.getElementById("bloqueNumColeg");
-        oBloque.className='form-group';
-        bValido=true;
-    }
-    
     return bValido;
 }
 
