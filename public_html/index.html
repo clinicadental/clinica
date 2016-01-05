@@ -94,9 +94,23 @@
                     </li>
                 </ul>
             </div>
-            <div class="formulario col-xs-4 col-xs-offset-4" id="form-alta-dentista">
-                <h2>Alta dentista</h2>
+            <div class="formulario col-xs-4 col-xs-offset-4" id="form-alta-personal">
+                <h2>Alta personal</h2>
                 <form method="post" action="" class="form-horizontal" name="formPersonal">
+                    <div class="form-group">
+                        <div class="radio">
+                            <label>
+                              <input type="radio" name="tipo" id="administrativo" value="1">
+                              Administrativo
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                              <input type="radio" name="tipo" id="dentista" value="2">
+                              Dentista
+                            </label>
+                        </div>
+                    </div>
                     <div class="form-group" id="bloque-alta-id">
                         <label class="control-label" for="idPersonal">ID</label>
                         <input type="text" class="form-control" id="idPersonal"/>
@@ -119,10 +133,17 @@
                             Introduce la fecha pulsando sobre la imagen del calendario
                         </span>
                     </div>
-                   
-                    <div class="form-group" id="bloqueNumColeg">
-                        <label class="control-label" for="numColeg">Número de colegiado</label>
-                        <input type="text" class="form-control" id="numColeg"/>
+                    <div id="bloqueDentista">
+                        <div class="form-group" id="bloqueNumColeg">
+                            <label class="control-label" for="numColeg">Número de colegiado</label>
+                            <input type="text" class="form-control" id="numColeg"/>
+                        </div>
+                    </div>
+                    <div id="bloqueAdmin">
+                        <div class="form-group" id="bloqueDepartamento">
+                            <label class="control-label" for="departamento">Departamento</label>
+                            <input type="text" class="form-control" id="departamento"/>
+                        </div>
                     </div>
                     
                     

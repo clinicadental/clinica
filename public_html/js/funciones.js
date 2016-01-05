@@ -9,6 +9,26 @@ window.onload = function() {
     button:     "selector"
   });};
 
+function comprobarRadio(){
+    
+    var sTipo=document.formPersonal.tipo.value;
+    
+    
+    if(sTipo=="1"){
+        
+        document.getElementById("bloqueAdmin").style.display="block";
+	document.getElementById("bloqueDentista").style.display="none";
+    }
+    else{
+        
+        if(sTipo=="2"){
+            
+            document.getElementById("bloqueAdmin").style.display="none";
+            document.getElementById("bloqueDentista").style.display="block";
+        }
+    }
+}
+
 function asignarEventos(){
     
     var oFormPersonal=document.getElementById("btnAltaDentista");
@@ -17,12 +37,17 @@ function asignarEventos(){
     oFormPersonal.addEventListener('click', validar, false);
  
     var oAltaDentista=document.querySelector("#menu-dentistas .alta");
-    oAltaDentista.addEventListener('click',mostrarFormAltaDentista,false);
+    oAltaDentista.addEventListener('click',mostrarFormAltaPersonal,false);
+    
+    var radioAdministrativo=document.getElementById("administrativo");
+    var radioDentista=document.getElementById("dentista");
+    radioAdministrativo.addEventListener('click', comprobarRadio, false);
+    radioDentista.addEventListener('click', comprobarRadio, false);
 }
 
-function mostrarFormAltaDentista(){
+function mostrarFormAltaPersonal(){
     
-    var oFormulario=document.querySelector("#form-alta-dentista");
+    var oFormulario=document.querySelector("#form-alta-personal");
     oFormulario.style.display="block";
 }
 
