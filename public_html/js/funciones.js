@@ -1,13 +1,26 @@
 window.addEventListener('load',asignarEventos,false);
+window.addEventListener('load',calendario1,false);
+window.addEventListener('load',calendario2,false);
 /*window.addEventListener('load',mostrarSecciones,false);*/
 var oClinica=new Clinica();
 
-window.onload = function() {
-  Calendar.setup({
+function calendario1(){
+    
+    Calendar.setup({
     inputField: "fecha",
     ifFormat:   "%d / %m / %Y",
     button:     "selector"
-  });};
+  });
+}
+
+function calendario2(){
+    
+    Calendar.setup({
+    inputField: "fechaCita",
+    ifFormat:   "%d / %m / %Y",
+    button:     "selector2"
+  });
+}
 
 function comprobarRadio(){
     
