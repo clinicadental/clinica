@@ -84,7 +84,6 @@
             </div>
         </nav>
         <div class='container'>
-            
             <!--ALTA CLIENTES-->
             <div class='col-xs-4 col-xs-offset-4' id='form-alta-clientes'>
                 <h2>Alta cliente</h2>
@@ -112,7 +111,6 @@
                     </div>
                 </form>
             </div>
-            
             <!--ALTA CITAS-->
             <div class='col-xs-4 col-xs-offset-4' id='form-alta-citas'>
                 <h2>Alta cita</h2>
@@ -132,7 +130,7 @@
                     <div class='form-group'>
                         <label class='control-label' for='fechaCita'>Fecha</label>
                         <input type='text' class='form-control' name='date' id='fechaCita' readonly='readonly'/>
-                        <img src='jscalendar-1.0/img.gif' alt='' id='selector'/>
+                        <img src='jscalendar-1.0/img.gif' alt='' id='selector2'/>
                         <span>Pulsa sobre el icono del calendario.</span>
                     </div>
                     <div class='form-group'>
@@ -159,8 +157,7 @@
                         <input type='reset' class='btn btn-warning' value='Borrar'/>
                     </div>
                 </form>
-            </div>
-            
+            </div>   
             <!--ALTA PROVEEDOR-->
             <div class='col-xs-4 col-xs-offset-4' id='form-alta-proveedores'>
                 <h2>Alta proveedor</h2>
@@ -183,31 +180,27 @@
                         <input type='reset' class='btn btn-warning' value='Borrar'/>
                     </div>
                 </form>
-            </div>
-        
-        <!--ALTA PERSONAL-->
-        <div class="container">
-            <div class="formulario col-xs-4 col-xs-offset-4" id="form-alta-personal">
+            </div>  
+            <!--ALTA PERSONAL-->
+            <div class="col-xs-4 col-xs-offset-4" id="form-alta-personal">
                 <h2>Alta personal</h2>
                 <form method="post" action="#" class="form-horizontal" name="formPersonal">
                     <div class="form-group">
                         <div class="radio">
                             <label>
-                              <input type="radio" name="tipo" id="administrativo" value="1" checked="checked">
-                              Administrativo
+                                <input type="radio" name="tipo" id="administrativo" value="1" checked="checked">Administrativo
                             </label>
                         </div>
                         <div class="radio">
                             <label>
-                              <input type="radio" name="tipo" id="dentista" value="2">
-                              Dentista
+                                <input type="radio" name="tipo" id="dentista" value="2">Dentista
                             </label>
                         </div>
                     </div>
                     <div class="form-group" id="bloque-alta-id">
                         <label class="control-label" for="idPersonal">ID</label>
                         <input type="text" class="form-control" id="idPersonal"/>
-                        <span id="helpBlock2" class="help-block">El número de identificación consta de una letra mayúscula y 5 números.</span>
+                        <span id="helpBlock2" class="help-block">Consta de una letra mayúscula y 5 números.</span>
                     </div>
                     <div class="form-group" id="bloque-alta-nombre">
                         <label class="control-label" for="nombre-alta-dentista">Nombre</label>
@@ -217,14 +210,11 @@
                         <label class="control-label" for="apellido-alta-dentista">Apellidos</label>
                         <input type="text" class="form-control" id="apellido-alta-dentista"/>
                     </div>
-                    
                     <div class="form-group" id="bloque-fecha">
-                        <p><strong>Fecha alta</strong></p>
-                        <input type="text" name="date" id="fecha" readonly="readonly" />
+                        <label class="control-label" for="fecha">Fecha</label>
+                        <input type="text" class="form-control" name="date" id="fecha" readonly="readonly" />
                         <img src="jscalendar-1.0/img.gif" alt="..." id="selector" />
-                        <span id="helpBlock1" class="help-block">
-                            Introduce la fecha pulsando sobre la imagen del calendario
-                        </span>
+                        <span id="helpBlock1" class="help-block">Pulsa sobre el icono del calendario.</span>
                     </div>
                     <div id="bloqueDentista">
                         <div class="form-group" id="bloqueNumColeg">
@@ -238,11 +228,10 @@
                             <input type="text" class="form-control" id="departamento"/>
                         </div>
                     </div>
-                    
-                    
-                    <input type="submit" class="btn btn-primary" value="Enviar" id="btnAltaPersonal"/>
-                    <input type="reset" class="btn btn-warning" value="Borrar"/>
-                        
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary" value="Enviar" id="btnAltaPersonal"/>
+                        <input type="reset" class="btn btn-warning" value="Borrar"/>
+                    </div>
                 </form>
             </div>
         </div>
