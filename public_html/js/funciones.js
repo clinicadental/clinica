@@ -36,8 +36,8 @@ function asignarEventos(){
     document.getElementById("apellido-alta-dentista").addEventListener('keypress',validarSinNumeros,false);
     oFormPersonal.addEventListener('click', validar, false);
  
-    var oAltaDentista=document.querySelector("#menu-dentistas .alta");
-    oAltaDentista.addEventListener('click',mostrarFormAltaPersonal,false);
+    var oAltaPersonal=document.querySelector("#menu-personal .alta");
+    oAltaPersonal.addEventListener('click',mostrarFormAltaPersonal,false);
     
     var radioAdministrativo=document.getElementById("administrativo");
     var radioDentista=document.getElementById("dentista");
