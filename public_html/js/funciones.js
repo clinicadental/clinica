@@ -1,7 +1,6 @@
 window.addEventListener('load',asignarEventos,false);
 window.addEventListener('load',calendario1,false);
 window.addEventListener('load',calendario2,false);
-/*window.addEventListener('load',mostrarSecciones,false);*/
 var oClinica=new Clinica();
 
 function calendario1(){
