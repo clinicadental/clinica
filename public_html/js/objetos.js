@@ -23,6 +23,7 @@ Clinica.prototype.altaPersonal=function(oPersonal){
         alert("Ya existe un miembro con ese ID");
     }
 }
+
 Clinica.prototype.buscaPersonal=function(sId){
     
     var oPersonal;
@@ -34,7 +35,7 @@ Clinica.prototype.buscaPersonal=function(sId){
         
         for(var i=0;i<this.personal.length;i++){
             
-            if(this.personal[i].id==sId){
+            if(this.personal[i].id===sId){
                 
                 oPersonal=this.personal[i];
             }
@@ -42,6 +43,42 @@ Clinica.prototype.buscaPersonal=function(sId){
     }
     
     return oPersonal;
+}
+
+Clinica.prototype.altaCliente=function(oCliente){
+    
+    var oClienteExistente=this.buscaCliente(oCliente.id);
+    
+    if(typeof oClienteExistente==="undefined"){
+        
+        this.clientes.push(oCliente);
+        alert("Cliente añadido");
+    }
+    else{
+        
+        alert("Ya existe un cliente con ese ID");
+    }
+}
+
+Clinica.prototype.buscaCliente=function(sId){
+    
+    var oCliente;
+    
+    if(this.clientes.length<1){
+        
+    }
+    else{
+        
+        for(var i=0;i<this.clientes.length;i++){
+            
+            if(this.clientes[i].id===sId){
+                
+                oCliente=this.clientes[i];
+            }
+        }
+    }
+    
+    return oCliente;
 }
 
 //1. PERSONAL

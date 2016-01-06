@@ -22,6 +22,7 @@ function calendario2(){
   });
 }
 
+/*COMPROBAR RADIO*/
 function comprobarRadio(){
     
     var sTipo=document.formPersonal.tipo.value;
@@ -44,6 +45,7 @@ function comprobarRadio(){
 
 /*ASIGNAR EVENTOS*/
 function asignarEventos(){
+
     var oAltaCliente=document.getElementById('altaCliente');
     oAltaCliente.addEventListener('click',mostrarFormAltaCliente,false);
     
@@ -52,19 +54,27 @@ function asignarEventos(){
     
     var oAltaProveedor=document.getElementById('altaProveedor');
     oAltaProveedor.addEventListener('click',mostrarFormAltaProveedor,false);
-    
-    var oFormPersonal=document.getElementById("btnAltaPersonal");
-    document.getElementById("nombre-alta-dentista").addEventListener('keypress',validarSinNumeros,false);
-    document.getElementById("apellido-alta-dentista").addEventListener('keypress',validarSinNumeros,false);
-    oFormPersonal.addEventListener('click', validar, false);
- 
+   
     var oAltaPersonal=document.querySelector("#menu-personal .alta");
     oAltaPersonal.addEventListener('click',mostrarFormAltaPersonal,false);
     
+    document.getElementById("nombre-alta-dentista").addEventListener('keypress',validarSinNumeros,false);
+    document.getElementById("apellido-alta-dentista").addEventListener('keypress',validarSinNumeros,false);
+    document.getElementById("nombreCliente").addEventListener('keypress',validarSinNumeros,false);
+    document.getElementById("apellidosCliente").addEventListener('keypress',validarSinNumeros,false);
+    
+    var oFormPersonal=document.getElementById("btnAltaPersonal");
+    oFormPersonal.addEventListener('click', validarPersonal, false);
+    
+    var oFormCliente=document.getElementById("btnAltaCliente");
+    oFormCliente.addEventListener('click', validarCliente, false);
+    
     var radioAdministrativo=document.getElementById("administrativo");
     var radioDentista=document.getElementById("dentista");
-    radioAdministrativo.addEventListener('click', comprobarRadio, false);
-    radioDentista.addEventListener('click', comprobarRadio, false);
+    radioAdministrativo.addEventListener('change', comprobarRadio, false);
+    radioDentista.addEventListener('change', comprobarRadio, false);
+    
+    
 }
 
 /*MOSTRAR FORMULARIOS*/
@@ -128,13 +138,113 @@ function validarSinNumeros(evento){
     }
 }
 
-function validar(evento){
+function validarCliente(evento){
     
     var oEvento = evento || window.event  
     
     oEvento.preventDefault(); 
     
-    if(validarCamposTexto()){
+    if(validarCamposTextoCliente()){
+       
+       return true;
+    }
+    else{
+          
+       alert("error");
+       return false;
+    } 
+}
+
+function validarCamposTextoCliente(){
+    
+    var sId=document.getElementById('idCliente').value;
+    var sNombre=document.getElementById('nombreCliente').value;
+    var sApellidos=document.getElementById('apellidosCliente').value;
+    var iTelefono=document.getElementById('telefonoCliente').value;
+    var bValido=true;
+    
+    var patronId=/([A-Z]{1})+([0-9]{5})/;
+    var patronTelef=/[0-9]{2,3}-? ?[0-9]{6,7}/;
+    
+    if(!patronId.test(sId)){
+        
+        var oBloque=document.getElementById("bloqueIdCliente");
+        oBloque.className='form-group has-error';
+        bValido=false;
+    }
+    else{
+        
+        var oBloque=document.getElementById("bloqueIdCliente");
+        oBloque.className='form-group';
+
+    }
+    
+    if(sNombre===""){
+        
+        var oBloque=document.getElementById("bloqueNombreCliente");
+        oBloque.className='form-group has-error';
+        bValido=false;
+    }
+    else{
+        
+        var oBloque=document.getElementById("bloqueNombreCliente");
+        oBloque.className='form-group';
+
+    }
+    
+    if(sApellidos===""){
+        
+        var oBloque=document.getElementById("bloqueApellidosCliente");
+        oBloque.className='form-group has-error';
+        bValido=false;
+    }
+    else{
+        
+        var oBloque=document.getElementById("bloqueApellidosCliente");
+        oBloque.className='form-group';
+
+    }
+    
+    if(!patronTelef.test(iTelefono)){
+        
+        var oBloque=document.getElementById("bloqueTelefonoCliente");
+        oBloque.className='form-group has-error';
+        bValido=false;
+    }
+    else{
+        
+        var oBloque=document.getElementById("bloqueTelefonoCliente");
+        oBloque.className='form-group';
+
+    }
+    
+    if(bValido){
+        
+        var oCliente=new Cliente(sId, sNombre, sApellidos, iTelefono);
+        oClinica.altaCliente(oCliente);
+        actualizarSelectCliente(sNombre,sApellidos,sId);
+        
+    }
+    
+    return bValido;
+}
+
+function actualizarSelectCliente(sNombre,sApellidos,sId){
+    
+    var oSelect=document.getElementById("clienteCita");
+    var oOption=document.createElement("option");
+    oOption.value=sId;
+    oOption.text=sApellidos+", "+sNombre;
+    oSelect.appendChild(oOption);
+}
+
+function validarPersonal(evento){
+    
+    var oEvento = evento || window.event  
+    
+    oEvento.preventDefault(); 
+    
+    if(validarCamposTextoPersonal()){
        
        return true;
     }
@@ -143,11 +253,9 @@ function validar(evento){
        alert("error");
        return false;
     }
-    
-
 }
 
-function validarCamposTexto(){
+function validarCamposTextoPersonal(){
     
     var sId=document.getElementById("idPersonal").value;
     var sNombre=document.getElementById("nombre-alta-dentista").value;
@@ -237,10 +345,35 @@ function validarCamposTexto(){
                     oBloque.className='form-group';
                     var oPersonal=new Dentista(sId, sNombre, sApellidos, sFecha, iNumCol);
                     oClinica.altaPersonal(oPersonal);
+                    actualizarSelectDentista(sNombre,sApellidos,sId);
                 }
             }
         }
     }
     return bValido;
 }
+
+function actualizarSelectDentista(sNombre,sApellidos,sId){
+    
+    var oSelect=document.getElementById("dentistaCita");
+    var oOption=document.createElement("option");
+    oOption.value=sId;
+    oOption.text=sApellidos+", "+sNombre;
+    oSelect.appendChild(oOption);
+    
+    /*var y=document.createElement('option'); 
+    y.text=elm; 
+    var x=document.getElementById("dentistaCita"); 
+    try 
+    { 
+        x.add(y,null); // standards compliant 
+    } 
+    catch(ex) 
+    { 
+        x.add(y); // IE only 
+    } */
+    
+    
+}
+
 
