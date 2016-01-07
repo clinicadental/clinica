@@ -61,6 +61,9 @@ function asignarEventos(){
     var oListadoClientes=document.getElementById("listaClientes");
     oListadoClientes.addEventListener('click',listarClientes,false);
     
+    var oListadoCitas=document.getElementById("listaCitas");
+    oListadoCitas.addEventListener('click',listarCitas,false);
+    
     var oListadoSalas=document.getElementById("listaSalas");
     oListadoSalas.addEventListener('click',listarSalas,false);
     
@@ -606,6 +609,27 @@ function listarClientes(){
     for (var i=0; i<oClinica.clientes.length; i++) {
         
         var oFila =oClinica.clientes[i].toHTMLRow();
+        tBody.appendChild(oFila);
+    }
+    
+    tabla.appendChild(tBody);
+    tabla.setAttribute("border", "2");
+    oBloque.appendChild(tabla);
+}
+
+/*LISTAR CITAS*/
+function listarCitas(){
+    
+    var oBloque=document.getElementById("listadoCitas");
+    var oNodoHijo=oBloque.firstChild;
+    oBloque.removeChild(oNodoHijo);
+    
+    var tabla   = document.createElement("table");
+    var tBody = document.createElement("tbody");
+    
+    for (var i=0; i<oClinica.citas.length; i++) {
+        
+        var oFila =oClinica.citas[i].toHTMLRow();
         tBody.appendChild(oFila);
     }
     
