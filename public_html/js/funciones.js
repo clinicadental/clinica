@@ -2,6 +2,7 @@ window.addEventListener('load',asignarEventos,false);
 window.addEventListener('load',calendario1,false);
 window.addEventListener('load',calendario2,false);
 var oClinica=new Clinica();
+actualizarSelectSalas();
 
 function calendario1(){
     
@@ -438,20 +439,31 @@ function actualizarSelectDentista(sNombre,sApellidos,sId){
     oOption.value=sId;
     oOption.text=sApellidos+", "+sNombre;
     oSelect.appendChild(oOption);
+ 
+}
+
+function actualizarSelectSalas(){
     
-    /*var y=document.createElement('option'); 
-    y.text=elm; 
-    var x=document.getElementById("dentistaCita"); 
-    try 
-    { 
-        x.add(y,null); // standards compliant 
-    } 
-    catch(ex) 
-    { 
-        x.add(y); // IE only 
-    } */
+    var oSala1=new Sala("01","Consulta 1","Consulta");
+    var oSala2=new Sala("02","Consulta 2","Consulta");
+    var oSala3=new Sala("03","Sala de espera","Espera");
+    var oSala4=new Sala("04","Rayos X","Rayos");
+    var oSala5=new Sala("05","Sala de esterilización","Esterilización");
+    var oSala6=new Sala("06","Gabinete 1","Gabinete");
+    var oSala7=new Sala("07","Gabinete 2","Gabinete");
     
+    oClinica.salas=[oSala1,oSala2,oSala3,oSala4,oSala5,oSala6,oSala7];
     
+    var oSelect=document.getElementById("salaCita");
+    
+    for(var i=0;i<oClinica.salas.length;i++){
+        
+        var oOption=document.createElement("option");
+        oOption.value=oClinica.salas[i].id;
+        oOption.text=oClinica.salas[i].nombre;
+        oSelect.appendChild(oOption);
+    }
+
 }
 
 
