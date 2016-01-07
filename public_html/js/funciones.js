@@ -1208,46 +1208,57 @@ function listarProveedores(){
         oBloque.removeChild(oBloque.firstChild);
     }
     
-    var titulo=document.createElement("h2");
-    titulo.setAttribute("class","text-center");
-    var textoTitulo=document.createTextNode("LISTADO DE PROVEEDORES");
-    titulo.appendChild(textoTitulo);
-    
-    var tabla   = document.createElement("table");
-    tabla.setAttribute("class","table");
-    
-    var tHead = document.createElement("thead");
-    var oCabecera=document.createElement("tr");
-
-    var oCelda=document.createElement("th");
-    var textoCelda=document.createTextNode("ID");
-    var oCelda1=document.createElement("th");
-    var textoCelda1 = document.createTextNode("NOMBRE");
-    var oCelda2=document.createElement("th");
-    var textoCelda2 = document.createTextNode("TELÉFONO");
-    
-    oCelda.appendChild(textoCelda);
-    oCelda1.appendChild(textoCelda1);
-    oCelda2.appendChild(textoCelda2);
-    
-    oCabecera.appendChild(oCelda);
-    oCabecera.appendChild(oCelda1);
-    oCabecera.appendChild(oCelda2);
-    
-    tHead.appendChild(oCabecera);
-    tabla.appendChild(tHead);
-    
-    var tBody = document.createElement("tbody");
-    
-    for (var i=0; i<oClinica.proveedores.length; i++) {
+    if(oClinica.proveedores.length!="0"){
         
-        var oFila =oClinica.proveedores[i].toHTMLRow();
-        tBody.appendChild(oFila);
+        var titulo=document.createElement("h2");
+        titulo.setAttribute("class","text-center");
+        var textoTitulo=document.createTextNode("LISTADO DE PROVEEDORES");
+        titulo.appendChild(textoTitulo);
+
+        var tabla   = document.createElement("table");
+        tabla.setAttribute("class","table");
+
+        var tHead = document.createElement("thead");
+        var oCabecera=document.createElement("tr");
+
+        var oCelda=document.createElement("th");
+        var textoCelda=document.createTextNode("ID");
+        var oCelda1=document.createElement("th");
+        var textoCelda1 = document.createTextNode("NOMBRE");
+        var oCelda2=document.createElement("th");
+        var textoCelda2 = document.createTextNode("TELÉFONO");
+
+        oCelda.appendChild(textoCelda);
+        oCelda1.appendChild(textoCelda1);
+        oCelda2.appendChild(textoCelda2);
+
+        oCabecera.appendChild(oCelda);
+        oCabecera.appendChild(oCelda1);
+        oCabecera.appendChild(oCelda2);
+
+        tHead.appendChild(oCabecera);
+        tabla.appendChild(tHead);
+
+        var tBody = document.createElement("tbody");
+
+        for (var i=0; i<oClinica.proveedores.length; i++) {
+
+            var oFila =oClinica.proveedores[i].toHTMLRow();
+            tBody.appendChild(oFila);
+        }
+
+        tabla.appendChild(tBody);
+        oBloque.appendChild(titulo);
+        oBloque.appendChild(tabla);
     }
-    
-    tabla.appendChild(tBody);
-    oBloque.appendChild(titulo);
-    oBloque.appendChild(tabla);
+    else{
+        
+        var titulo=document.createElement("h2");
+        titulo.setAttribute("class","text-center");
+        var textoTitulo=document.createTextNode("NO EXISTEN PROVEEDORES REGISTRADOS");
+        titulo.appendChild(textoTitulo);
+        oBloque.appendChild(titulo);
+    }
 }
 
 
