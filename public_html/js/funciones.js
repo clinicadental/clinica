@@ -587,6 +587,8 @@ function actualizarSelectSalas(){
 function listarClientes(){
     
     var oBloque=document.getElementById("listadoClientes");
+    var oNodoHijo=oBloque.firstChild;
+    oBloque.removeChild(oNodoHijo);
     
     var tabla   = document.createElement("table");
     var tBody = document.createElement("tbody");
