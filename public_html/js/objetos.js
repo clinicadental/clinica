@@ -156,6 +156,70 @@ function Administrativo(iId, sNombre, sApellidos, dFechaAlta, iDepartamento){
 Administrativo.prototype=Object.create(Personal.prototype);
 Administrativo.prototype.constructor=Administrativo;
 
+Administrativo.prototype.toHTMLRow=function(){
+    
+    var oFila = document.createElement("tr");
+    
+    var celda1 = document.createElement("td");
+    var textoCelda1 = document.createTextNode(this.id);
+    var celda2 = document.createElement("td");
+    var textoCelda2 = document.createTextNode(this.nombre);
+    var celda3 = document.createElement("td");
+    var textoCelda3 = document.createTextNode(this.apellidos);
+    var celda4 = document.createElement("td");
+    var textoCelda4 = document.createTextNode(this.fechaalta);
+    var celda5 = document.createElement("td");
+    var textoCelda5 = document.createTextNode(this.departamento);
+    var celda6 = document.createElement("td");
+    var textoCelda6 = document.createTextNode(" - ");
+    
+    celda1.appendChild(textoCelda1);
+    celda2.appendChild(textoCelda2);
+    celda3.appendChild(textoCelda3);
+    celda4.appendChild(textoCelda4);
+    celda5.appendChild(textoCelda5);
+    celda6.appendChild(textoCelda6);
+    
+    oFila.appendChild(celda1);
+    oFila.appendChild(celda2);
+    oFila.appendChild(celda3);
+    oFila.appendChild(celda4);
+    oFila.appendChild(celda5);
+    oFila.appendChild(celda6);
+    
+    return oFila;
+}
+
+Administrativo.prototype.toHTMLRowSeparado=function(){
+    
+    var oFila = document.createElement("tr");
+    
+    var celda1 = document.createElement("td");
+    var textoCelda1 = document.createTextNode(this.id);
+    var celda2 = document.createElement("td");
+    var textoCelda2 = document.createTextNode(this.nombre);
+    var celda3 = document.createElement("td");
+    var textoCelda3 = document.createTextNode(this.apellidos);
+    var celda4 = document.createElement("td");
+    var textoCelda4 = document.createTextNode(this.fechaalta);
+    var celda5 = document.createElement("td");
+    var textoCelda5 = document.createTextNode(this.departamento);
+    
+    celda1.appendChild(textoCelda1);
+    celda2.appendChild(textoCelda2);
+    celda3.appendChild(textoCelda3);
+    celda4.appendChild(textoCelda4);
+    celda5.appendChild(textoCelda5);
+    
+    oFila.appendChild(celda1);
+    oFila.appendChild(celda2);
+    oFila.appendChild(celda3);
+    oFila.appendChild(celda4);
+    oFila.appendChild(celda5);
+    
+    return oFila;
+}
+
 //1.2. PERSONAL DENTISTA
 function Dentista(iId, sNombre, sApellidos, dFechaAlta, iNumero){
     Personal.call(this, iId, sNombre, sApellidos, dFechaAlta);
@@ -164,6 +228,70 @@ function Dentista(iId, sNombre, sApellidos, dFechaAlta, iNumero){
 }
 Dentista.prototype=Object.create(Personal.prototype);
 Dentista.prototype.constructor=Dentista;
+
+Dentista.prototype.toHTMLRow=function(){
+    
+    var oFila = document.createElement("tr");
+    
+    var celda1 = document.createElement("td");
+    var textoCelda1 = document.createTextNode(this.id);
+    var celda2 = document.createElement("td");
+    var textoCelda2 = document.createTextNode(this.nombre);
+    var celda3 = document.createElement("td");
+    var textoCelda3 = document.createTextNode(this.apellidos);
+    var celda4 = document.createElement("td");
+    var textoCelda4 = document.createTextNode(this.fechaalta);
+    var celda5 = document.createElement("td");
+    var textoCelda5 = document.createTextNode(" - ");
+    var celda6 = document.createElement("td");
+    var textoCelda6 = document.createTextNode(this.numero);
+    
+    celda1.appendChild(textoCelda1);
+    celda2.appendChild(textoCelda2);
+    celda3.appendChild(textoCelda3);
+    celda4.appendChild(textoCelda4);
+    celda5.appendChild(textoCelda5);
+    celda6.appendChild(textoCelda6);
+    
+    oFila.appendChild(celda1);
+    oFila.appendChild(celda2);
+    oFila.appendChild(celda3);
+    oFila.appendChild(celda4);
+    oFila.appendChild(celda5);
+    oFila.appendChild(celda6);
+    
+    return oFila;
+}
+
+Dentista.prototype.toHTMLRowSeparado=function(){
+    
+    var oFila = document.createElement("tr");
+    
+    var celda1 = document.createElement("td");
+    var textoCelda1 = document.createTextNode(this.id);
+    var celda2 = document.createElement("td");
+    var textoCelda2 = document.createTextNode(this.nombre);
+    var celda3 = document.createElement("td");
+    var textoCelda3 = document.createTextNode(this.apellidos);
+    var celda4 = document.createElement("td");
+    var textoCelda4 = document.createTextNode(this.fechaalta);
+    var celda6 = document.createElement("td");
+    var textoCelda6 = document.createTextNode(this.numero);
+    
+    celda1.appendChild(textoCelda1);
+    celda2.appendChild(textoCelda2);
+    celda3.appendChild(textoCelda3);
+    celda4.appendChild(textoCelda4);
+    celda6.appendChild(textoCelda6);
+    
+    oFila.appendChild(celda1);
+    oFila.appendChild(celda2);
+    oFila.appendChild(celda3);
+    oFila.appendChild(celda4);
+    oFila.appendChild(celda6);
+    
+    return oFila;
+}
 
 //2. CITA
 function Cita(oDentista, oCliente, dFechaCita, iSala, sProcedimiento, sDescripcion, bAtendida){

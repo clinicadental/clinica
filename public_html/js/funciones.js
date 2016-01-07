@@ -64,6 +64,9 @@ function asignarEventos(){
     var oListadoSalas=document.getElementById("listaSalas");
     oListadoSalas.addEventListener('click',listarSalas,false);
     
+    var oListadoPersonal=document.getElementById("listaPersonal");
+    oListadoPersonal.addEventListener('click',listarPersonal,false);
+    
     var oListadoProveedores=document.getElementById("listaProveedores");
     oListadoProveedores.addEventListener('click',listarProveedores,false);
     
@@ -94,6 +97,7 @@ function asignarEventos(){
 }
 
 /*MOSTRAR FORMULARIOS*/
+
 function mostrarFormAltaCliente(){
     var oFormulario=document.querySelector("#form-alta-clientes");
     oFormulario.style.display="block";
@@ -628,6 +632,183 @@ function listarSalas(){
     tabla.appendChild(tBody);
     tabla.setAttribute("border", "2");
     oBloque.appendChild(tabla);
+}
+
+/*LISTAR PERSONAL*/
+function listarPersonal(evento){
+    
+    var oEvento = evento || window.event  
+    
+    oEvento.preventDefault(); 
+    
+    var oFiltro=document.formFiltros.filtro.value;
+    
+    if(oClinica.personal.length!="0"){
+    
+        var oBloque=document.getElementById("listadoPersonal");
+        var oNodoHijo=oBloque.firstChild;
+        oBloque.removeChild(oNodoHijo);
+
+        if(oFiltro=="1"){
+
+            var tabla   = document.createElement("table");
+            var tHead = document.createElement("thead");
+            var oCabecera=document.createElement("tr");
+
+            var oCelda=document.createElement("th");
+            var textoCelda=document.createTextNode("TIPO");
+            var oCelda1=document.createElement("th");
+            var textoCelda1 = document.createTextNode("ID");
+            var oCelda2=document.createElement("th");
+            var textoCelda2 = document.createTextNode("NOMBRE");
+            var oCelda3=document.createElement("th");
+            var textoCelda3 = document.createTextNode("APELLIDOS");
+            var oCelda4=document.createElement("th");
+            var textoCelda4 = document.createTextNode("FECHA DE ALTA");
+            var oCelda5=document.createElement("th");
+            var textoCelda5 = document.createTextNode("DEPARTAMENTO");
+            var oCelda6=document.createElement("th");
+            var textoCelda6 = document.createTextNode("NÚM. COLEGIADO");
+
+            oCelda.appendChild(textoCelda);
+            oCelda1.appendChild(textoCelda1);
+            oCelda2.appendChild(textoCelda2);
+            oCelda3.appendChild(textoCelda3);
+            oCelda4.appendChild(textoCelda4);
+            oCelda5.appendChild(textoCelda5);
+            oCelda6.appendChild(textoCelda6);
+
+
+            oCabecera.appendChild(oCelda1);
+            oCabecera.appendChild(oCelda2);
+            oCabecera.appendChild(oCelda3);
+            oCabecera.appendChild(oCelda4);
+            oCabecera.appendChild(oCelda5);
+            oCabecera.appendChild(oCelda6);
+            oCabecera.appendChild(oCelda);
+
+            tHead.appendChild(oCabecera);
+
+            var tBody = document.createElement("tbody");
+
+            for (var i=0; i<oClinica.personal.length; i++) {
+
+                if(oClinica.personal[i] instanceof Administrativo){
+
+                    var oCelda=document.createElement("td");
+                    var textoCelda=document.createTextNode("Administrativo");
+                    oCelda.appendChild(textoCelda);
+                }
+                else{
+
+                    var oCelda=document.createElement("td");
+                    var textoCelda=document.createTextNode("Dentista");
+                    oCelda.appendChild(textoCelda);
+                }
+                var oFila =oClinica.personal[i].toHTMLRow();
+                oFila.appendChild(oCelda);
+
+
+                tBody.appendChild(oFila);
+            }
+        }
+        else{
+
+            if(oFiltro=="2"){
+
+                var tabla   = document.createElement("table");
+                var tHead = document.createElement("thead");
+                var oCabecera=document.createElement("tr");
+
+                var oCelda1=document.createElement("th");
+                var textoCelda1 = document.createTextNode("ID");
+                var oCelda2=document.createElement("th");
+                var textoCelda2 = document.createTextNode("NOMBRE");
+                var oCelda3=document.createElement("th");
+                var textoCelda3 = document.createTextNode("APELLIDOS");
+                var oCelda4=document.createElement("th");
+                var textoCelda4 = document.createTextNode("FECHA DE ALTA");
+                var oCelda5=document.createElement("th");
+                var textoCelda5 = document.createTextNode("DEPARTAMENTO");
+
+                oCelda1.appendChild(textoCelda1);
+                oCelda2.appendChild(textoCelda2);
+                oCelda3.appendChild(textoCelda3);
+                oCelda4.appendChild(textoCelda4);
+                oCelda5.appendChild(textoCelda5);
+
+
+                oCabecera.appendChild(oCelda1);
+                oCabecera.appendChild(oCelda2);
+                oCabecera.appendChild(oCelda3);
+                oCabecera.appendChild(oCelda4);
+                oCabecera.appendChild(oCelda5);
+
+                tHead.appendChild(oCabecera);
+
+                var tBody = document.createElement("tbody");
+                
+                for (var i=0; i<oClinica.personal.length; i++) {
+                    
+                    if(oClinica.personal[i] instanceof Administrativo){
+                        
+                        var oFila =oClinica.personal[i].toHTMLRowSeparado();
+                        tBody.appendChild(oFila);
+                    }
+                    
+                }
+            }
+            else{
+
+                var tabla   = document.createElement("table");
+                var tHead = document.createElement("thead");
+                var oCabecera=document.createElement("tr");
+
+                var oCelda1=document.createElement("th");
+                var textoCelda1 = document.createTextNode("ID");
+                var oCelda2=document.createElement("th");
+                var textoCelda2 = document.createTextNode("NOMBRE");
+                var oCelda3=document.createElement("th");
+                var textoCelda3 = document.createTextNode("APELLIDOS");
+                var oCelda4=document.createElement("th");
+                var textoCelda4 = document.createTextNode("FECHA DE ALTA");
+                var oCelda5=document.createElement("th");
+                var textoCelda5 = document.createTextNode("NÚM. COLEGIADO");
+
+                oCelda1.appendChild(textoCelda1);
+                oCelda2.appendChild(textoCelda2);
+                oCelda3.appendChild(textoCelda3);
+                oCelda4.appendChild(textoCelda4);
+                oCelda5.appendChild(textoCelda5);
+
+
+                oCabecera.appendChild(oCelda1);
+                oCabecera.appendChild(oCelda2);
+                oCabecera.appendChild(oCelda3);
+                oCabecera.appendChild(oCelda4);
+                oCabecera.appendChild(oCelda5);
+
+                tHead.appendChild(oCabecera);
+
+                var tBody = document.createElement("tbody");
+
+                for (var i=0; i<oClinica.personal.length; i++) {
+                    
+                    if(oClinica.personal[i] instanceof Dentista){
+                        
+                        var oFila =oClinica.personal[i].toHTMLRowSeparado();
+                        tBody.appendChild(oFila);
+                    }
+                    
+                }
+            }
+        }
+    
+        tabla.appendChild(tHead);
+        tabla.appendChild(tBody);
+        tabla.setAttribute("border", "2");
+        oBloque.appendChild(tabla);
+    }
 }
 
 /*LISTAR PROVEEDORES*/
