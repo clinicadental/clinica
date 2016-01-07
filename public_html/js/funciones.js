@@ -61,6 +61,12 @@ function asignarEventos(){
     var oListadoClientes=document.getElementById("listaClientes");
     oListadoClientes.addEventListener('click',listarClientes,false);
     
+    var oListadoSalas=document.getElementById("listaSalas");
+    oListadoSalas.addEventListener('click',listarSalas,false);
+    
+    var oListadoProveedores=document.getElementById("listaProveedores");
+    oListadoProveedores.addEventListener('click',listarProveedores,false);
+    
     document.getElementById("nombre-alta-dentista").addEventListener('keypress',validarSinNumeros,false);
     document.getElementById("apellido-alta-dentista").addEventListener('keypress',validarSinNumeros,false);
     document.getElementById("nombreCliente").addEventListener('keypress',validarSinNumeros,false);
@@ -583,7 +589,7 @@ function actualizarSelectSalas(){
     }
 
 }
-
+/*LISTAR CLIENTES*/
 function listarClientes(){
     
     var oBloque=document.getElementById("listadoClientes");
@@ -602,34 +608,47 @@ function listarClientes(){
     tabla.appendChild(tBody);
     tabla.setAttribute("border", "2");
     oBloque.appendChild(tabla);
-  /*var oBloque=document.getElementById("listadoClientes");
+}
+/*LISTAR SALAS*/
+function listarSalas(){
     
-     var tabla   = document.createElement("table");
-     var tblBody = document.createElement("tbody");
- 
-
-  for (var i=0; i<oClinica.clientes.length; i++) {
-    // Crea las hileras de la tabla
-    var oFila = document.createElement("tr");
- 
-    for (var j=0; j<5; j++) {
-      
-      var celda = document.createElement("td");
-      var textoCelda = document.createTextNode(oClinica.clientes[i].id);
-      celda.appendChild(textoCelda);
-      oFila.appendChild(celda);
+    var oBloque=document.getElementById("listadoSalas");
+    var oNodoHijo=oBloque.firstChild;
+    oBloque.removeChild(oNodoHijo);
+    
+    var tabla   = document.createElement("table");
+    var tBody = document.createElement("tbody");
+    
+    for (var i=0; i<oClinica.salas.length; i++) {
+        
+        var oFila =oClinica.salas[i].toHTMLRow();
+        tBody.appendChild(oFila);
     }
- 
-    // agrega la hilera al final de la tabla (al final del elemento tblbody)
-    tblBody.appendChild(oFila);
-  }
- 
-  // posiciona el <tbody> debajo del elemento <table>
-  tabla.appendChild(tblBody);
-  // appends <table> into <body>
-  oBloque.appendChild(tabla);
-  // modifica el atributo "border" de la tabla y lo fija a "2";
-  tabla.setAttribute("border", "2");*/
+    
+    tabla.appendChild(tBody);
+    tabla.setAttribute("border", "2");
+    oBloque.appendChild(tabla);
+}
+
+/*LISTAR PROVEEDORES*/
+function listarProveedores(){
+    
+    var oBloque=document.getElementById("listadoProveedores");
+    var oNodoHijo=oBloque.firstChild;
+    oBloque.removeChild(oNodoHijo);
+    
+    var tabla   = document.createElement("table");
+    var tBody = document.createElement("tbody");
+    
+    for (var i=0; i<oClinica.proveedores.length; i++) {
+        
+        var oFila =oClinica.proveedores[i].toHTMLRow();
+        tBody.appendChild(oFila);
+    }
+    
+    tabla.appendChild(tBody);
+    tabla.setAttribute("border", "2");
+    oBloque.appendChild(tabla);
 }
 
 

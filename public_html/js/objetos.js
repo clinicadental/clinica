@@ -224,12 +224,55 @@ function Sala(iId, sNombre, sTipo){
     this.tipo=sTipo;
 }
 
+Sala.prototype.toHTMLRow=function(){
+    
+    var oFila = document.createElement("tr");
+    
+    var celda1 = document.createElement("td");
+    var textoCelda1 = document.createTextNode(this.id);
+    var celda2 = document.createElement("td");
+    var textoCelda2 = document.createTextNode(this.nombre);
+    var celda3 = document.createElement("td");
+    var textoCelda3 = document.createTextNode(this.tipo);
+    
+    celda1.appendChild(textoCelda1);
+    celda2.appendChild(textoCelda2);
+    celda3.appendChild(textoCelda3);
+    oFila.appendChild(celda1);
+    oFila.appendChild(celda2);
+    oFila.appendChild(celda3);
+    
+    return oFila;
+}
+
 //6. PROVEEDOR
 function Proveedor(iId, sNombre, sTelefono){
     this.id=iId;
     this.nombre=sNombre;
     this.telefono=sTelefono;	
 }
+
+Proveedor.prototype.toHTMLRow=function(){
+    
+    var oFila = document.createElement("tr");
+    
+    var celda1 = document.createElement("td");
+    var textoCelda1 = document.createTextNode(this.id);
+    var celda2 = document.createElement("td");
+    var textoCelda2 = document.createTextNode(this.nombre);
+    var celda3 = document.createElement("td");
+    var textoCelda3 = document.createTextNode(this.telefono);
+    
+    celda1.appendChild(textoCelda1);
+    celda2.appendChild(textoCelda2);
+    celda3.appendChild(textoCelda3);
+    oFila.appendChild(celda1);
+    oFila.appendChild(celda2);
+    oFila.appendChild(celda3);
+    
+    return oFila;
+}
+
 
 //7. MATERIAL
 function Material(iId, sTipo, iCantidad){
