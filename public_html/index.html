@@ -29,7 +29,7 @@
                             <li><a href="#">Modificar</a></li>
                             <li><a href="#">Eliminar</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">Listado</a></li>
+                            <li><a href="#" id="listaClientes">Listado</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -115,39 +115,39 @@
             <div class='col-xs-4 col-xs-offset-4' id='form-alta-citas'>
                 <h2>Alta cita</h2>
                 <form method='post' class='form-horizontal' name='formCitas'>
-                    <div class='form-group'>
+                    <div class='form-group' id="bloqueDentistaCita">
                         <label class='control-label' for='dentistaCita'>Dentista</label>
                         <select class='form-control' id='dentistaCita'>
                             <option>--seleccione un dentista--</option>
                         </select>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' id="bloqueClienteCita">
                         <label class='control-label' for='clienteCita'>Cliente</label>
                         <select class='form-control' id='clienteCita'>
                             <option>--seleccione un cliente--</option>
                         </select>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' id="bloqueFechaCita">
                         <label class='control-label' for='fechaCita'>Fecha</label>
                         <input type='text' class='form-control' name='date' id='fechaCita' readonly='readonly'/>
                         <img src='jscalendar-1.0/img.gif' alt='' id='selector2'/>
                         <span>Pulsa sobre el icono del calendario.</span>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' id="bloqueSalaCita">
                         <label class='control-label' for='salaCita'>Sala</label>
                         <select class='form-control' id='salaCita'>
                             <option>--seleccione una sala--</option>
                         </select>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' id="bloqueProcedimiento">
                         <label class='control-label' for='procedimientoCita'>Procedimiento</label>
                         <input type='text' class='form-control' id='procedimientoCita'/>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' id="bloqueDescripcion">
                         <label class='control-label' for='descripcionCita'>Descripción</label>
                         <textarea class='form-control' id='descripcionCita'></textarea>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' id="bloqueAtendida">
                         <label class='checkbox-inline' for='atendidaCita'>Atendida
                             <input type='checkbox' id='atendidaCita'/>
                         </label>
@@ -234,6 +234,11 @@
                     </div>
                 </form>
             </div>
+        </div>
+        
+        <!--LISTADO CLIENTES-->
+        <div class="" id="listadoClientes">
+            
         </div>
         
         <script type="text/javascript" src="js/objetos.js"></script>

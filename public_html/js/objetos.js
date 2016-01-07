@@ -117,6 +117,29 @@ Clinica.prototype.buscaProveedor=function(sId){
     return oProveedor;
 }
 
+Clinica.prototype.altaCita=function(oCita,oCliente,oDentista){
+    
+    this.citas.push(oCita);
+    
+    for(var i=0;i<this.clientes.length;i++){
+        
+        if(this.clientes[i]==oCliente){
+            
+            this.clientes[i].citas.push(oCita);
+        }
+    }
+    
+    for(var i=0;i<this.personal.length;i++){
+        
+        if(this.personal[i]==oDentista){
+            
+            this.personal[i].citas.push(oCita);
+        }
+    }
+    
+    alert("Cita añadida");
+}
+
 //1. PERSONAL
 function Personal(iId, sNombre, sApellidos, dFechaAlta){
     this.id=iId;
@@ -160,6 +183,31 @@ function Cliente(iId, sNombre, sApellidos, sTelefono){
     this.apellidos=sApellidos;
     this.telefono=sTelefono;
     this.citas=new Array();
+}
+
+Cliente.prototype.toHTMLRow=function(){
+    
+    var oFila = document.createElement("tr");
+    
+    var celda1 = document.createElement("td");
+    var textoCelda1 = document.createTextNode(this.id);
+    var celda2 = document.createElement("td");
+    var textoCelda2 = document.createTextNode(this.nombre);
+    var celda3 = document.createElement("td");
+    var textoCelda3 = document.createTextNode(this.apellidos);
+    var celda4 = document.createElement("td");
+    var textoCelda4 = document.createTextNode(this.telefono);
+    
+    celda1.appendChild(textoCelda1);
+    celda2.appendChild(textoCelda2);
+    celda3.appendChild(textoCelda3);
+    celda4.appendChild(textoCelda4);
+    oFila.appendChild(celda1);
+    oFila.appendChild(celda2);
+    oFila.appendChild(celda3);
+    oFila.appendChild(celda4);
+    
+    return oFila;
 }
 
 //4. PAGO

@@ -58,6 +58,9 @@ function asignarEventos(){
     var oAltaPersonal=document.querySelector("#menu-personal .alta");
     oAltaPersonal.addEventListener('click',mostrarFormAltaPersonal,false);
     
+    var oListadoClientes=document.getElementById("listaClientes");
+    oListadoClientes.addEventListener('click',listarClientes,false);
+    
     document.getElementById("nombre-alta-dentista").addEventListener('keypress',validarSinNumeros,false);
     document.getElementById("apellido-alta-dentista").addEventListener('keypress',validarSinNumeros,false);
     document.getElementById("nombreCliente").addEventListener('keypress',validarSinNumeros,false);
@@ -73,10 +76,13 @@ function asignarEventos(){
     var oFormProveedor=document.getElementById("btnAltaProveedor");
     oFormProveedor.addEventListener('click', validarProveedor, false);
     
+    var oFormCita=document.getElementById("btnAltaCita");
+    oFormCita.addEventListener('click', validarCita, false);
+    
     var radioAdministrativo=document.getElementById("administrativo");
     var radioDentista=document.getElementById("dentista");
-    radioAdministrativo.addEventListener('change', comprobarRadio, false);
-    radioDentista.addEventListener('change', comprobarRadio, false);
+    radioAdministrativo.addEventListener('click', comprobarRadio, false);
+    radioDentista.addEventListener('click', comprobarRadio, false);
     
     
 }
@@ -240,6 +246,118 @@ function actualizarSelectCliente(sNombre,sApellidos,sId){
     oOption.value=sId;
     oOption.text=sApellidos+", "+sNombre;
     oSelect.appendChild(oOption);
+}
+
+function validarCita(evento){
+    
+    var oEvento = evento || window.event  
+    
+    oEvento.preventDefault(); 
+    
+    if(validarCamposTextoCita()){
+       
+       return true;
+    }
+    else{
+          
+       alert("error");
+       return false;
+    } 
+}
+
+function validarCamposTextoCita(){
+    
+    var oDentista=document.getElementById("dentistaCita");
+    var oCliente=document.getElementById("clienteCita");
+    var sFecha=document.getElementById("fechaCita").value;
+    var sSala=document.getElementById("salaCita");
+    var sProcedimiento=document.getElementById("procedimientoCita").value;
+    var sDescripcion=document.getElementById("descripcionCita").value;
+    var bAtendida=document.getElementById("atendidaCita").checked;
+    var bValido=true;
+    
+    if(oDentista.selectedIndex=="0"){
+        
+        var oBloque=document.getElementById("bloqueDentistaCita");
+        oBloque.className='form-group has-error';
+        bValido=false;
+    }
+    else{
+        
+        var oBloque=document.getElementById("bloqueDentistaCita");
+        oBloque.className='form-group';
+    }
+    
+    if(oCliente.selectedIndex=="0"){
+        
+        var oBloque=document.getElementById("bloqueClienteCita");
+        oBloque.className='form-group has-error';
+        bValido=false;
+    }
+    else{
+        
+        var oBloque=document.getElementById("bloqueClienteCita");
+        oBloque.className='form-group';
+    }
+    
+    if(sFecha==""){
+        
+        var oBloque=document.getElementById("bloqueFechaCita");
+        oBloque.className='form-group has-error';
+        bValido=false;
+    }
+    else{
+        
+        var oBloque=document.getElementById("bloqueFechaCita");
+        oBloque.className='form-group';
+    }
+    
+    if(sSala.selectedIndex=="0"){
+        
+        var oBloque=document.getElementById("bloqueSalaCita");
+        oBloque.className='form-group has-error';
+        bValido=false;
+    }
+    else{
+        
+        var oBloque=document.getElementById("bloqueSalaCita");
+        oBloque.className='form-group';
+    }
+    
+    if(sProcedimiento==""){
+        
+        var oBloque=document.getElementById("bloqueProcedimiento");
+        oBloque.className='form-group has-error';
+        bValido=false;
+    }
+    else{
+        
+        var oBloque=document.getElementById("bloqueProcedimiento");
+        oBloque.className='form-group';
+    }
+    
+    if(sDescripcion==""){
+        
+        var oBloque=document.getElementById("bloqueDescripcion");
+        oBloque.className='form-group has-error';
+        bValido=false;
+    }
+    else{
+        
+        var oBloque=document.getElementById("bloqueDescripcion");
+        oBloque.className='form-group';
+    }
+    
+    if(bValido){
+        
+        oDentista=oClinica.buscaPersonal(oDentista.value);
+        oCliente=oClinica.buscaCliente(oCliente.value);
+        sSala=sSala.value;
+        var oCita=new Cita(oDentista,oCliente,sFecha,sSala,sProcedimiento,sDescripcion,bAtendida);
+        oClinica.altaCita(oCita,oCliente,oDentista);
+    }
+    
+    return bValido;
 }
 
 function validarProveedor(evento){
@@ -459,11 +577,57 @@ function actualizarSelectSalas(){
     for(var i=0;i<oClinica.salas.length;i++){
         
         var oOption=document.createElement("option");
-        oOption.value=oClinica.salas[i].id;
+        oOption.value=oClinica.salas[i].nombre;
         oOption.text=oClinica.salas[i].nombre;
         oSelect.appendChild(oOption);
     }
 
+}
+
+function listarClientes(){
+    
+    var oBloque=document.getElementById("listadoClientes");
+    
+    var tabla   = document.createElement("table");
+    var tBody = document.createElement("tbody");
+    
+    for (var i=0; i<oClinica.clientes.length; i++) {
+        
+        var oFila =oClinica.clientes[i].toHTMLRow();
+        tBody.appendChild(oFila);
+    }
+    
+    tabla.appendChild(tBody);
+    tabla.setAttribute("border", "2");
+    oBloque.appendChild(tabla);
+  /*var oBloque=document.getElementById("listadoClientes");
+    
+     var tabla   = document.createElement("table");
+     var tblBody = document.createElement("tbody");
+ 
+
+  for (var i=0; i<oClinica.clientes.length; i++) {
+    // Crea las hileras de la tabla
+    var oFila = document.createElement("tr");
+ 
+    for (var j=0; j<5; j++) {
+      
+      var celda = document.createElement("td");
+      var textoCelda = document.createTextNode(oClinica.clientes[i].id);
+      celda.appendChild(textoCelda);
+      oFila.appendChild(celda);
+    }
+ 
+    // agrega la hilera al final de la tabla (al final del elemento tblbody)
+    tblBody.appendChild(oFila);
+  }
+ 
+  // posiciona el <tbody> debajo del elemento <table>
+  tabla.appendChild(tblBody);
+  // appends <table> into <body>
+  oBloque.appendChild(tabla);
+  // modifica el atributo "border" de la tabla y lo fija a "2";
+  tabla.setAttribute("border", "2");*/
 }
 
 
