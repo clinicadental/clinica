@@ -753,6 +753,8 @@ function actualizarSelectSalas(){
 /*LISTAR CLIENTES*/
 function listarClientes(){
     
+    
+
     mostrarListadoClientes();
     
     var oBloque=document.getElementById("listadoClientes");
@@ -760,50 +762,61 @@ function listarClientes(){
         oBloque.removeChild(oBloque.firstChild);
     }
     
-    var titulo=document.createElement("h2");
-    titulo.setAttribute("class","text-center");
-    var textoTitulo=document.createTextNode("LISTADO DE CLIENTES");
-    titulo.appendChild(textoTitulo);
+    if(oClinica.clientes.length!="0"){
     
-    var tabla   = document.createElement("table");
-    tabla.setAttribute("class","table");
-    
-    var tHead = document.createElement("thead");
-    var oCabecera=document.createElement("tr");
+        var titulo=document.createElement("h2");
+        titulo.setAttribute("class","text-center");
+        var textoTitulo=document.createTextNode("LISTADO DE CLIENTES");
+        titulo.appendChild(textoTitulo);
 
-    var oCelda=document.createElement("th");
-    var textoCelda=document.createTextNode("ID");
-    var oCelda1=document.createElement("th");
-    var textoCelda1 = document.createTextNode("NOMBRE");
-    var oCelda2=document.createElement("th");
-    var textoCelda2 = document.createTextNode("APELLIDOS");
-    var oCelda3=document.createElement("th");
-    var textoCelda3 = document.createTextNode("TELÉFONO");
-    
-    oCelda.appendChild(textoCelda);
-    oCelda1.appendChild(textoCelda1);
-    oCelda2.appendChild(textoCelda2);
-    oCelda3.appendChild(textoCelda3);
-    
-    oCabecera.appendChild(oCelda);
-    oCabecera.appendChild(oCelda1);
-    oCabecera.appendChild(oCelda2);
-    oCabecera.appendChild(oCelda3);
-    
-    tHead.appendChild(oCabecera);
-    tabla.appendChild(tHead);
-    
-    var tBody = document.createElement("tbody");
-    
-    for (var i=0; i<oClinica.clientes.length; i++) {
-        
-        var oFila =oClinica.clientes[i].toHTMLRow();
-        tBody.appendChild(oFila);
+        var tabla   = document.createElement("table");
+        tabla.setAttribute("class","table");
+
+        var tHead = document.createElement("thead");
+        var oCabecera=document.createElement("tr");
+
+        var oCelda=document.createElement("th");
+        var textoCelda=document.createTextNode("ID");
+        var oCelda1=document.createElement("th");
+        var textoCelda1 = document.createTextNode("NOMBRE");
+        var oCelda2=document.createElement("th");
+        var textoCelda2 = document.createTextNode("APELLIDOS");
+        var oCelda3=document.createElement("th");
+        var textoCelda3 = document.createTextNode("TELÉFONO");
+
+        oCelda.appendChild(textoCelda);
+        oCelda1.appendChild(textoCelda1);
+        oCelda2.appendChild(textoCelda2);
+        oCelda3.appendChild(textoCelda3);
+
+        oCabecera.appendChild(oCelda);
+        oCabecera.appendChild(oCelda1);
+        oCabecera.appendChild(oCelda2);
+        oCabecera.appendChild(oCelda3);
+
+        tHead.appendChild(oCabecera);
+        tabla.appendChild(tHead);
+
+        var tBody = document.createElement("tbody");
+
+        for (var i=0; i<oClinica.clientes.length; i++) {
+
+            var oFila =oClinica.clientes[i].toHTMLRow();
+            tBody.appendChild(oFila);
+        }
+
+        tabla.appendChild(tBody);
+        oBloque.appendChild(titulo);
+        oBloque.appendChild(tabla);
     }
-    
-    tabla.appendChild(tBody);
-    oBloque.appendChild(titulo);
-    oBloque.appendChild(tabla);
+    else{
+        
+        var titulo=document.createElement("h2");
+        titulo.setAttribute("class","text-center");
+        var textoTitulo=document.createTextNode("NO EXISTEN CLIENTES REGISTRADOS");
+        titulo.appendChild(textoTitulo);
+        oBloque.appendChild(titulo);
+    }
 }
 
 /*LISTAR CITAS*/
@@ -816,62 +829,74 @@ function listarCitas(){
         oBloque.removeChild(oBloque.firstChild);
     }
     
-    var titulo=document.createElement("h2");
-    titulo.setAttribute("class","text-center");
-    var textoTitulo=document.createTextNode("LISTADO DE CITAS");
-    titulo.appendChild(textoTitulo);
-    
-    var tabla   = document.createElement("table");
-    tabla.setAttribute("class","table");
-    
-    var tHead = document.createElement("thead");
-    var oCabecera=document.createElement("tr");
-
-    var oCelda=document.createElement("th");
-    var textoCelda=document.createTextNode("FECHA");
-    var oCelda1=document.createElement("th");
-    var textoCelda1 = document.createTextNode("PROCEDIMIENTO");
-    var oCelda2=document.createElement("th");
-    var textoCelda2 = document.createTextNode("DESCRIPCIÓN");
-    var oCelda3=document.createElement("th");
-    var textoCelda3=document.createTextNode("ATENDIDA");
-    var oCelda4=document.createElement("th");
-    var textoCelda4 = document.createTextNode("CLIENTE");
-    var oCelda5=document.createElement("th");
-    var textoCelda5 = document.createTextNode("DENTISTA");
-    var oCelda6=document.createElement("th");
-    var textoCelda6 = document.createTextNode("SALA");
-    
-    oCelda.appendChild(textoCelda);
-    oCelda1.appendChild(textoCelda1);
-    oCelda2.appendChild(textoCelda2);
-    oCelda3.appendChild(textoCelda3);
-    oCelda4.appendChild(textoCelda4);
-    oCelda5.appendChild(textoCelda5);
-    oCelda6.appendChild(textoCelda6);
-    
-    oCabecera.appendChild(oCelda);
-    oCabecera.appendChild(oCelda1);
-    oCabecera.appendChild(oCelda2);
-    oCabecera.appendChild(oCelda3);
-    oCabecera.appendChild(oCelda4);
-    oCabecera.appendChild(oCelda5);
-    oCabecera.appendChild(oCelda6);
-    
-    tHead.appendChild(oCabecera);
-    tabla.appendChild(tHead);
-    
-    var tBody = document.createElement("tbody");
-    
-    for (var i=0; i<oClinica.citas.length; i++) {
+    if(oClinica.citas.length!="0"){
         
-        var oFila =oClinica.citas[i].toHTMLRow();
-        tBody.appendChild(oFila);
-    }
     
-    tabla.appendChild(tBody);
-    oBloque.appendChild(titulo);
-    oBloque.appendChild(tabla);
+        var titulo=document.createElement("h2");
+        titulo.setAttribute("class","text-center");
+        var textoTitulo=document.createTextNode("LISTADO DE CITAS");
+        titulo.appendChild(textoTitulo);
+
+        var tabla   = document.createElement("table");
+        tabla.setAttribute("class","table");
+
+        var tHead = document.createElement("thead");
+        var oCabecera=document.createElement("tr");
+
+        var oCelda=document.createElement("th");
+        var textoCelda=document.createTextNode("FECHA");
+        var oCelda1=document.createElement("th");
+        var textoCelda1 = document.createTextNode("PROCEDIMIENTO");
+        var oCelda2=document.createElement("th");
+        var textoCelda2 = document.createTextNode("DESCRIPCIÓN");
+        var oCelda3=document.createElement("th");
+        var textoCelda3=document.createTextNode("ATENDIDA");
+        var oCelda4=document.createElement("th");
+        var textoCelda4 = document.createTextNode("CLIENTE");
+        var oCelda5=document.createElement("th");
+        var textoCelda5 = document.createTextNode("DENTISTA");
+        var oCelda6=document.createElement("th");
+        var textoCelda6 = document.createTextNode("SALA");
+
+        oCelda.appendChild(textoCelda);
+        oCelda1.appendChild(textoCelda1);
+        oCelda2.appendChild(textoCelda2);
+        oCelda3.appendChild(textoCelda3);
+        oCelda4.appendChild(textoCelda4);
+        oCelda5.appendChild(textoCelda5);
+        oCelda6.appendChild(textoCelda6);
+
+        oCabecera.appendChild(oCelda);
+        oCabecera.appendChild(oCelda1);
+        oCabecera.appendChild(oCelda2);
+        oCabecera.appendChild(oCelda3);
+        oCabecera.appendChild(oCelda4);
+        oCabecera.appendChild(oCelda5);
+        oCabecera.appendChild(oCelda6);
+
+        tHead.appendChild(oCabecera);
+        tabla.appendChild(tHead);
+
+        var tBody = document.createElement("tbody");
+
+        for (var i=0; i<oClinica.citas.length; i++) {
+
+            var oFila =oClinica.citas[i].toHTMLRow();
+            tBody.appendChild(oFila);
+        }
+
+        tabla.appendChild(tBody);
+        oBloque.appendChild(titulo);
+        oBloque.appendChild(tabla);
+    }
+    else{
+        
+        var titulo=document.createElement("h2");
+        titulo.setAttribute("class","text-center");
+        var textoTitulo=document.createTextNode("NO EXISTEN CITAS REGISTRADAS");
+        titulo.appendChild(textoTitulo);
+        oBloque.appendChild(titulo);
+    }
 }
 /*LISTAR SALAS*/
 function listarSalas(){
@@ -923,6 +948,8 @@ function listarSalas(){
     tabla.appendChild(tBody);
     oBloque.appendChild(titulo);
     oBloque.appendChild(tabla);
+    
+   
 }
 
 /*LISTAR PERSONAL*/
@@ -936,13 +963,13 @@ function listarPersonal(evento){
     
     var oFiltro=document.formFiltros.filtro.value;
     
-    if(oClinica.personal.length!="0"){
+    var oBloque=document.getElementById("listadoPersonal");
+    while (oBloque.firstChild) {
+        oBloque.removeChild(oBloque.firstChild);
+    }
     
-        var oBloque=document.getElementById("listadoPersonal");
-        while (oBloque.firstChild) {
-            oBloque.removeChild(oBloque.firstChild);
-        }
-
+    if(oClinica.personal.length!="0"){
+        
         if(oFiltro=="1"){
 
             var titulo=document.createElement("h2");
@@ -1011,11 +1038,17 @@ function listarPersonal(evento){
 
                 tBody.appendChild(oFila);
             }
+            
+            tabla.appendChild(tHead);
+            tabla.appendChild(tBody);
+            oBloque.appendChild(titulo);
+            oBloque.appendChild(tabla);
         }
         else{
 
             if(oFiltro=="2"){
                 
+                var iCont=0;
                 var titulo=document.createElement("h2");
                 titulo.setAttribute("class","text-center");
                 var textoTitulo=document.createTextNode("LISTADO DE ADMINISTRATIVOS");
@@ -1060,12 +1093,30 @@ function listarPersonal(evento){
                         
                         var oFila =oClinica.personal[i].toHTMLRowSeparado();
                         tBody.appendChild(oFila);
+                        iCont++;
                     }
                     
+                }
+                
+                if(iCont>0){
+            
+                    tabla.appendChild(tHead);
+                    tabla.appendChild(tBody);
+                    oBloque.appendChild(titulo);
+                    oBloque.appendChild(tabla);
+                }
+                else{
+
+                    var titulo=document.createElement("h2");
+                    titulo.setAttribute("class","text-center");
+                    var textoTitulo=document.createTextNode("NO EXISTEN ADMINISTRATIVOS REGISTRADOS");
+                    titulo.appendChild(textoTitulo);
+                    oBloque.appendChild(titulo);
                 }
             }
             else{
                 
+                var iCont=0;
                 var titulo=document.createElement("h2");
                 titulo.setAttribute("class","text-center");
                 var textoTitulo=document.createTextNode("LISTADO DE DENTISTAS");
@@ -1110,16 +1161,40 @@ function listarPersonal(evento){
                         
                         var oFila =oClinica.personal[i].toHTMLRowSeparado();
                         tBody.appendChild(oFila);
+                        iCont++;
                     }
                     
                 }
+                
+                if(iCont>0){
+            
+                    tabla.appendChild(tHead);
+                    tabla.appendChild(tBody);
+                    oBloque.appendChild(titulo);
+                    oBloque.appendChild(tabla);
+                }
+                else{
+
+                    var titulo=document.createElement("h2");
+                    titulo.setAttribute("class","text-center");
+                    var textoTitulo=document.createTextNode("NO EXISTEN DENTISTAS REGISTRADOS");
+                    titulo.appendChild(textoTitulo);
+                    oBloque.appendChild(titulo);
+                }
+                
             }
         }
-    
-        tabla.appendChild(tHead);
-        tabla.appendChild(tBody);
+        
+        
+        
+    }
+    else{
+        
+        var titulo=document.createElement("h2");
+        titulo.setAttribute("class","text-center");
+        var textoTitulo=document.createTextNode("NO EXISTE PERSONAL REGISTRADO");
+        titulo.appendChild(textoTitulo);
         oBloque.appendChild(titulo);
-        oBloque.appendChild(tabla);
     }
 }
 
