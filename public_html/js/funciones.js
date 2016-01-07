@@ -61,12 +61,16 @@ function asignarEventos(){
     document.getElementById("apellido-alta-dentista").addEventListener('keypress',validarSinNumeros,false);
     document.getElementById("nombreCliente").addEventListener('keypress',validarSinNumeros,false);
     document.getElementById("apellidosCliente").addEventListener('keypress',validarSinNumeros,false);
+    document.getElementById("nombreProveedor").addEventListener('keypress',validarSinNumeros,false);
     
     var oFormPersonal=document.getElementById("btnAltaPersonal");
     oFormPersonal.addEventListener('click', validarPersonal, false);
     
     var oFormCliente=document.getElementById("btnAltaCliente");
     oFormCliente.addEventListener('click', validarCliente, false);
+    
+    var oFormProveedor=document.getElementById("btnAltaProveedor");
+    oFormProveedor.addEventListener('click', validarProveedor, false);
     
     var radioAdministrativo=document.getElementById("administrativo");
     var radioDentista=document.getElementById("dentista");
@@ -235,6 +239,81 @@ function actualizarSelectCliente(sNombre,sApellidos,sId){
     oOption.value=sId;
     oOption.text=sApellidos+", "+sNombre;
     oSelect.appendChild(oOption);
+}
+
+function validarProveedor(evento){
+    
+    var oEvento = evento || window.event  
+    
+    oEvento.preventDefault(); 
+    
+    if(validarCamposTextoProveedor()){
+       
+       return true;
+    }
+    else{
+          
+       alert("error");
+       return false;
+    }
+}
+
+function validarCamposTextoProveedor(){
+    
+    var sId=document.getElementById("idProveedor").value;
+    var sNombre=document.getElementById("nombreProveedor").value;
+    var iTelefono=document.getElementById('telefonoProveedor').value;
+    var bValido=true;
+    
+    var patronId=/([A-Z]{1})+([0-9]{5})/;
+    var patronTelef=/[0-9]{2,3}-? ?[0-9]{6,7}/;
+    
+    if(!patronId.test(sId)){
+        
+        var oBloque=document.getElementById("bloqueIdProveedor");
+        oBloque.className='form-group has-error';
+        bValido=false;
+    }
+    else{
+        
+        var oBloque=document.getElementById("bloqueIdProveedor");
+        oBloque.className='form-group';
+
+    }
+    
+    if(sNombre===""){
+        
+        var oBloque=document.getElementById("bloqueNombreProveedor");
+        oBloque.className='form-group has-error';
+        bValido=false;
+    }
+    else{
+        
+        var oBloque=document.getElementById("bloqueNombreProveedor");
+        oBloque.className='form-group';
+
+    }
+    
+    if(!patronTelef.test(iTelefono)){
+        
+        var oBloque=document.getElementById("bloqueTelefonoProveedor");
+        oBloque.className='form-group has-error';
+        bValido=false;
+    }
+    else{
+        
+        var oBloque=document.getElementById("bloqueTelefonoProveedor");
+        oBloque.className='form-group';
+
+    }
+    
+    if(bValido){
+        
+        var oProveedor=new Proveedor(sId, sNombre, iTelefono);
+        oClinica.altaProveedor(oProveedor);
+    }
+    
+    return bValido;
 }
 
 function validarPersonal(evento){

@@ -81,6 +81,42 @@ Clinica.prototype.buscaCliente=function(sId){
     return oCliente;
 }
 
+Clinica.prototype.altaProveedor=function(oProveedor){
+    
+    var oProveedorExistente=this.buscaProveedor(oProveedor.id);
+    
+    if(typeof oProveedorExistente==="undefined"){
+        
+        this.proveedores.push(oProveedor);
+        alert("Proveedor añadido");
+    }
+    else{
+        
+        alert("Ya existe un proveedor con ese ID");
+    }
+}
+
+Clinica.prototype.buscaProveedor=function(sId){
+    
+    var oProveedor;
+    
+    if(this.proveedores.length<1){
+        
+    }
+    else{
+        
+        for(var i=0;i<this.proveedores.length;i++){
+            
+            if(this.proveedores[i].id===sId){
+                
+                oProveedor=this.proveedores[i];
+            }
+        }
+    }
+    
+    return oProveedor;
+}
+
 //1. PERSONAL
 function Personal(iId, sNombre, sApellidos, dFechaAlta){
     this.id=iId;
