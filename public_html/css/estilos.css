@@ -3,6 +3,11 @@
 #form-alta-proveedores{display: none;}
 #form-alta-personal{display: none;}
 #bloqueDentista{display: none;}
+#listadoClientes{display:none;}
+#listadoCitas{display:none;}
+#listadoProveedores{display:none;}
+#listadoPersonal{display:none;}
+#listadoSalas{display:none;}
 
 
 .dropdown-menu .sub-menu {

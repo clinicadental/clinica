@@ -110,6 +110,17 @@ function mostrarFormAltaCliente(){
     oFormulario.style.display="none";
     var oFormulario=document.querySelector("#form-alta-personal");
     oFormulario.style.display="none";
+    
+    var oListado=document.querySelector("#listadoClientes");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoCitas");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoProveedores");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoPersonal");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoSalas");
+    oListado.style.display="none";
 }
 
 function mostrarFormAltaCita(){
@@ -121,6 +132,17 @@ function mostrarFormAltaCita(){
     oFormulario.style.display="none";
     var oFormulario=document.querySelector("#form-alta-personal");
     oFormulario.style.display="none";
+    
+    var oListado=document.querySelector("#listadoClientes");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoCitas");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoProveedores");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoPersonal");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoSalas");
+    oListado.style.display="none";
 }
 
 function mostrarFormAltaProveedor(){
@@ -132,6 +154,17 @@ function mostrarFormAltaProveedor(){
     oFormulario.style.display="block";
     var oFormulario=document.querySelector("#form-alta-personal");
     oFormulario.style.display="none";
+    
+    var oListado=document.querySelector("#listadoClientes");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoCitas");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoProveedores");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoPersonal");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoSalas");
+    oListado.style.display="none";
 }
 
 function mostrarFormAltaPersonal(){ 
@@ -143,6 +176,127 @@ function mostrarFormAltaPersonal(){
     oFormulario.style.display="none";
     var oFormulario=document.querySelector("#form-alta-personal");
     oFormulario.style.display="block";
+    
+    var oListado=document.querySelector("#listadoClientes");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoCitas");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoProveedores");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoPersonal");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoSalas");
+    oListado.style.display="none";
+}
+
+function mostrarListadoClientes(){
+    var oFormulario=document.querySelector("#form-alta-clientes");
+    oFormulario.style.display="none";
+    var oFormulario=document.querySelector("#form-alta-citas");
+    oFormulario.style.display="none";
+    var oFormulario=document.querySelector("#form-alta-proveedores");
+    oFormulario.style.display="none";
+    var oFormulario=document.querySelector("#form-alta-personal");
+    oFormulario.style.display="none";
+    
+    var oListado=document.querySelector("#listadoClientes");
+    oListado.style.display="block";
+    var oListado=document.querySelector("#listadoCitas");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoProveedores");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoPersonal");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoSalas");
+    oListado.style.display="none";
+}
+
+function mostrarListadoCitas(){
+    var oFormulario=document.querySelector("#form-alta-clientes");
+    oFormulario.style.display="none";
+    var oFormulario=document.querySelector("#form-alta-citas");
+    oFormulario.style.display="none";
+    var oFormulario=document.querySelector("#form-alta-proveedores");
+    oFormulario.style.display="none";
+    var oFormulario=document.querySelector("#form-alta-personal");
+    oFormulario.style.display="none";
+    
+    var oListado=document.querySelector("#listadoClientes");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoCitas");
+    oListado.style.display="block";
+    var oListado=document.querySelector("#listadoProveedores");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoPersonal");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoSalas");
+    oListado.style.display="none";
+}
+
+function mostrarListadoProveedores(){
+    var oFormulario=document.querySelector("#form-alta-clientes");
+    oFormulario.style.display="none";
+    var oFormulario=document.querySelector("#form-alta-citas");
+    oFormulario.style.display="none";
+    var oFormulario=document.querySelector("#form-alta-proveedores");
+    oFormulario.style.display="none";
+    var oFormulario=document.querySelector("#form-alta-personal");
+    oFormulario.style.display="none";
+    
+    var oListado=document.querySelector("#listadoClientes");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoCitas");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoProveedores");
+    oListado.style.display="block";
+    var oListado=document.querySelector("#listadoPersonal");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoSalas");
+    oListado.style.display="none";
+}
+
+function mostrarListadoPersonal(){
+    var oFormulario=document.querySelector("#form-alta-clientes");
+    oFormulario.style.display="none";
+    var oFormulario=document.querySelector("#form-alta-citas");
+    oFormulario.style.display="none";
+    var oFormulario=document.querySelector("#form-alta-proveedores");
+    oFormulario.style.display="none";
+    var oFormulario=document.querySelector("#form-alta-personal");
+    oFormulario.style.display="none";
+    
+    var oListado=document.querySelector("#listadoClientes");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoCitas");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoProveedores");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoPersonal");
+    oListado.style.display="block";
+    var oListado=document.querySelector("#listadoSalas");
+    oListado.style.display="none";
+}
+
+function mostrarListadoSalas(){
+    var oFormulario=document.querySelector("#form-alta-clientes");
+    oFormulario.style.display="none";
+    var oFormulario=document.querySelector("#form-alta-citas");
+    oFormulario.style.display="none";
+    var oFormulario=document.querySelector("#form-alta-proveedores");
+    oFormulario.style.display="none";
+    var oFormulario=document.querySelector("#form-alta-personal");
+    oFormulario.style.display="none";
+    
+    var oListado=document.querySelector("#listadoClientes");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoCitas");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoProveedores");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoPersonal");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoSalas");
+    oListado.style.display="block";
 }
 
 /*VALIDACIONES*/
@@ -599,11 +753,46 @@ function actualizarSelectSalas(){
 /*LISTAR CLIENTES*/
 function listarClientes(){
     
+    mostrarListadoClientes();
+    
     var oBloque=document.getElementById("listadoClientes");
-    var oNodoHijo=oBloque.firstChild;
-    oBloque.removeChild(oNodoHijo);
+    while (oBloque.firstChild) {
+        oBloque.removeChild(oBloque.firstChild);
+    }
+    
+    var titulo=document.createElement("h2");
+    titulo.setAttribute("class","text-center");
+    var textoTitulo=document.createTextNode("LISTADO DE CLIENTES");
+    titulo.appendChild(textoTitulo);
     
     var tabla   = document.createElement("table");
+    tabla.setAttribute("class","table");
+    
+    var tHead = document.createElement("thead");
+    var oCabecera=document.createElement("tr");
+
+    var oCelda=document.createElement("th");
+    var textoCelda=document.createTextNode("ID");
+    var oCelda1=document.createElement("th");
+    var textoCelda1 = document.createTextNode("NOMBRE");
+    var oCelda2=document.createElement("th");
+    var textoCelda2 = document.createTextNode("APELLIDOS");
+    var oCelda3=document.createElement("th");
+    var textoCelda3 = document.createTextNode("TELÉFONO");
+    
+    oCelda.appendChild(textoCelda);
+    oCelda1.appendChild(textoCelda1);
+    oCelda2.appendChild(textoCelda2);
+    oCelda3.appendChild(textoCelda3);
+    
+    oCabecera.appendChild(oCelda);
+    oCabecera.appendChild(oCelda1);
+    oCabecera.appendChild(oCelda2);
+    oCabecera.appendChild(oCelda3);
+    
+    tHead.appendChild(oCabecera);
+    tabla.appendChild(tHead);
+    
     var tBody = document.createElement("tbody");
     
     for (var i=0; i<oClinica.clientes.length; i++) {
@@ -613,18 +802,65 @@ function listarClientes(){
     }
     
     tabla.appendChild(tBody);
-    tabla.setAttribute("border", "2");
+    oBloque.appendChild(titulo);
     oBloque.appendChild(tabla);
 }
 
 /*LISTAR CITAS*/
 function listarCitas(){
     
+    mostrarListadoCitas();
+    
     var oBloque=document.getElementById("listadoCitas");
-    var oNodoHijo=oBloque.firstChild;
-    oBloque.removeChild(oNodoHijo);
+    while (oBloque.firstChild) {
+        oBloque.removeChild(oBloque.firstChild);
+    }
+    
+    var titulo=document.createElement("h2");
+    titulo.setAttribute("class","text-center");
+    var textoTitulo=document.createTextNode("LISTADO DE CITAS");
+    titulo.appendChild(textoTitulo);
     
     var tabla   = document.createElement("table");
+    tabla.setAttribute("class","table");
+    
+    var tHead = document.createElement("thead");
+    var oCabecera=document.createElement("tr");
+
+    var oCelda=document.createElement("th");
+    var textoCelda=document.createTextNode("FECHA");
+    var oCelda1=document.createElement("th");
+    var textoCelda1 = document.createTextNode("PROCEDIMIENTO");
+    var oCelda2=document.createElement("th");
+    var textoCelda2 = document.createTextNode("DESCRIPCIÓN");
+    var oCelda3=document.createElement("th");
+    var textoCelda3=document.createTextNode("ATENDIDA");
+    var oCelda4=document.createElement("th");
+    var textoCelda4 = document.createTextNode("CLIENTE");
+    var oCelda5=document.createElement("th");
+    var textoCelda5 = document.createTextNode("DENTISTA");
+    var oCelda6=document.createElement("th");
+    var textoCelda6 = document.createTextNode("SALA");
+    
+    oCelda.appendChild(textoCelda);
+    oCelda1.appendChild(textoCelda1);
+    oCelda2.appendChild(textoCelda2);
+    oCelda3.appendChild(textoCelda3);
+    oCelda4.appendChild(textoCelda4);
+    oCelda5.appendChild(textoCelda5);
+    oCelda6.appendChild(textoCelda6);
+    
+    oCabecera.appendChild(oCelda);
+    oCabecera.appendChild(oCelda1);
+    oCabecera.appendChild(oCelda2);
+    oCabecera.appendChild(oCelda3);
+    oCabecera.appendChild(oCelda4);
+    oCabecera.appendChild(oCelda5);
+    oCabecera.appendChild(oCelda6);
+    
+    tHead.appendChild(oCabecera);
+    tabla.appendChild(tHead);
+    
     var tBody = document.createElement("tbody");
     
     for (var i=0; i<oClinica.citas.length; i++) {
@@ -634,17 +870,48 @@ function listarCitas(){
     }
     
     tabla.appendChild(tBody);
-    tabla.setAttribute("border", "2");
+    oBloque.appendChild(titulo);
     oBloque.appendChild(tabla);
 }
 /*LISTAR SALAS*/
 function listarSalas(){
     
+    mostrarListadoSalas();
+    
     var oBloque=document.getElementById("listadoSalas");
-    var oNodoHijo=oBloque.firstChild;
-    oBloque.removeChild(oNodoHijo);
+    while (oBloque.firstChild) {
+        oBloque.removeChild(oBloque.firstChild);
+    }
+    
+    var titulo=document.createElement("h2");
+    titulo.setAttribute("class","text-center");
+    var textoTitulo=document.createTextNode("LISTADO DE SALAS");
+    titulo.appendChild(textoTitulo);
     
     var tabla   = document.createElement("table");
+    tabla.setAttribute("class","table");
+    
+    var tHead = document.createElement("thead");
+    var oCabecera=document.createElement("tr");
+
+    var oCelda=document.createElement("th");
+    var textoCelda=document.createTextNode("ID");
+    var oCelda1=document.createElement("th");
+    var textoCelda1 = document.createTextNode("NOMBRE");
+    var oCelda2=document.createElement("th");
+    var textoCelda2 = document.createTextNode("TIPO");
+    
+    oCelda.appendChild(textoCelda);
+    oCelda1.appendChild(textoCelda1);
+    oCelda2.appendChild(textoCelda2);
+    
+    oCabecera.appendChild(oCelda);
+    oCabecera.appendChild(oCelda1);
+    oCabecera.appendChild(oCelda2);
+    
+    tHead.appendChild(oCabecera);
+    tabla.appendChild(tHead);
+    
     var tBody = document.createElement("tbody");
     
     for (var i=0; i<oClinica.salas.length; i++) {
@@ -654,12 +921,14 @@ function listarSalas(){
     }
     
     tabla.appendChild(tBody);
-    tabla.setAttribute("border", "2");
+    oBloque.appendChild(titulo);
     oBloque.appendChild(tabla);
 }
 
 /*LISTAR PERSONAL*/
 function listarPersonal(evento){
+    
+    mostrarListadoPersonal();
     
     var oEvento = evento || window.event  
     
@@ -670,12 +939,19 @@ function listarPersonal(evento){
     if(oClinica.personal.length!="0"){
     
         var oBloque=document.getElementById("listadoPersonal");
-        var oNodoHijo=oBloque.firstChild;
-        oBloque.removeChild(oNodoHijo);
+        while (oBloque.firstChild) {
+            oBloque.removeChild(oBloque.firstChild);
+        }
 
         if(oFiltro=="1"){
 
+            var titulo=document.createElement("h2");
+            titulo.setAttribute("class","text-center");
+            var textoTitulo=document.createTextNode("LISTADO DE PERSONAL");
+            titulo.appendChild(textoTitulo);
+
             var tabla   = document.createElement("table");
+            tabla.setAttribute("class","table");
             var tHead = document.createElement("thead");
             var oCabecera=document.createElement("tr");
 
@@ -739,8 +1015,14 @@ function listarPersonal(evento){
         else{
 
             if(oFiltro=="2"){
-
+                
+                var titulo=document.createElement("h2");
+                titulo.setAttribute("class","text-center");
+                var textoTitulo=document.createTextNode("LISTADO DE ADMINISTRATIVOS");
+                titulo.appendChild(textoTitulo);
+                
                 var tabla   = document.createElement("table");
+                tabla.setAttribute("class","table");
                 var tHead = document.createElement("thead");
                 var oCabecera=document.createElement("tr");
 
@@ -783,8 +1065,14 @@ function listarPersonal(evento){
                 }
             }
             else{
-
+                
+                var titulo=document.createElement("h2");
+                titulo.setAttribute("class","text-center");
+                var textoTitulo=document.createTextNode("LISTADO DE DENTISTAS");
+                titulo.appendChild(textoTitulo);
+                
                 var tabla   = document.createElement("table");
+                tabla.setAttribute("class","table");
                 var tHead = document.createElement("thead");
                 var oCabecera=document.createElement("tr");
 
@@ -830,7 +1118,7 @@ function listarPersonal(evento){
     
         tabla.appendChild(tHead);
         tabla.appendChild(tBody);
-        tabla.setAttribute("border", "2");
+        oBloque.appendChild(titulo);
         oBloque.appendChild(tabla);
     }
 }
@@ -838,11 +1126,42 @@ function listarPersonal(evento){
 /*LISTAR PROVEEDORES*/
 function listarProveedores(){
     
+    mostrarListadoProveedores();
+    
     var oBloque=document.getElementById("listadoProveedores");
-    var oNodoHijo=oBloque.firstChild;
-    oBloque.removeChild(oNodoHijo);
+    while (oBloque.firstChild) {
+        oBloque.removeChild(oBloque.firstChild);
+    }
+    
+    var titulo=document.createElement("h2");
+    titulo.setAttribute("class","text-center");
+    var textoTitulo=document.createTextNode("LISTADO DE PROVEEDORES");
+    titulo.appendChild(textoTitulo);
     
     var tabla   = document.createElement("table");
+    tabla.setAttribute("class","table");
+    
+    var tHead = document.createElement("thead");
+    var oCabecera=document.createElement("tr");
+
+    var oCelda=document.createElement("th");
+    var textoCelda=document.createTextNode("ID");
+    var oCelda1=document.createElement("th");
+    var textoCelda1 = document.createTextNode("NOMBRE");
+    var oCelda2=document.createElement("th");
+    var textoCelda2 = document.createTextNode("TELÉFONO");
+    
+    oCelda.appendChild(textoCelda);
+    oCelda1.appendChild(textoCelda1);
+    oCelda2.appendChild(textoCelda2);
+    
+    oCabecera.appendChild(oCelda);
+    oCabecera.appendChild(oCelda1);
+    oCabecera.appendChild(oCelda2);
+    
+    tHead.appendChild(oCabecera);
+    tabla.appendChild(tHead);
+    
     var tBody = document.createElement("tbody");
     
     for (var i=0; i<oClinica.proveedores.length; i++) {
@@ -852,7 +1171,7 @@ function listarProveedores(){
     }
     
     tabla.appendChild(tBody);
-    tabla.setAttribute("border", "2");
+    oBloque.appendChild(titulo);
     oBloque.appendChild(tabla);
 }
 
