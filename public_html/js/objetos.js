@@ -146,7 +146,7 @@ Clinica.prototype.altaPago=function(oPago){
     
     if(typeof oPagoExistente==="undefined"){
         
-        this.proveedores.push(oPago);
+        this.pagos.push(oPago);
         alert("Pago añadido");
     }
     else{
@@ -429,6 +429,40 @@ function Pago(iId, fImporte, bPagado, oCliente){
     this.importe=fImporte;
     this.pagado=bPagado;
     this.cliente=oCliente;
+}
+
+Pago.prototype.toHTMLRow=function(){
+    
+    var oFila = document.createElement("tr");
+    
+    var celda1 = document.createElement("td");
+    var textoCelda1 = document.createTextNode(this.id);
+    var celda2 = document.createElement("td");
+    var textoCelda2 = document.createTextNode(this.importe);
+    var celda3 = document.createElement("td");
+    var textoCelda3;
+    
+    if(this.pagado){
+        textoCelda3 = document.createTextNode("Sí");
+    }     
+    else{
+        textoCelda3 = document.createTextNode("No");
+    }
+    
+    var celda4 = document.createElement("td");
+    var textoCelda4 = document.createTextNode(this.cliente.apellidos+", "+this.cliente.nombre);
+    
+    
+    celda1.appendChild(textoCelda1);
+    celda2.appendChild(textoCelda2);
+    celda3.appendChild(textoCelda3);
+    celda4.appendChild(textoCelda4);
+    oFila.appendChild(celda1);
+    oFila.appendChild(celda2);
+    oFila.appendChild(celda3);
+    oFila.appendChild(celda4);
+    
+    return oFila;
 }
 
 //5. SALA
