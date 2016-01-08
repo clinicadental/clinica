@@ -72,7 +72,7 @@ function asignarEventos(){
     var oAltaMaterial=document.getElementById('altaMaterial');
     oAltaMaterial.addEventListener('click',mostrarFormAltaMaterial,false);
     var oListadoMateriales=document.getElementById("listaMateriales");
-    oListadoMateriales.addEventListener('click',listarMateriales,false);
+    /*oListadoMateriales.addEventListener('click',listarMateriales,false);*/
    
     var oFormPersonal=document.getElementById("btnAltaPersonal");
     oFormPersonal.addEventListener('click', validarPersonal, false);
