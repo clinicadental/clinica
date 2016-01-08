@@ -857,6 +857,51 @@ function actualizarSelectDentista(sNombre,sApellidos,sId){
  
 }
 
+function validarPago(evento){
+    
+    var oEvento = evento || window.event;
+    
+    oEvento.preventDefault(); 
+    
+    if(validarCamposTextoPago()){
+       
+       return true;
+    }
+    else{
+          
+       alert("error");
+       return false;
+    } 
+}
+
+function validarCamposTextoPago(){
+    
+    var sId=document.getElementById("idPago").value;
+    var iCantidad=document.getElementById("cantidadPago").value;
+    var bPagada=document.getElementById("citaPagada").checked;
+    var oCliente=document.getElementById("clientePago");
+    
+    var bValido=true;
+    
+    if(oDentista.selectedIndex=="0"){
+        
+        var oBloque=document.getElementById("bloqueDentistaCita");
+        oBloque.className='form-group has-error';
+        bValido=false;
+    }
+    else{
+        
+        var oBloque=document.getElementById("bloqueDentistaCita");
+        oBloque.className='form-group';
+    }
+    
+    if(oCliente.selectedIndex=="0"){
+        
+        var oBloque=document.getElementById("bloqueClienteCita");
+        oBloque.className='form-group has-error';
+        bValido=false;
+    }
+}
 function actualizarSelectSalas(){
     
     var oSala1=new Sala("01","Consulta 1","Consulta");
