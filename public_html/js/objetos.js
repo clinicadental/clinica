@@ -117,6 +117,31 @@ Clinica.prototype.buscaProveedor=function(sId){
     return oProveedor;
 }
 
+Clinica.prototype.altaMaterial=function(oMaterial){ 
+    var oMaterialExistente=this.buscaMaterial(oMaterial.id);
+    if(typeof oMaterialExistente==="undefined"){   
+        this.materiales.push(oMaterial);
+        alert("Material añadido.");
+    }
+    else{
+        alert("Ya existe un material con este ID.");
+    }
+};
+Clinica.prototype.buscaMaterial=function(sId){
+    var oMaterial;
+    if(this.materiales.length<1){
+        
+    }
+    else{
+        for(var i=0;i<this.materiales.length;i++){
+            if(this.materiales[i].id===sId){
+                oMaterial=this.materiales[i];
+            }
+        }
+    }
+    return oMaterial;
+};
+
 Clinica.prototype.altaCita=function(oCita,oCliente,oDentista){
     
     this.citas.push(oCita);
@@ -529,27 +554,28 @@ function Material(sId, sTipo, iCantidad, oProveedor){
     this.cantidad=iCantidad;
     this.proveedor=oProveedor;
 }
-Clinica.prototype.altaMaterial=function(oMaterial){ 
-    var oMaterialExistente=this.buscaMaterial(oMaterial.id);
-    if(typeof oMaterialExistente==="undefined"){   
-        this.materiales.push(oMaterial);
-        alert("Material añadido.");
-    }
-    else{
-        alert("Ya existe un material con este ID.");
-    }
-};
-Clinica.prototype.buscaMaterial=function(sId){
-    var oMaterial;
-    if(this.materiales.length<1){
-        
-    }
-    else{
-        for(var i=0;i<this.materiales.length;i++){
-            if(this.materiales[i].id===sId){
-                oMaterial=this.materiales[i];
-            }
-        }
-    }
-    return oMaterial;
-};
+
+Material.prototype.toHTMLRow=function(){
+    
+    var oFila = document.createElement("tr");
+    
+    var celda1 = document.createElement("td");
+    var textoCelda1 = document.createTextNode(this.id);
+    var celda2 = document.createElement("td");
+    var textoCelda2 = document.createTextNode(this.tipo);
+    var celda3 = document.createElement("td");
+    var textoCelda3 = document.createTextNode(this.cantidad);
+    var celda4 = document.createElement("td");
+    var textoCelda4 = document.createTextNode(this.proveedor.nombre);
+    
+    celda1.appendChild(textoCelda1);
+    celda2.appendChild(textoCelda2);
+    celda3.appendChild(textoCelda3);
+    celda4.appendChild(textoCelda4);
+    oFila.appendChild(celda1);
+    oFila.appendChild(celda2);
+    oFila.appendChild(celda3);
+    oFila.appendChild(celda4);
+    
+    return oFila;
+}

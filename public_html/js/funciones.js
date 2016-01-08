@@ -72,7 +72,7 @@ function asignarEventos(){
     var oAltaMaterial=document.getElementById('altaMaterial');
     oAltaMaterial.addEventListener('click',mostrarFormAltaMaterial,false);
     var oListadoMateriales=document.getElementById("listaMateriales");
-    /*oListadoMateriales.addEventListener('click',listarMateriales,false);*/
+    oListadoMateriales.addEventListener('click',listarMateriales,false);
    
     var oFormPersonal=document.getElementById("btnAltaPersonal");
     oFormPersonal.addEventListener('click', validarPersonal, false);
@@ -128,6 +128,8 @@ function mostrarFormAltaCliente(){
     oListado.style.display="none";
     var oListado=document.querySelector("#listadoPagos");
     oListado.style.display="none";
+    var oListado=document.querySelector("#listadoMateriales");
+    oListado.style.display="none";
 }
 
 function mostrarFormAltaCita(){
@@ -155,6 +157,8 @@ function mostrarFormAltaCita(){
     var oListado=document.querySelector("#listadoSalas");
     oListado.style.display="none";
     var oListado=document.querySelector("#listadoPagos");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoMateriales");
     oListado.style.display="none";
 }
 
@@ -184,6 +188,8 @@ function mostrarFormAltaProveedor(){
     oListado.style.display="none";
     var oListado=document.querySelector("#listadoPagos");
     oListado.style.display="none";
+    var oListado=document.querySelector("#listadoMateriales");
+    oListado.style.display="none";
 }
 
 function mostrarFormAltaMaterial(){
@@ -212,6 +218,8 @@ function mostrarFormAltaMaterial(){
     oListado.style.display="none";
     var oListado=document.querySelector("#listadoPagos");
     oListado.style.display="none";
+    var oListado=document.querySelector("#listadoMateriales");
+    oListado.style.display="none";
 }
 
 function mostrarFormAltaPersonal(){ 
@@ -227,6 +235,8 @@ function mostrarFormAltaPersonal(){
     oFormularioPer.style.display="block";
     var oFormularioPag=document.querySelector("#form-alta-pagos");
     oFormularioPag.style.display="none";
+    var oListado=document.querySelector("#listadoMateriales");
+    oListado.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -239,6 +249,8 @@ function mostrarFormAltaPersonal(){
     var oListado=document.querySelector("#listadoSalas");
     oListado.style.display="none";
     var oListado=document.querySelector("#listadoPagos");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoMateriales");
     oListado.style.display="none";
 }
 
@@ -268,6 +280,8 @@ function mostrarFormAltaPago(){
     oListado.style.display="none";
     var oListado=document.querySelector("#listadoPagos");
     oListado.style.display="none";
+    var oListado=document.querySelector("#listadoMateriales");
+    oListado.style.display="none";
 }
 
 function mostrarListadoClientes(){
@@ -295,6 +309,8 @@ function mostrarListadoClientes(){
     var oListado=document.querySelector("#listadoSalas");
     oListado.style.display="none";
     var oListado=document.querySelector("#listadoPagos");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoMateriales");
     oListado.style.display="none";
 }
 
@@ -324,6 +340,8 @@ function mostrarListadoCitas(){
     oListado.style.display="none";
     var oListado=document.querySelector("#listadoPagos");
     oListado.style.display="none";
+    var oListado=document.querySelector("#listadoMateriales");
+    oListado.style.display="none";
 }
 
 function mostrarListadoProveedores(){
@@ -352,6 +370,38 @@ function mostrarListadoProveedores(){
     oListado.style.display="none";
     var oListado=document.querySelector("#listadoPagos");
     oListado.style.display="none";
+    var oListado=document.querySelector("#listadoMateriales");
+    oListado.style.display="none";
+}
+
+function mostrarListadoMateriales(){
+    var oFormularioCli=document.querySelector("#form-alta-clientes");
+    oFormularioCli.style.display="none";
+    var oFormularioCit=document.querySelector("#form-alta-citas");
+    oFormularioCit.style.display="none";
+    var oFormularioPro=document.querySelector("#form-alta-proveedores");
+    oFormularioPro.style.display="none";
+    var oFormularioMat=document.querySelector("#form-alta-materiales");
+    oFormularioMat.style.display="none";
+    var oFormularioPer=document.querySelector("#form-alta-personal");
+    oFormularioPer.style.display="none";
+    var oFormularioPag=document.querySelector("#form-alta-pagos");
+    oFormularioPag.style.display="none";
+    
+    var oListado=document.querySelector("#listadoClientes");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoCitas");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoProveedores");
+    oListado.style.display="block";
+    var oListado=document.querySelector("#listadoPersonal");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoSalas");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoPagos");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoMateriales");
+    oListado.style.display="block";
 }
 
 function mostrarListadoPersonal(){
@@ -379,6 +429,8 @@ function mostrarListadoPersonal(){
     var oListado=document.querySelector("#listadoSalas");
     oListado.style.display="none";
     var oListado=document.querySelector("#listadoPagos");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoMateriales");
     oListado.style.display="none";
 }
 
@@ -408,6 +460,8 @@ function mostrarListadoPagos(){
     oListado.style.display="none";
     var oListado=document.querySelector("#listadoPagos");
     oListado.style.display="block";
+    var oListado=document.querySelector("#listadoMateriales");
+    oListado.style.display="none";
 }
 
 function mostrarListadoSalas(){
@@ -434,6 +488,8 @@ function mostrarListadoSalas(){
     oListado.style.display="none";
     var oListado=document.querySelector("#listadoSalas");
     oListado.style.display="block";
+    var oListado=document.querySelector("#listadoMateriales");
+    oListado.style.display="none";
 }
 
 /*VALIDACIONES*/
@@ -807,23 +863,28 @@ function validarCamposTextoMaterial(){
         
         var oBloque=document.getElementById("bloqueProveedorMaterial");
         oBloque.className='form-group';
+        oProveedor=oProveedor.value;
     }
     
     if(sTipo.selectedIndex=="0"){
         
         var oBloque=document.getElementById("bloqueTipoMaterial");
         oBloque.className='form-group has-error';
+        
         bValido=false;
     }
     else{
         
         var oBloque=document.getElementById("bloqueTipoMaterial");
         oBloque.className='form-group';
+        sTipo=sTipo.value;
     }
     
     
     
     if(bValido){
+        
+        oProveedor=oClinica.buscaProveedor(oProveedor);
         var oMaterial=new Material(sId, sTipo, iCantidad, oProveedor);
         oClinica.altaMaterial(oMaterial);
     }
@@ -1577,6 +1638,72 @@ function listarProveedores(){
         var titulo=document.createElement("h2");
         titulo.setAttribute("class","text-center");
         var textoTitulo=document.createTextNode("NO EXISTEN PROVEEDORES REGISTRADOS");
+        titulo.appendChild(textoTitulo);
+        oBloque.appendChild(titulo);
+    }
+}
+
+function listarMateriales(){
+    
+    mostrarListadoMateriales();
+    
+    var oBloque=document.getElementById("listadoMateriales");
+    while (oBloque.firstChild) {
+        oBloque.removeChild(oBloque.firstChild);
+    }
+    
+    if(oClinica.materiales.length!="0"){
+        
+        var titulo=document.createElement("h2");
+        titulo.setAttribute("class","text-center");
+        var textoTitulo=document.createTextNode("LISTADO DE MATERIALES");
+        titulo.appendChild(textoTitulo);
+
+        var tabla   = document.createElement("table");
+        tabla.setAttribute("class","table");
+
+        var tHead = document.createElement("thead");
+        var oCabecera=document.createElement("tr");
+
+        var oCelda=document.createElement("th");
+        var textoCelda=document.createTextNode("ID");
+        var oCelda1=document.createElement("th");
+        var textoCelda1 = document.createTextNode("TIPO");
+        var oCelda2=document.createElement("th");
+        var textoCelda2 = document.createTextNode("CANTIDAD");
+        var oCelda3=document.createElement("th");
+        var textoCelda3 = document.createTextNode("PROVEEDOR");
+
+        oCelda.appendChild(textoCelda);
+        oCelda1.appendChild(textoCelda1);
+        oCelda2.appendChild(textoCelda2);
+        oCelda3.appendChild(textoCelda3);
+
+        oCabecera.appendChild(oCelda);
+        oCabecera.appendChild(oCelda1);
+        oCabecera.appendChild(oCelda2);
+        oCabecera.appendChild(oCelda3);
+
+        tHead.appendChild(oCabecera);
+        tabla.appendChild(tHead);
+
+        var tBody = document.createElement("tbody");
+
+        for (var i=0; i<oClinica.materiales.length; i++) {
+
+            var oFila =oClinica.materiales[i].toHTMLRow();
+            tBody.appendChild(oFila);
+        }
+
+        tabla.appendChild(tBody);
+        oBloque.appendChild(titulo);
+        oBloque.appendChild(tabla);
+    }
+    else{
+        
+        var titulo=document.createElement("h2");
+        titulo.setAttribute("class","text-center");
+        var textoTitulo=document.createTextNode("NO EXISTEN MATERIALES REGISTRADOS");
         titulo.appendChild(textoTitulo);
         oBloque.appendChild(titulo);
     }
