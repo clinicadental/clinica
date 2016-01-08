@@ -503,10 +503,15 @@ function validarCamposTextoCliente(){
 function actualizarSelectCliente(sNombre,sApellidos,sId){
     
     var oSelect=document.getElementById("clienteCita");
+    var oSelect1=document.getElementById("clientePago");
     var oOption=document.createElement("option");
+    var oOption1=document.createElement("option");
     oOption.value=sId;
     oOption.text=sApellidos+", "+sNombre;
+    oOption1.value=sId;
+    oOption1.text=sApellidos+", "+sNombre;
     oSelect.appendChild(oOption);
+    oSelect1.appendChild(oOption1);
 }
 
 function validarCita(evento){
