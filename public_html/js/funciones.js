@@ -797,7 +797,7 @@ function validarCamposTextoMaterial(){
     }
     if(bValido){
         var oMaterial=new Material(sId, sTipo, iCantidad, oProveedor);
-        oClinica.altaCliente(oMaterial);
+        oClinica.altaMaterial(oMaterial);
     }
     return bValido;
 }
