@@ -1,21 +1,20 @@
+var oClinica=new Clinica();
+
 window.addEventListener('load',asignarEventos,false);
 window.addEventListener('load',calendario1,false);
 window.addEventListener('load',calendario2,false);
-var oClinica=new Clinica();
 actualizarSelectSalas();
 actualizarSelectMateriales();
 
+/*CALENDARIOS*/
 function calendario1(){
-    
     Calendar.setup({
     inputField: "fecha",
     ifFormat:   "%d / %m / %Y",
     button:     "selector"
   });
 }
-
-function calendario2(){
-    
+function calendario2(){   
     Calendar.setup({
     inputField: "fechaCita",
     ifFormat:   "%d / %m / %Y",
@@ -284,6 +283,7 @@ function mostrarFormAltaPago(){
     oListado.style.display="none";
 }
 
+/*MOSTRAR LISTADOS*/
 function mostrarListadoClientes(){
     var oFormularioCli=document.querySelector("#form-alta-clientes");
     oFormularioCli.style.display="none";
@@ -508,6 +508,7 @@ function validarSinNumeros(evento){
     }
 }
 
+/*VALIDAR CLIENTE*/
 function validarCliente(evento){
     
     var oEvento = evento || window.event;  
@@ -613,6 +614,7 @@ function actualizarSelectCliente(sNombre,sApellidos,sId){
     oSelect1.appendChild(oOption1);
 }
 
+/*VALIDAR CITA*/
 function validarCita(evento){
     
     var oEvento = evento || window.event;
@@ -725,6 +727,7 @@ function validarCamposTextoCita(){
     return bValido;
 }
 
+/*VALIDAR PROVEEDOR*/
 function validarProveedor(evento){
     
     var oEvento = evento || window.event;
@@ -811,7 +814,7 @@ function actualizarSelectProveedores(sNombre,sId){
  
 }
 
-/*MATERIALES*/
+/*VALIDAR MATERIALES*/
 function validarMaterial(evento){
     var oEvento=evento||window.event;
     oEvento.preventDefault();
@@ -909,8 +912,7 @@ function actualizarSelectMateriales(){
 
 }
 
-
-
+/*VALIDAR PERSONAL*/
 function validarPersonal(evento){
     
     var oEvento = evento || window.event;  
@@ -1036,6 +1038,7 @@ function actualizarSelectDentista(sNombre,sApellidos,sId){
  
 }
 
+/*VALIDAR PAGOS*/
 function validarPago(evento){
     
     var oEvento = evento || window.event;
@@ -1109,6 +1112,8 @@ function validarCamposTextoPago(){
     
     return bValido;
 }
+
+/*VALIDAR SALAS*/
 function actualizarSelectSalas(){
     
     var oSala1=new Sala("01","Consulta 1","Consulta");
@@ -1130,13 +1135,11 @@ function actualizarSelectSalas(){
         oOption.text=oClinica.salas[i].nombre;
         oSelect.appendChild(oOption);
     }
-
 }
+
 /*LISTAR CLIENTES*/
 function listarClientes(){
     
-    
-
     mostrarListadoClientes();
     
     var oBloque=document.getElementById("listadoClientes");
@@ -1280,58 +1283,135 @@ function listarCitas(){
         oBloque.appendChild(titulo);
     }
 }
-/*LISTAR SALAS*/
-function listarSalas(){
+
+/*LISTAR PROVEEDORES*/
+function listarProveedores(){
     
-    mostrarListadoSalas();
+    mostrarListadoProveedores();
     
-    var oBloque=document.getElementById("listadoSalas");
+    var oBloque=document.getElementById("listadoProveedores");
     while (oBloque.firstChild) {
         oBloque.removeChild(oBloque.firstChild);
     }
     
-    var titulo=document.createElement("h2");
-    titulo.setAttribute("class","text-center");
-    var textoTitulo=document.createTextNode("LISTADO DE SALAS");
-    titulo.appendChild(textoTitulo);
-    
-    var tabla   = document.createElement("table");
-    tabla.setAttribute("class","table");
-    
-    var tHead = document.createElement("thead");
-    var oCabecera=document.createElement("tr");
-
-    var oCelda=document.createElement("th");
-    var textoCelda=document.createTextNode("ID");
-    var oCelda1=document.createElement("th");
-    var textoCelda1 = document.createTextNode("NOMBRE");
-    var oCelda2=document.createElement("th");
-    var textoCelda2 = document.createTextNode("TIPO");
-    
-    oCelda.appendChild(textoCelda);
-    oCelda1.appendChild(textoCelda1);
-    oCelda2.appendChild(textoCelda2);
-    
-    oCabecera.appendChild(oCelda);
-    oCabecera.appendChild(oCelda1);
-    oCabecera.appendChild(oCelda2);
-    
-    tHead.appendChild(oCabecera);
-    tabla.appendChild(tHead);
-    
-    var tBody = document.createElement("tbody");
-    
-    for (var i=0; i<oClinica.salas.length; i++) {
+    if(oClinica.proveedores.length!="0"){
         
-        var oFila =oClinica.salas[i].toHTMLRow();
-        tBody.appendChild(oFila);
+        var titulo=document.createElement("h2");
+        titulo.setAttribute("class","text-center");
+        var textoTitulo=document.createTextNode("LISTADO DE PROVEEDORES");
+        titulo.appendChild(textoTitulo);
+
+        var tabla   = document.createElement("table");
+        tabla.setAttribute("class","table");
+
+        var tHead = document.createElement("thead");
+        var oCabecera=document.createElement("tr");
+
+        var oCelda=document.createElement("th");
+        var textoCelda=document.createTextNode("ID");
+        var oCelda1=document.createElement("th");
+        var textoCelda1 = document.createTextNode("NOMBRE");
+        var oCelda2=document.createElement("th");
+        var textoCelda2 = document.createTextNode("TELÉFONO");
+
+        oCelda.appendChild(textoCelda);
+        oCelda1.appendChild(textoCelda1);
+        oCelda2.appendChild(textoCelda2);
+
+        oCabecera.appendChild(oCelda);
+        oCabecera.appendChild(oCelda1);
+        oCabecera.appendChild(oCelda2);
+
+        tHead.appendChild(oCabecera);
+        tabla.appendChild(tHead);
+
+        var tBody = document.createElement("tbody");
+
+        for (var i=0; i<oClinica.proveedores.length; i++) {
+
+            var oFila =oClinica.proveedores[i].toHTMLRow();
+            tBody.appendChild(oFila);
+        }
+
+        tabla.appendChild(tBody);
+        oBloque.appendChild(titulo);
+        oBloque.appendChild(tabla);
+    }
+    else{
+        
+        var titulo=document.createElement("h2");
+        titulo.setAttribute("class","text-center");
+        var textoTitulo=document.createTextNode("NO EXISTEN PROVEEDORES REGISTRADOS");
+        titulo.appendChild(textoTitulo);
+        oBloque.appendChild(titulo);
+    }
+}
+
+/*LISTAR MATERIALES*/
+function listarMateriales(){
+    
+    mostrarListadoMateriales();
+    
+    var oBloque=document.getElementById("listadoMateriales");
+    while (oBloque.firstChild) {
+        oBloque.removeChild(oBloque.firstChild);
     }
     
-    tabla.appendChild(tBody);
-    oBloque.appendChild(titulo);
-    oBloque.appendChild(tabla);
-    
-   
+    if(oClinica.materiales.length!="0"){
+        
+        var titulo=document.createElement("h2");
+        titulo.setAttribute("class","text-center");
+        var textoTitulo=document.createTextNode("LISTADO DE MATERIALES");
+        titulo.appendChild(textoTitulo);
+
+        var tabla   = document.createElement("table");
+        tabla.setAttribute("class","table");
+
+        var tHead = document.createElement("thead");
+        var oCabecera=document.createElement("tr");
+
+        var oCelda=document.createElement("th");
+        var textoCelda=document.createTextNode("ID");
+        var oCelda1=document.createElement("th");
+        var textoCelda1 = document.createTextNode("TIPO");
+        var oCelda2=document.createElement("th");
+        var textoCelda2 = document.createTextNode("CANTIDAD");
+        var oCelda3=document.createElement("th");
+        var textoCelda3 = document.createTextNode("PROVEEDOR");
+
+        oCelda.appendChild(textoCelda);
+        oCelda1.appendChild(textoCelda1);
+        oCelda2.appendChild(textoCelda2);
+        oCelda3.appendChild(textoCelda3);
+
+        oCabecera.appendChild(oCelda);
+        oCabecera.appendChild(oCelda1);
+        oCabecera.appendChild(oCelda2);
+        oCabecera.appendChild(oCelda3);
+
+        tHead.appendChild(oCabecera);
+        tabla.appendChild(tHead);
+
+        var tBody = document.createElement("tbody");
+
+        for (var i=0; i<oClinica.materiales.length; i++) {
+
+            var oFila =oClinica.materiales[i].toHTMLRow();
+            tBody.appendChild(oFila);
+        }
+
+        tabla.appendChild(tBody);
+        oBloque.appendChild(titulo);
+        oBloque.appendChild(tabla);
+    }
+    else{
+        
+        var titulo=document.createElement("h2");
+        titulo.setAttribute("class","text-center");
+        var textoTitulo=document.createTextNode("NO EXISTEN MATERIALES REGISTRADOS");
+        titulo.appendChild(textoTitulo);
+        oBloque.appendChild(titulo);
+    }
 }
 
 /*LISTAR PERSONAL*/
@@ -1565,10 +1645,7 @@ function listarPersonal(evento){
                 }
                 
             }
-        }
-        
-        
-        
+        }   
     }
     else{
         
@@ -1580,135 +1657,7 @@ function listarPersonal(evento){
     }
 }
 
-/*LISTAR PROVEEDORES*/
-function listarProveedores(){
-    
-    mostrarListadoProveedores();
-    
-    var oBloque=document.getElementById("listadoProveedores");
-    while (oBloque.firstChild) {
-        oBloque.removeChild(oBloque.firstChild);
-    }
-    
-    if(oClinica.proveedores.length!="0"){
-        
-        var titulo=document.createElement("h2");
-        titulo.setAttribute("class","text-center");
-        var textoTitulo=document.createTextNode("LISTADO DE PROVEEDORES");
-        titulo.appendChild(textoTitulo);
-
-        var tabla   = document.createElement("table");
-        tabla.setAttribute("class","table");
-
-        var tHead = document.createElement("thead");
-        var oCabecera=document.createElement("tr");
-
-        var oCelda=document.createElement("th");
-        var textoCelda=document.createTextNode("ID");
-        var oCelda1=document.createElement("th");
-        var textoCelda1 = document.createTextNode("NOMBRE");
-        var oCelda2=document.createElement("th");
-        var textoCelda2 = document.createTextNode("TELÉFONO");
-
-        oCelda.appendChild(textoCelda);
-        oCelda1.appendChild(textoCelda1);
-        oCelda2.appendChild(textoCelda2);
-
-        oCabecera.appendChild(oCelda);
-        oCabecera.appendChild(oCelda1);
-        oCabecera.appendChild(oCelda2);
-
-        tHead.appendChild(oCabecera);
-        tabla.appendChild(tHead);
-
-        var tBody = document.createElement("tbody");
-
-        for (var i=0; i<oClinica.proveedores.length; i++) {
-
-            var oFila =oClinica.proveedores[i].toHTMLRow();
-            tBody.appendChild(oFila);
-        }
-
-        tabla.appendChild(tBody);
-        oBloque.appendChild(titulo);
-        oBloque.appendChild(tabla);
-    }
-    else{
-        
-        var titulo=document.createElement("h2");
-        titulo.setAttribute("class","text-center");
-        var textoTitulo=document.createTextNode("NO EXISTEN PROVEEDORES REGISTRADOS");
-        titulo.appendChild(textoTitulo);
-        oBloque.appendChild(titulo);
-    }
-}
-
-function listarMateriales(){
-    
-    mostrarListadoMateriales();
-    
-    var oBloque=document.getElementById("listadoMateriales");
-    while (oBloque.firstChild) {
-        oBloque.removeChild(oBloque.firstChild);
-    }
-    
-    if(oClinica.materiales.length!="0"){
-        
-        var titulo=document.createElement("h2");
-        titulo.setAttribute("class","text-center");
-        var textoTitulo=document.createTextNode("LISTADO DE MATERIALES");
-        titulo.appendChild(textoTitulo);
-
-        var tabla   = document.createElement("table");
-        tabla.setAttribute("class","table");
-
-        var tHead = document.createElement("thead");
-        var oCabecera=document.createElement("tr");
-
-        var oCelda=document.createElement("th");
-        var textoCelda=document.createTextNode("ID");
-        var oCelda1=document.createElement("th");
-        var textoCelda1 = document.createTextNode("TIPO");
-        var oCelda2=document.createElement("th");
-        var textoCelda2 = document.createTextNode("CANTIDAD");
-        var oCelda3=document.createElement("th");
-        var textoCelda3 = document.createTextNode("PROVEEDOR");
-
-        oCelda.appendChild(textoCelda);
-        oCelda1.appendChild(textoCelda1);
-        oCelda2.appendChild(textoCelda2);
-        oCelda3.appendChild(textoCelda3);
-
-        oCabecera.appendChild(oCelda);
-        oCabecera.appendChild(oCelda1);
-        oCabecera.appendChild(oCelda2);
-        oCabecera.appendChild(oCelda3);
-
-        tHead.appendChild(oCabecera);
-        tabla.appendChild(tHead);
-
-        var tBody = document.createElement("tbody");
-
-        for (var i=0; i<oClinica.materiales.length; i++) {
-
-            var oFila =oClinica.materiales[i].toHTMLRow();
-            tBody.appendChild(oFila);
-        }
-
-        tabla.appendChild(tBody);
-        oBloque.appendChild(titulo);
-        oBloque.appendChild(tabla);
-    }
-    else{
-        
-        var titulo=document.createElement("h2");
-        titulo.setAttribute("class","text-center");
-        var textoTitulo=document.createTextNode("NO EXISTEN MATERIALES REGISTRADOS");
-        titulo.appendChild(textoTitulo);
-        oBloque.appendChild(titulo);
-    }
-}
-
+/*LISTAR PAGOS*/
 function listarPago(){
     
     mostrarListadoPagos();
@@ -1775,4 +1724,54 @@ function listarPago(){
     }
 }
 
+/*LISTAR SALAS*/
+function listarSalas(){
+    
+    mostrarListadoSalas();
+    
+    var oBloque=document.getElementById("listadoSalas");
+    while (oBloque.firstChild) {
+        oBloque.removeChild(oBloque.firstChild);
+    }
+    
+    var titulo=document.createElement("h2");
+    titulo.setAttribute("class","text-center");
+    var textoTitulo=document.createTextNode("LISTADO DE SALAS");
+    titulo.appendChild(textoTitulo);
+    
+    var tabla   = document.createElement("table");
+    tabla.setAttribute("class","table");
+    
+    var tHead = document.createElement("thead");
+    var oCabecera=document.createElement("tr");
 
+    var oCelda=document.createElement("th");
+    var textoCelda=document.createTextNode("ID");
+    var oCelda1=document.createElement("th");
+    var textoCelda1 = document.createTextNode("NOMBRE");
+    var oCelda2=document.createElement("th");
+    var textoCelda2 = document.createTextNode("TIPO");
+    
+    oCelda.appendChild(textoCelda);
+    oCelda1.appendChild(textoCelda1);
+    oCelda2.appendChild(textoCelda2);
+    
+    oCabecera.appendChild(oCelda);
+    oCabecera.appendChild(oCelda1);
+    oCabecera.appendChild(oCelda2);
+    
+    tHead.appendChild(oCabecera);
+    tabla.appendChild(tHead);
+    
+    var tBody = document.createElement("tbody");
+    
+    for (var i=0; i<oClinica.salas.length; i++) {
+        
+        var oFila =oClinica.salas[i].toHTMLRow();
+        tBody.appendChild(oFila);
+    }
+    
+    tabla.appendChild(tBody);
+    oBloque.appendChild(titulo);
+    oBloque.appendChild(tabla);
+}
