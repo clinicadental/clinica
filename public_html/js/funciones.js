@@ -66,12 +66,12 @@ function asignarEventos(){
     var oListadoProveedores=document.getElementById("listaProveedores");
     oListadoProveedores.addEventListener('click',listarProveedores,false);
     
-    var oFormMaterial=document.getElementById("btnAltaMaterial");
-    oFormMaterial.addEventListener('click', validarMaterial, false);
+    /*var oFormMaterial=document.getElementById("btnAltaMaterial");
+    oFormMaterial.addEventListener('click', validarMaterial, false);*/
     var oAltaMaterial=document.getElementById('altaMaterial');
     oAltaMaterial.addEventListener('click',mostrarFormAltaMaterial,false);
-    var oListadoMateriales=document.getElementById("listaMateriales");
-    oListadoMateriales.addEventListener('click',listarMateriales,false);
+   /* var oListadoMateriales=document.getElementById("listaMateriales");
+    oListadoMateriales.addEventListener('click',listarMateriales,false);*/
    
     var oFormPersonal=document.getElementById("btnAltaPersonal");
     oFormPersonal.addEventListener('click', validarPersonal, false);
@@ -89,12 +89,12 @@ function asignarEventos(){
     document.getElementById("apellidosCliente").addEventListener('keypress',validarSinNumeros,false);
     document.getElementById("nombreProveedor").addEventListener('keypress',validarSinNumeros,false);
     
-    var oFormPago=document.getElementById("btnAltaPago");
-    oFormPago.addEventListener('click', validarPago, false);
+    /*var oFormPago=document.getElementById("btnAltaPago");
+    oFormPago.addEventListener('click', validarPago, false);*/
     var oAltaPago=document.getElementById('altaPago');
     oAltaPago.addEventListener('click',mostrarFormAltaPago,false);
-    var oListadoPagos=document.getElementById("listaPagos");
-    oListadoPagos.addEventListener('click',listarPago,false);
+    /*var oListadoPagos=document.getElementById("listaPagos");
+    oListadoPagos.addEventListener('click',listarPago,false);*/
     
     var oListadoSalas=document.getElementById("listaSalas");
     oListadoSalas.addEventListener('click',listarSalas,false);
@@ -402,6 +402,10 @@ function validarSinNumeros(evento){
         caracter == "8" ||caracter == "9"){			
             oEvento.preventDefault();
     }
+}
+
+function validarMaterial(evento){
+    
 }
 
 function validarCliente(evento){
