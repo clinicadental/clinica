@@ -690,10 +690,21 @@ function validarCamposTextoProveedor(){
     if(bValido){
         
         var oProveedor=new Proveedor(sId, sNombre, iTelefono);
+        actualizarSelectProveedores(sNombre,sId);
         oClinica.altaProveedor(oProveedor);
     }
     
     return bValido;
+}
+
+function actualizarSelectProveedores(sNombre,sId){
+    
+    var oSelect=document.getElementById("proveedorMaterial");
+    var oOption=document.createElement("option");
+    oOption.value=sId;
+    oOption.text=sNombre;
+    oSelect.appendChild(oOption);
+ 
 }
 
 function actualizarSelectMateriales(){
