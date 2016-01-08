@@ -1,7 +1,9 @@
 #form-alta-clientes{display: none;}
 #form-alta-citas{display: none;}
 #form-alta-proveedores{display: none;}
+#form-alta-materiales{display: none;}
 #form-alta-personal{display: none;}
+#form-alta-pagos{display: none;}
 #bloqueDentista{display: none;}
 #listadoClientes{display:none;}
 #listadoCitas{display:none;}

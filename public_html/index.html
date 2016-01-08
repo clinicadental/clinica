@@ -55,6 +55,8 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Materiales<b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                            <li><a href="#" class="altaMaterial">Añadir</a></li>
+                            <li class="divider"></li>
                             <li><a href="#">Listado</a></li>
                         </ul>   
                     </li>    
@@ -99,6 +101,8 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pagos<b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                            <li><a href="#" class="altaPago">Añadir</a></li>
+                            <li class="divider"></li>
                             <li><a href="#">Listado</a></li>
                         </ul>
                     </li>    
@@ -209,6 +213,35 @@
                     </div>
                 </form>
             </div>  
+            <!--ALTA MATERIAL-->
+            <div class='col-xs-4 col-xs-offset-4' id='form-alta-materiales'>
+                <h2>Alta material</h2>
+                <form method='post' class='form-horizontal' name='formMateriales'>
+                    <div class='form-group' id="bloqueIdMaterial">
+                        <label class='control-label' for='idMaterial'>ID</label>
+                        <input type='text' class='form-control' id='idMaterial'/>
+                        <span>Consta de una letra mayúscula y 5 números.</span>
+                    </div>
+                    <div class='form-group' id="bloqueTipoMaterial">
+                        <label class='control-label' for='tipoMaterial'>Tipo</label>
+                        <input type='text' class='form-control' id='tipoMaterial'/>
+                    </div>
+                    <div class='form-group' id="bloqueCantidadMaterial">
+                        <label class='control-label' for='cantidadMaterial'>Cantidad</label>
+                        <input type='text' class='form-control' id='cantidadMaterial'/>
+                    </div>
+                    <div class='form-group' id="bloqueProveedorMaterial">
+                        <label class='control-label' for='proveedorMaterial'>Proveedor</label>
+                        <select class='form-control' id='proveedorMaterial'>
+                            <option>--seleccione un proveedor--</option>
+                        </select>
+                    </div>
+                    <div class='form-group'>
+                        <input type='submit' class='btn btn-primary' value='Enviar' id='btnAltaMaterial'/>
+                        <input type='reset' class='btn btn-warning' value='Borrar'/>
+                    </div>
+                </form>
+            </div>
             <!--ALTA PERSONAL-->
             <div class="col-xs-4 col-xs-offset-4" id="form-alta-personal">
                 <h2>Alta personal</h2>
@@ -260,6 +293,36 @@
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="Enviar" id="btnAltaPersonal"/>
                         <input type="reset" class="btn btn-warning" value="Borrar"/>
+                    </div>
+                </form>
+            </div>
+            <!--ALTA PAGO-->
+            <div class='col-xs-4 col-xs-offset-4' id='form-alta-pagos'>
+                <h2>Alta pago</h2>
+                <form method='post' class='form-horizontal' name='formPagos'>
+                    <div class='form-group' id="bloqueIdPago">
+                        <label class='control-label' for='idPago'>ID</label>
+                        <input type='text' class='form-control' id='idPago'/>
+                        <span>Consta de una letra mayúscula y 5 números.</span>
+                    </div>
+                    <div class='form-group' id="bloqueCantidadPago">
+                        <label class='control-label' for='cantidadPago'>Cantidad</label>
+                        <input type='text' class='form-control' id='cantidadPago'/>
+                    </div>
+                    <div class='form-group' id="bloquePagada">
+                        <label class='checkbox-inline' for='citaPagada'>Pagada
+                            <input type='checkbox' id='citaPagada'/>
+                        </label>
+                    </div>
+                    <div class='form-group' id="bloqueClientePago">
+                        <label class='control-label' for='clientePago'>Cliente</label>
+                        <select class='form-control' id='clientePago'>
+                            <option>--seleccione un cliente--</option>
+                        </select>
+                    </div>
+                    <div class='form-group'>
+                        <input type='submit' class='btn btn-primary' value='Enviar' id='btnAltaPago'/>
+                        <input type='reset' class='btn btn-warning' value='Borrar'/>
                     </div>
                 </form>
             </div>

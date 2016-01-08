@@ -45,71 +45,76 @@ function comprobarRadio(){
 
 /*ASIGNAR EVENTOS*/
 function asignarEventos(){
-
+    var oFormCliente=document.getElementById("btnAltaCliente");
+    oFormCliente.addEventListener('click', validarCliente, false);
     var oAltaCliente=document.getElementById('altaCliente');
     oAltaCliente.addEventListener('click',mostrarFormAltaCliente,false);
-    
-    var oAltaCita=document.getElementById('altaCita');
-    oAltaCita.addEventListener('click',mostrarFormAltaCita,false);
-    
-    var oAltaProveedor=document.getElementById('altaProveedor');
-    oAltaProveedor.addEventListener('click',mostrarFormAltaProveedor,false);
-   
-    var oAltaPersonal=document.querySelector("#menu-personal .alta");
-    oAltaPersonal.addEventListener('click',mostrarFormAltaPersonal,false);
-    
     var oListadoClientes=document.getElementById("listaClientes");
     oListadoClientes.addEventListener('click',listarClientes,false);
     
+    var oFormCita=document.getElementById("btnAltaCita");
+    oFormCita.addEventListener('click', validarCita, false);
+    var oAltaCita=document.getElementById('altaCita');
+    oAltaCita.addEventListener('click',mostrarFormAltaCita,false);
     var oListadoCitas=document.getElementById("listaCitas");
     oListadoCitas.addEventListener('click',listarCitas,false);
     
-    var oListadoSalas=document.getElementById("listaSalas");
-    oListadoSalas.addEventListener('click',listarSalas,false);
-    
-    var oListadoPersonal=document.getElementById("listaPersonal");
-    oListadoPersonal.addEventListener('click',listarPersonal,false);
-    
+    var oFormProveedor=document.getElementById("btnAltaProveedor");
+    oFormProveedor.addEventListener('click', validarProveedor, false);
+    var oAltaProveedor=document.getElementById('altaProveedor');
+    oAltaProveedor.addEventListener('click',mostrarFormAltaProveedor,false);
     var oListadoProveedores=document.getElementById("listaProveedores");
     oListadoProveedores.addEventListener('click',listarProveedores,false);
     
+    var oFormMaterial=document.getElementById("btnAltaMaterial");
+    oFormMaterial.addEventListener('click', validarMaterial, false);
+    var oAltaMaterial=document.getElementById('altaMaterial');
+    oAltaMaterial.addEventListener('click',mostrarFormAltaMaterial,false);
+    var oListadoMateriales=document.getElementById("listaMateriales");
+    oListadoMateriales.addEventListener('click',listarMateriales,false);
+   
+    var oFormPersonal=document.getElementById("btnAltaPersonal");
+    oFormPersonal.addEventListener('click', validarPersonal, false);
+    var oAltaPersonal=document.querySelector("#menu-personal .alta");
+    oAltaPersonal.addEventListener('click',mostrarFormAltaPersonal,false);
+    var radioAdministrativo=document.getElementById("administrativo");
+    radioAdministrativo.addEventListener('click', comprobarRadio, false);
+    var radioDentista=document.getElementById("dentista");
+    radioDentista.addEventListener('click', comprobarRadio, false);
+    var oListadoPersonal=document.getElementById("listaPersonal");
+    oListadoPersonal.addEventListener('click',listarPersonal,false);
     document.getElementById("nombre-alta-dentista").addEventListener('keypress',validarSinNumeros,false);
     document.getElementById("apellido-alta-dentista").addEventListener('keypress',validarSinNumeros,false);
     document.getElementById("nombreCliente").addEventListener('keypress',validarSinNumeros,false);
     document.getElementById("apellidosCliente").addEventListener('keypress',validarSinNumeros,false);
     document.getElementById("nombreProveedor").addEventListener('keypress',validarSinNumeros,false);
     
-    var oFormPersonal=document.getElementById("btnAltaPersonal");
-    oFormPersonal.addEventListener('click', validarPersonal, false);
+    var oFormPago=document.getElementById("btnAltaPago");
+    oFormPago.addEventListener('click', validarPago, false);
+    var oAltaPago=document.getElementById('altaPago');
+    oAltaPago.addEventListener('click',mostrarFormAltaPago,false);
+    var oListadoPagos=document.getElementById("listaPagos");
+    oListadoPagos.addEventListener('click',listarPago,false);
     
-    var oFormCliente=document.getElementById("btnAltaCliente");
-    oFormCliente.addEventListener('click', validarCliente, false);
-    
-    var oFormProveedor=document.getElementById("btnAltaProveedor");
-    oFormProveedor.addEventListener('click', validarProveedor, false);
-    
-    var oFormCita=document.getElementById("btnAltaCita");
-    oFormCita.addEventListener('click', validarCita, false);
-    
-    var radioAdministrativo=document.getElementById("administrativo");
-    var radioDentista=document.getElementById("dentista");
-    radioAdministrativo.addEventListener('click', comprobarRadio, false);
-    radioDentista.addEventListener('click', comprobarRadio, false);
-    
-    
+    var oListadoSalas=document.getElementById("listaSalas");
+    oListadoSalas.addEventListener('click',listarSalas,false);
 }
 
 /*MOSTRAR FORMULARIOS*/
 
 function mostrarFormAltaCliente(){
-    var oFormulario=document.querySelector("#form-alta-clientes");
-    oFormulario.style.display="block";
-    var oFormulario=document.querySelector("#form-alta-citas");
-    oFormulario.style.display="none";
-    var oFormulario=document.querySelector("#form-alta-proveedores");
-    oFormulario.style.display="none";
-    var oFormulario=document.querySelector("#form-alta-personal");
-    oFormulario.style.display="none";
+    var oFormularioCli=document.querySelector("#form-alta-clientes");
+    oFormularioCli.style.display="block";
+    var oFormularioCit=document.querySelector("#form-alta-citas");
+    oFormularioCit.style.display="none";
+    var oFormularioPro=document.querySelector("#form-alta-proveedores");
+    oFormularioPro.style.display="none";
+    var oFormularioMat=document.querySelector("#form-alta-materiales");
+    oFormularioMat.style.display="none";
+    var oFormularioPer=document.querySelector("#form-alta-personal");
+    oFormularioPer.style.display="none";
+    var oFormularioPag=document.querySelector("#form-alta-pagos");
+    oFormularioPag.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -124,14 +129,18 @@ function mostrarFormAltaCliente(){
 }
 
 function mostrarFormAltaCita(){
-    var oFormulario=document.querySelector("#form-alta-clientes");
-    oFormulario.style.display="none";
-    var oFormulario=document.querySelector("#form-alta-citas");
-    oFormulario.style.display="block";
-    var oFormulario=document.querySelector("#form-alta-proveedores");
-    oFormulario.style.display="none";
-    var oFormulario=document.querySelector("#form-alta-personal");
-    oFormulario.style.display="none";
+    var oFormularioCli=document.querySelector("#form-alta-clientes");
+    oFormularioCli.style.display="none";
+    var oFormularioCit=document.querySelector("#form-alta-citas");
+    oFormularioCit.style.display="block";
+    var oFormularioPro=document.querySelector("#form-alta-proveedores");
+    oFormularioPro.style.display="none";
+    var oFormularioMat=document.querySelector("#form-alta-materiales");
+    oFormularioMat.style.display="none";
+    var oFormularioPer=document.querySelector("#form-alta-personal");
+    oFormularioPer.style.display="none";
+    var oFormularioPag=document.querySelector("#form-alta-pagos");
+    oFormularioPag.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -146,14 +155,44 @@ function mostrarFormAltaCita(){
 }
 
 function mostrarFormAltaProveedor(){
-    var oFormulario=document.querySelector("#form-alta-clientes");
-    oFormulario.style.display="none";
-    var oFormulario=document.querySelector("#form-alta-citas");
-    oFormulario.style.display="none";
-    var oFormulario=document.querySelector("#form-alta-proveedores");
-    oFormulario.style.display="block";
-    var oFormulario=document.querySelector("#form-alta-personal");
-    oFormulario.style.display="none";
+    var oFormularioCli=document.querySelector("#form-alta-clientes");
+    oFormularioCli.style.display="none";
+    var oFormularioCit=document.querySelector("#form-alta-citas");
+    oFormularioCit.style.display="none";
+    var oFormularioPro=document.querySelector("#form-alta-proveedores");
+    oFormularioPro.style.display="block";
+    var oFormularioMat=document.querySelector("#form-alta-materiales");
+    oFormularioMat.style.display="none";
+    var oFormularioPer=document.querySelector("#form-alta-personal");
+    oFormularioPer.style.display="none";
+    var oFormularioPag=document.querySelector("#form-alta-pagos");
+    oFormularioPag.style.display="none";
+    
+    var oListado=document.querySelector("#listadoClientes");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoCitas");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoProveedores");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoPersonal");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoSalas");
+    oListado.style.display="none";
+}
+
+function mostrarFormAltaMaterial(){
+    var oFormularioCli=document.querySelector("#form-alta-clientes");
+    oFormularioCli.style.display="none";
+    var oFormularioCit=document.querySelector("#form-alta-citas");
+    oFormularioCit.style.display="none";
+    var oFormularioPro=document.querySelector("#form-alta-proveedores");
+    oFormularioPro.style.display="none";
+    var oFormularioMat=document.querySelector("#form-alta-materiales");
+    oFormularioMat.style.display="block";
+    var oFormularioPer=document.querySelector("#form-alta-personal");
+    oFormularioPer.style.display="none";
+    var oFormularioPag=document.querySelector("#form-alta-pagos");
+    oFormularioPag.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -168,14 +207,44 @@ function mostrarFormAltaProveedor(){
 }
 
 function mostrarFormAltaPersonal(){ 
-    var oFormulario=document.querySelector("#form-alta-clientes");
-    oFormulario.style.display="none";
-    var oFormulario=document.querySelector("#form-alta-citas");
-    oFormulario.style.display="none";
-    var oFormulario=document.querySelector("#form-alta-proveedores");
-    oFormulario.style.display="none";
-    var oFormulario=document.querySelector("#form-alta-personal");
-    oFormulario.style.display="block";
+    var oFormularioCli=document.querySelector("#form-alta-clientes");
+    oFormularioCli.style.display="none";
+    var oFormularioCit=document.querySelector("#form-alta-citas");
+    oFormularioCit.style.display="none";
+    var oFormularioPro=document.querySelector("#form-alta-proveedores");
+    oFormularioPro.style.display="none";
+    var oFormularioMat=document.querySelector("#form-alta-materiales");
+    oFormularioMat.style.display="none";
+    var oFormularioPer=document.querySelector("#form-alta-personal");
+    oFormularioPer.style.display="block";
+    var oFormularioPag=document.querySelector("#form-alta-pagos");
+    oFormularioPag.style.display="none";
+    
+    var oListado=document.querySelector("#listadoClientes");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoCitas");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoProveedores");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoPersonal");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoSalas");
+    oListado.style.display="none";
+}
+
+function mostrarFormAltaPago(){
+    var oFormularioCli=document.querySelector("#form-alta-clientes");
+    oFormularioCli.style.display="none";
+    var oFormularioCit=document.querySelector("#form-alta-citas");
+    oFormularioCit.style.display="none";
+    var oFormularioPro=document.querySelector("#form-alta-proveedores");
+    oFormularioPro.style.display="none";
+    var oFormularioMat=document.querySelector("#form-alta-materiales");
+    oFormularioMat.style.display="none";
+    var oFormularioPer=document.querySelector("#form-alta-personal");
+    oFormularioPer.style.display="none";
+    var oFormularioPag=document.querySelector("#form-alta-pagos");
+    oFormularioPag.style.display="block";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -190,14 +259,18 @@ function mostrarFormAltaPersonal(){
 }
 
 function mostrarListadoClientes(){
-    var oFormulario=document.querySelector("#form-alta-clientes");
-    oFormulario.style.display="none";
-    var oFormulario=document.querySelector("#form-alta-citas");
-    oFormulario.style.display="none";
-    var oFormulario=document.querySelector("#form-alta-proveedores");
-    oFormulario.style.display="none";
-    var oFormulario=document.querySelector("#form-alta-personal");
-    oFormulario.style.display="none";
+    var oFormularioCli=document.querySelector("#form-alta-clientes");
+    oFormularioCli.style.display="none";
+    var oFormularioCit=document.querySelector("#form-alta-citas");
+    oFormularioCit.style.display="none";
+    var oFormularioPro=document.querySelector("#form-alta-proveedores");
+    oFormularioPro.style.display="none";
+    var oFormularioMat=document.querySelector("#form-alta-materiales");
+    oFormularioMat.style.display="none";
+    var oFormularioPer=document.querySelector("#form-alta-personal");
+    oFormularioPer.style.display="none";
+    var oFormularioPag=document.querySelector("#form-alta-pagos");
+    oFormularioPag.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="block";
@@ -212,14 +285,18 @@ function mostrarListadoClientes(){
 }
 
 function mostrarListadoCitas(){
-    var oFormulario=document.querySelector("#form-alta-clientes");
-    oFormulario.style.display="none";
-    var oFormulario=document.querySelector("#form-alta-citas");
-    oFormulario.style.display="none";
-    var oFormulario=document.querySelector("#form-alta-proveedores");
-    oFormulario.style.display="none";
-    var oFormulario=document.querySelector("#form-alta-personal");
-    oFormulario.style.display="none";
+    var oFormularioCli=document.querySelector("#form-alta-clientes");
+    oFormularioCli.style.display="none";
+    var oFormularioCit=document.querySelector("#form-alta-citas");
+    oFormularioCit.style.display="none";
+    var oFormularioPro=document.querySelector("#form-alta-proveedores");
+    oFormularioPro.style.display="none";
+    var oFormularioMat=document.querySelector("#form-alta-materiales");
+    oFormularioMat.style.display="none";
+    var oFormularioPer=document.querySelector("#form-alta-personal");
+    oFormularioPer.style.display="none";
+    var oFormularioPag=document.querySelector("#form-alta-pagos");
+    oFormularioPag.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -234,14 +311,18 @@ function mostrarListadoCitas(){
 }
 
 function mostrarListadoProveedores(){
-    var oFormulario=document.querySelector("#form-alta-clientes");
-    oFormulario.style.display="none";
-    var oFormulario=document.querySelector("#form-alta-citas");
-    oFormulario.style.display="none";
-    var oFormulario=document.querySelector("#form-alta-proveedores");
-    oFormulario.style.display="none";
-    var oFormulario=document.querySelector("#form-alta-personal");
-    oFormulario.style.display="none";
+    var oFormularioCli=document.querySelector("#form-alta-clientes");
+    oFormularioCli.style.display="none";
+    var oFormularioCit=document.querySelector("#form-alta-citas");
+    oFormularioCit.style.display="none";
+    var oFormularioPro=document.querySelector("#form-alta-proveedores");
+    oFormularioPro.style.display="none";
+    var oFormularioMat=document.querySelector("#form-alta-materiales");
+    oFormularioMat.style.display="none";
+    var oFormularioPer=document.querySelector("#form-alta-personal");
+    oFormularioPer.style.display="none";
+    var oFormularioPag=document.querySelector("#form-alta-pagos");
+    oFormularioPag.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -256,14 +337,18 @@ function mostrarListadoProveedores(){
 }
 
 function mostrarListadoPersonal(){
-    var oFormulario=document.querySelector("#form-alta-clientes");
-    oFormulario.style.display="none";
-    var oFormulario=document.querySelector("#form-alta-citas");
-    oFormulario.style.display="none";
-    var oFormulario=document.querySelector("#form-alta-proveedores");
-    oFormulario.style.display="none";
-    var oFormulario=document.querySelector("#form-alta-personal");
-    oFormulario.style.display="none";
+    var oFormularioCli=document.querySelector("#form-alta-clientes");
+    oFormularioCli.style.display="none";
+    var oFormularioCit=document.querySelector("#form-alta-citas");
+    oFormularioCit.style.display="none";
+    var oFormularioPro=document.querySelector("#form-alta-proveedores");
+    oFormularioPro.style.display="none";
+    var oFormularioMat=document.querySelector("#form-alta-materiales");
+    oFormularioMat.style.display="none";
+    var oFormularioPer=document.querySelector("#form-alta-personal");
+    oFormularioPer.style.display="none";
+    var oFormularioPag=document.querySelector("#form-alta-pagos");
+    oFormularioPag.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -278,14 +363,18 @@ function mostrarListadoPersonal(){
 }
 
 function mostrarListadoSalas(){
-    var oFormulario=document.querySelector("#form-alta-clientes");
-    oFormulario.style.display="none";
-    var oFormulario=document.querySelector("#form-alta-citas");
-    oFormulario.style.display="none";
-    var oFormulario=document.querySelector("#form-alta-proveedores");
-    oFormulario.style.display="none";
-    var oFormulario=document.querySelector("#form-alta-personal");
-    oFormulario.style.display="none";
+    var oFormularioCli=document.querySelector("#form-alta-clientes");
+    oFormularioCli.style.display="none";
+    var oFormularioCit=document.querySelector("#form-alta-citas");
+    oFormularioCit.style.display="none";
+    var oFormularioPro=document.querySelector("#form-alta-proveedores");
+    oFormularioPro.style.display="none";
+    var oFormularioMat=document.querySelector("#form-alta-materiales");
+    oFormularioMat.style.display="none";
+    var oFormularioPer=document.querySelector("#form-alta-personal");
+    oFormularioPer.style.display="none";
+    var oFormularioPag=document.querySelector("#form-alta-pagos");
+    oFormularioPag.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
