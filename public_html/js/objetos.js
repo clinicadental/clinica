@@ -523,8 +523,9 @@ Proveedor.prototype.toHTMLRow=function(){
 
 
 //7. MATERIAL
-function Material(iId, sTipo, iCantidad){
-    this.id=iId;
+function Material(sId, sTipo, iCantidad, oProveedor){
+    this.id=sId;
     this.tipo=sTipo;
-    this.cantidad=iCantidad;	
+    this.cantidad=iCantidad;
+    this.proveedor=oProveedor;
 }

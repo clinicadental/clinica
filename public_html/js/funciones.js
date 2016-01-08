@@ -67,12 +67,12 @@ function asignarEventos(){
     var oListadoProveedores=document.getElementById("listaProveedores");
     oListadoProveedores.addEventListener('click',listarProveedores,false);
     
-    /*var oFormMaterial=document.getElementById("btnAltaMaterial");
-    oFormMaterial.addEventListener('click', validarMaterial, false);*/
+    var oFormMaterial=document.getElementById("btnAltaMaterial");
+    oFormMaterial.addEventListener('click', validarMaterial, false);
     var oAltaMaterial=document.getElementById('altaMaterial');
     oAltaMaterial.addEventListener('click',mostrarFormAltaMaterial,false);
-   /* var oListadoMateriales=document.getElementById("listaMateriales");
-    oListadoMateriales.addEventListener('click',listarMateriales,false);*/
+    var oListadoMateriales=document.getElementById("listaMateriales");
+    oListadoMateriales.addEventListener('click',listarMateriales,false);
    
     var oFormPersonal=document.getElementById("btnAltaPersonal");
     oFormPersonal.addEventListener('click', validarPersonal, false);
@@ -102,7 +102,6 @@ function asignarEventos(){
 }
 
 /*MOSTRAR FORMULARIOS*/
-
 function mostrarFormAltaCliente(){
     var oFormularioCli=document.querySelector("#form-alta-clientes");
     oFormularioCli.style.display="block";
@@ -453,10 +452,6 @@ function validarSinNumeros(evento){
     }
 }
 
-function validarMaterial(evento){
-    
-}
-
 function validarCliente(evento){
     
     var oEvento = evento || window.event;  
@@ -758,6 +753,53 @@ function actualizarSelectProveedores(sNombre,sId){
     oOption.text=sNombre;
     oSelect.appendChild(oOption);
  
+}
+
+/*MATERIALES*/
+function validarMaterial(evento){
+    var oEvento=evento||window.event;
+    oEvento.preventDefault();
+    if(validarCamposTextoMaterial()){
+        return true;
+    }
+    else{
+        alert("error");
+        return false;
+    }
+}
+
+function validarCamposTextoMaterial(){
+    var sId=document.getElementById('idMaterial').value;
+    var sTipo=document.getElementById('tipoMaterial').value;
+    var iCantidad=document.getElementById('cantidadMaterial').value;
+    var oProveedor=document.getElementById('proveedorMaterial').value;
+    var bValido=true;
+    var patronId=/([A-Z]{1})+([0-9]{5})/;
+    var patronCantidad=/([0-9]{0,10})/;
+    
+    if(!patronId.test(sId)){
+        var oBloque=document.getElementById('bloqueIdMaterial');
+        oBloque.className='form-group has-error';
+        bValido=false;
+    }
+    else{
+        var oBloque=document.getElementById('bloqueIdMaterial');
+        oBloque.className='formGroup';
+    }
+    if(!patronCantidad(iCantidad)){
+        var oBloque=document.getElementById('bloqueCantidadMaterial');
+        oBloque.className='form-group has-error';
+        bValido=false;
+    }
+    else{
+        var oBloque=document.getElementById('bloqueCantidadMaterial');
+        oBloque.className='formGroup';
+    }
+    if(bValido){
+        var oMaterial=new Material(sId, sTipo, iCantidad, oProveedor);
+        oClinica.altaCliente(oMaterial);
+    }
+    return bValido;
 }
 
 function actualizarSelectMateriales(){
