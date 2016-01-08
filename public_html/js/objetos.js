@@ -529,3 +529,27 @@ function Material(sId, sTipo, iCantidad, oProveedor){
     this.cantidad=iCantidad;
     this.proveedor=oProveedor;
 }
+Clinica.prototype.altaMaterial=function(oMaterial){ 
+    var oMaterialExistente=this.buscaMaterial(oMaterial.id);
+    if(typeof oMaterialExistente==="undefined"){   
+        this.materiales.push(oMaterial);
+        alert("Material añadido.");
+    }
+    else{
+        alert("Ya existe un material con este ID.");
+    }
+};
+Clinica.prototype.buscaMaterial=function(sId){
+    var oMaterial;
+    if(this.materiales.length<1){
+        
+    }
+    else{
+        for(var i=0;i<this.materiales.length;i++){
+            if(this.materiales[i].id===sId){
+                oMaterial=this.materiales[i];
+            }
+        }
+    }
+    return oMaterial;
+};
