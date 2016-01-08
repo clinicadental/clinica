@@ -392,7 +392,7 @@ function mostrarListadoSalas(){
 /*VALIDACIONES*/
 function validarSinNumeros(evento){
     
-    var oEvento = evento || window.event
+    var oEvento = evento || window.event;
 	
     var codigoChar = oEvento.charCode || oEvento.keyCode; 
 		
@@ -411,7 +411,7 @@ function validarMaterial(evento){
 
 function validarCliente(evento){
     
-    var oEvento = evento || window.event  
+    var oEvento = evento || window.event;  
     
     oEvento.preventDefault(); 
     
@@ -516,7 +516,7 @@ function actualizarSelectCliente(sNombre,sApellidos,sId){
 
 function validarCita(evento){
     
-    var oEvento = evento || window.event  
+    var oEvento = evento || window.event;
     
     oEvento.preventDefault(); 
     
@@ -628,7 +628,7 @@ function validarCamposTextoCita(){
 
 function validarProveedor(evento){
     
-    var oEvento = evento || window.event  
+    var oEvento = evento || window.event;
     
     oEvento.preventDefault(); 
     
@@ -734,7 +734,7 @@ function actualizarSelectMateriales(){
 
 function validarPersonal(evento){
     
-    var oEvento = evento || window.event  
+    var oEvento = evento || window.event;  
     
     oEvento.preventDefault(); 
     
@@ -1087,7 +1087,7 @@ function listarPersonal(evento){
     
     mostrarListadoPersonal();
     
-    var oEvento = evento || window.event  
+    var oEvento = evento || window.event;  
     
     oEvento.preventDefault(); 
     
