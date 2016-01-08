@@ -770,12 +770,13 @@ function validarMaterial(evento){
 
 function validarCamposTextoMaterial(){
     var sId=document.getElementById('idMaterial').value;
-    var sTipo=document.getElementById('tipoMaterial').value;
+    var sTipo=document.getElementById('tipoMaterial');
     var iCantidad=document.getElementById('cantidadMaterial').value;
-    var oProveedor=document.getElementById('proveedorMaterial').value;
+    var oProveedor=document.getElementById('proveedorMaterial');
     var bValido=true;
+    
     var patronId=/([A-Z]{1})+([0-9]{5})/;
-    var patronCantidad=/([0-9]{0,10})/;
+    var patronCantidad=/([1-9]{1,10})/;
     
     if(!patronId.test(sId)){
         var oBloque=document.getElementById('bloqueIdMaterial');
@@ -784,17 +785,44 @@ function validarCamposTextoMaterial(){
     }
     else{
         var oBloque=document.getElementById('bloqueIdMaterial');
-        oBloque.className='formGroup';
+        oBloque.className='form-group';
     }
-    if(!patronCantidad(iCantidad)){
+    if(!patronCantidad.test(iCantidad)){
         var oBloque=document.getElementById('bloqueCantidadMaterial');
         oBloque.className='form-group has-error';
         bValido=false;
     }
     else{
         var oBloque=document.getElementById('bloqueCantidadMaterial');
-        oBloque.className='formGroup';
+        oBloque.className='form-group';
     }
+    
+    if(oProveedor.selectedIndex=="0"){
+        
+        var oBloque=document.getElementById("bloqueProveedorMaterial");
+        oBloque.className='form-group has-error';
+        bValido=false;
+    }
+    else{
+        
+        var oBloque=document.getElementById("bloqueProveedorMaterial");
+        oBloque.className='form-group';
+    }
+    
+    if(sTipo.selectedIndex=="0"){
+        
+        var oBloque=document.getElementById("bloqueTipoMaterial");
+        oBloque.className='form-group has-error';
+        bValido=false;
+    }
+    else{
+        
+        var oBloque=document.getElementById("bloqueTipoMaterial");
+        oBloque.className='form-group';
+    }
+    
+    
+    
     if(bValido){
         var oMaterial=new Material(sId, sTipo, iCantidad, oProveedor);
         oClinica.altaMaterial(oMaterial);
