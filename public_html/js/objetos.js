@@ -140,6 +140,43 @@ Clinica.prototype.altaCita=function(oCita,oCliente,oDentista){
     alert("Cita añadida");
 }
 
+Clinica.prototype.altaPago=function(oPago){
+    
+    var oPagoExistente=this.buscaPago(oPago.id);
+    
+    if(typeof oPagoExistente==="undefined"){
+        
+        this.proveedores.push(oPago);
+        alert("Pago añadido");
+    }
+    else{
+        
+        alert("Ya existe un pago con ese ID");
+    }
+}
+
+Clinica.prototype.buscaPago=function(sId){
+    
+    var oPago;
+    
+    if(this.pagos.length<1){
+        
+    }
+    else{
+        
+        for(var i=0;i<this.pagos.length;i++){
+            
+            if(this.pagos[i].id===sId){
+                
+                oPago=this.pagos[i];
+            }
+        }
+    }
+    
+    return oPago;
+}
+
+
 //1. PERSONAL
 function Personal(iId, sNombre, sApellidos, dFechaAlta){
     this.id=iId;
@@ -387,10 +424,11 @@ Cliente.prototype.toHTMLRow=function(){
 }
 
 //4. PAGO
-function Pago(iId, fImporte, bPagado){
+function Pago(iId, fImporte, bPagado, oCliente){
     this.id=iId;
     this.importe=fImporte;
-    this.pagado=bPagado;	
+    this.pagado=bPagado;
+    this.cliente=oCliente;
 }
 
 //5. SALA

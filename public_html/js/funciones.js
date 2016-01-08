@@ -90,8 +90,8 @@ function asignarEventos(){
     document.getElementById("apellidosCliente").addEventListener('keypress',validarSinNumeros,false);
     document.getElementById("nombreProveedor").addEventListener('keypress',validarSinNumeros,false);
     
-    /*var oFormPago=document.getElementById("btnAltaPago");
-    oFormPago.addEventListener('click', validarPago, false);*/
+    var oFormPago=document.getElementById("btnAltaPago");
+    oFormPago.addEventListener('click', validarPago, false);
     var oAltaPago=document.getElementById('altaPago');
     oAltaPago.addEventListener('click',mostrarFormAltaPago,false);
     /*var oListadoPagos=document.getElementById("listaPagos");
@@ -880,27 +880,55 @@ function validarCamposTextoPago(){
     var iCantidad=document.getElementById("cantidadPago").value;
     var bPagada=document.getElementById("citaPagada").checked;
     var oCliente=document.getElementById("clientePago");
-    
     var bValido=true;
     
-    if(oDentista.selectedIndex=="0"){
+    var patronId=/([A-Z]{1})+([0-9]{5})/;
+    
+    if(oCliente.selectedIndex=="0"){
         
-        var oBloque=document.getElementById("bloqueDentistaCita");
+        var oBloque=document.getElementById("bloqueClientePago");
         oBloque.className='form-group has-error';
         bValido=false;
     }
     else{
         
-        var oBloque=document.getElementById("bloqueDentistaCita");
+        var oBloque=document.getElementById("bloqueClientePago");
         oBloque.className='form-group';
     }
     
-    if(oCliente.selectedIndex=="0"){
+    if(!patronId.test(sId)){
         
-        var oBloque=document.getElementById("bloqueClienteCita");
+        var oBloque=document.getElementById("bloqueIdPago");
         oBloque.className='form-group has-error';
         bValido=false;
     }
+    else{
+        
+        var oBloque=document.getElementById("bloqueIdPago");
+        oBloque.className='form-group';
+
+    }
+    
+    if(isNaN(iCantidad) || iCantidad==""){
+        var oBloque=document.getElementById("bloqueCantidadPago");
+        oBloque.className='form-group has-error';
+        bValido=false;
+    }
+    else{
+        
+        var oBloque=document.getElementById("bloqueCantidadPago");
+        oBloque.className='form-group';
+
+    }
+    
+    if(bValido){
+        
+         oCliente=oClinica.buscaCliente(oCliente.value);
+        var oPago=new Pago(sId, iCantidad, bPagada, oCliente);
+        oClinica.altaPago(oPago);
+    }
+    
+    return bValido;
 }
 function actualizarSelectSalas(){
     
