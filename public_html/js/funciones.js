@@ -3,6 +3,7 @@ window.addEventListener('load',calendario1,false);
 window.addEventListener('load',calendario2,false);
 var oClinica=new Clinica();
 actualizarSelectSalas();
+actualizarSelectMateriales();
 
 function calendario1(){
     
@@ -694,6 +695,26 @@ function validarCamposTextoProveedor(){
     
     return bValido;
 }
+
+function actualizarSelectMateriales(){
+    
+    var listaMateriales=new Array()
+    
+    listaMateriales=["Anestesia","Instrumental para cirugía","Instrumental para profilaxis","Material de endodoncia","Material para prótesis","Porcelana","Uniformes","Utensilios"];
+	
+    var oSelect=document.getElementById("tipoMaterial");
+    
+    for(var i=0;i<listaMateriales.length;i++){
+        
+        var oOption=document.createElement("option");
+        oOption.value=listaMateriales[i];
+        oOption.text=listaMateriales[i];
+        oSelect.appendChild(oOption);
+    }
+
+}
+
+
 
 function validarPersonal(evento){
     
