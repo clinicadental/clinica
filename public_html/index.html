@@ -27,7 +27,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="#" id='altaCliente'>Añadir</a></li>
                             <li><a href="#">Modificar</a></li>
-                            <li><a href="#">Eliminar</a></li>
+                            <li><a href="#" id="bajaClientes">Eliminar</a></li>
                             <li class="divider"></li>
                             <li><a href="#" id="listaClientes">Listado</a></li>
                         </ul>
@@ -328,6 +328,22 @@
                     </div>
                 </form>
             </div>
+        </div>
+        <!--BAJA CLIENTE-->
+        <div class='col-xs-4 col-xs-offset-4' id='form-baja-clientes'>
+                    <h2>Borrar cliente</h2>
+                <form method='post' class='form-horizontal' name='formBajaCliente'>
+                     <div class='form-group' id="bloqueBajaCliente">
+                        <label class='control-label' for='bajaCliente'>Cliente</label>
+                        <select class='form-control' id='bajaCliente'>
+                            <option>--seleccione un cliente--</option>
+                        </select>
+                    </div>
+                    <div class='form-group'>
+                        <input type='submit' class='btn btn-primary' value='Enviar' id='btnBajaCliente'/>
+                        <input type='reset' class='btn btn-warning' value='Borrar'/>
+                    </div>
+                </form>
         </div>
         
         <!--LISTADO CLIENTES-->

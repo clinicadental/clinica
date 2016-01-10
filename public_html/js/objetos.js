@@ -81,6 +81,19 @@ Clinica.prototype.buscaCliente=function(sId){
     return oCliente;
 }
 
+Clinica.prototype.bajaCliente=function(oCliente){
+    
+    for(var i=0;i<this.clientes.length;i++){
+        
+        if(oCliente==this.clientes[i]){
+            
+            this.clientes.splice(i,1);
+            actualizarSelectCliente();
+            alert("Cliente borrado");
+        }
+    }
+}
+
 Clinica.prototype.altaProveedor=function(oProveedor){
     
     var oProveedorExistente=this.buscaProveedor(oProveedor.id);
