@@ -515,7 +515,7 @@ function mostrarListadoPagos(){
     var oListado=document.querySelector("#listadoProveedores");
     oListado.style.display="none";
     var oListado=document.querySelector("#listadoPersonal");
-    oListado.style.display="block";
+    oListado.style.display="none";
     var oListado=document.querySelector("#listadoSalas");
     oListado.style.display="none";
     var oListado=document.querySelector("#listadoPagos");
