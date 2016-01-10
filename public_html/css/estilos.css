@@ -51,3 +51,28 @@
     top: 11px;
     left: -6px;
 }
+
+#capaTransparente {
+				position:fixed;
+				top:0px;
+				left:0px;
+				height:100%;
+				width:100%;
+				background-color:white;
+				opacity:0.5;
+				z-index:-1;
+			}
+			#mensajes {
+				display:none;
+				border:thin black solid;
+				border-radius: 15px;
+				background-color:#2ECCFA;
+				width:30%;
+				height:150px;
+				top:100px;
+				left:37%;
+				position: fixed;
+				text-align:center;
+				z-index: 2;
+				
+			}

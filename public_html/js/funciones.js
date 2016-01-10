@@ -102,6 +102,9 @@ function asignarEventos(){
     
     var oListadoSalas=document.getElementById("listaSalas");
     oListadoSalas.addEventListener('click',listarSalas,false);
+    
+    var oBotonMensaje=document.getElementById("btnMensaje");
+    oBotonMensaje.addEventListener('click', ocultarMensaje, false);
 }
 
 /*MOSTRAR FORMULARIOS*/
@@ -583,7 +586,7 @@ function validarCliente(evento){
     }
     else{
           
-       alert("error");
+       mensaje("error");
        return false;
     } 
 }
@@ -674,7 +677,7 @@ function validarBajaCliente(evento){
     }
     else{
           
-       alert("error");
+       mensaje("error");
        return false;
     } 
 }
@@ -777,7 +780,7 @@ function validarCita(evento){
     }
     else{
           
-       alert("error");
+       mensaje("error");
        return false;
     } 
 }
@@ -890,7 +893,7 @@ function validarProveedor(evento){
     }
     else{
           
-       alert("error");
+       mensaje("error");
        return false;
     }
 }
@@ -972,7 +975,7 @@ function validarMaterial(evento){
         return true;
     }
     else{
-        alert("error");
+        mensaje("error");
         return false;
     }
 }
@@ -1075,7 +1078,7 @@ function validarPersonal(evento){
     }
     else{
           
-       alert("error");
+       mensaje("error");
        return false;
     }
 }
@@ -1201,7 +1204,7 @@ function validarPago(evento){
     }
     else{
           
-       alert("error");
+       mensaje("error");
        return false;
     } 
 }
@@ -1924,4 +1927,38 @@ function listarSalas(){
     tabla.appendChild(tBody);
     oBloque.appendChild(titulo);
     oBloque.appendChild(tabla);
+}
+
+function mensaje(sMensaje){
+	
+    var oTextoMensaje = document.getElementById("textoMensaje");
+			
+    var texto = document.createTextNode(sMensaje);
+    
+    oTextoMensaje.appendChild(texto);
+			
+    var oCapaMensaje = document.getElementById("mensajes");
+			
+    oCapaMensaje.style.display = "block";
+			
+    var oCapaTransparente = document.getElementById("capaTransparente");
+    var oCapaTransparente1 = document.getElementById("capaTransparente");
+			
+    oCapaTransparente.style.zIndex = 1;
+    oCapaTransparente.style.display ="block";
+    oCapaTransparente1.style.zIndex = 1;
+    oCapaTransparente1.style.display ="block";
+			
+		
+}
+		
+function ocultarMensaje(){
+    var oCapaMensaje = document.getElementById("mensajes");
+			
+    oCapaMensaje.style.display = "none";
+    var oCapaTransparente = document.getElementById("capaTransparente");
+    var oCapaTransparente1 = document.getElementById("capaTransparente");
+			
+    oCapaTransparente.style.zIndex = -1;
+    oCapaTransparente1.style.zIndex = -1;
 }

@@ -16,11 +16,11 @@ Clinica.prototype.altaPersonal=function(oPersonal){
     if(typeof oPersonalExistente==="undefined"){
         
         this.personal.push(oPersonal);
-        alert("Personal añadido");
+        mensaje("Personal añadido");
     }
     else{
         
-        alert("Ya existe un miembro con ese ID");
+        mensaje("Ya existe un miembro con ese ID");
     }
 }
 
@@ -52,11 +52,11 @@ Clinica.prototype.altaCliente=function(oCliente){
     if(typeof oClienteExistente==="undefined"){
         
         this.clientes.push(oCliente);
-        alert("Cliente añadido");
+        mensaje("Cliente añadido");
     }
     else{
         
-        alert("Ya existe un cliente con ese ID");
+        mensaje("Ya existe un cliente con ese ID");
     }
 }
 
@@ -89,7 +89,7 @@ Clinica.prototype.bajaCliente=function(oCliente){
             
             this.clientes.splice(i,1);
             actualizarSelectCliente();
-            alert("Cliente borrado");
+            mensaje("Cliente borrado");
         }
     }
 }
@@ -101,11 +101,11 @@ Clinica.prototype.altaProveedor=function(oProveedor){
     if(typeof oProveedorExistente==="undefined"){
         
         this.proveedores.push(oProveedor);
-        alert("Proveedor añadido");
+        mensaje("Proveedor añadido");
     }
     else{
         
-        alert("Ya existe un proveedor con ese ID");
+        mensaje("Ya existe un proveedor con ese ID");
     }
 }
 
@@ -134,10 +134,10 @@ Clinica.prototype.altaMaterial=function(oMaterial){
     var oMaterialExistente=this.buscaMaterial(oMaterial.id);
     if(typeof oMaterialExistente==="undefined"){   
         this.materiales.push(oMaterial);
-        alert("Material añadido.");
+        mensaje("Material añadido.");
     }
     else{
-        alert("Ya existe un material con este ID.");
+        mensaje("Ya existe un material con este ID.");
     }
 };
 Clinica.prototype.buscaMaterial=function(sId){
@@ -175,7 +175,7 @@ Clinica.prototype.altaCita=function(oCita,oCliente,oDentista){
         }
     }
     
-    alert("Cita añadida");
+    mensaje("Cita añadida");
 }
 
 Clinica.prototype.altaPago=function(oPago){
@@ -185,11 +185,11 @@ Clinica.prototype.altaPago=function(oPago){
     if(typeof oPagoExistente==="undefined"){
         
         this.pagos.push(oPago);
-        alert("Pago añadido");
+        mensaje("Pago añadido");
     }
     else{
         
-        alert("Ya existe un pago con ese ID");
+        mensaje("Ya existe un pago con ese ID");
     }
 }
 
