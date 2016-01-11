@@ -1992,4 +1992,14 @@ function limpiaCampos(){
     for(l=0;l<textAreas.length;l++){
         textAreas[l].value="";
     }
+    var radioInputs=document.querySelectorAll("input[type='radio']");
+    var m;
+    for(m=0;m<radioInputs.length;m++){
+        if(radioInputs[m].value==="1"){
+            radioInputs[m].checked=true;
+        }
+        else{
+            radioInputs[m].checked=false;
+        }
+    }
 }
