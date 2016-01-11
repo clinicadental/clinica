@@ -658,6 +658,7 @@ function validarCamposTextoCliente(){
         
         var oCliente=new Cliente(sId, sNombre, sApellidos, iTelefono);
         oClinica.altaCliente(oCliente);
+        limpiaCampos();
         actualizarSelectCliente();
         
     }
@@ -1929,6 +1930,7 @@ function listarSalas(){
     oBloque.appendChild(tabla);
 }
 
+/*MENSAJES DE ALERTA*/
 function mensaje(sMensaje){
 	
     var oTextoMensaje = document.getElementById("textoMensaje");
@@ -1947,9 +1949,7 @@ function mensaje(sMensaje){
     oCapaTransparente.style.zIndex = 1;
     oCapaTransparente.style.display ="block";
     oCapaTransparente1.style.zIndex = 1;
-    oCapaTransparente1.style.display ="block";
-			
-		
+    oCapaTransparente1.style.display ="block";		
 }
 		
 function ocultarMensaje(){
@@ -1961,4 +1961,9 @@ function ocultarMensaje(){
 			
     oCapaTransparente.style.zIndex = -1;
     oCapaTransparente1.style.zIndex = -1;
+}
+
+/*LIMPIA CAMPOS*/
+function limpiaCampos(){
+    document.querySelector("input[type='text']").value="";
 }
