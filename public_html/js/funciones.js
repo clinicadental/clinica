@@ -714,6 +714,7 @@ function validarCamposBajaCliente(){
                 Está seguro de borrar?")){
             
             oClinica.bajaCliente(oCliente);
+            limpiaCampos();
         }
     }
     
@@ -876,6 +877,7 @@ function validarCamposTextoCita(){
         sSala=sSala.value;
         var oCita=new Cita(oDentista,oCliente,sFecha,sSala,sProcedimiento,sDescripcion,bAtendida);
         oClinica.altaCita(oCita,oCliente,oDentista);
+        limpiaCampos();
     }
     
     return bValido;
@@ -953,6 +955,7 @@ function validarCamposTextoProveedor(){
         var oProveedor=new Proveedor(sId, sNombre, iTelefono);
         actualizarSelectProveedores(sNombre,sId);
         oClinica.altaProveedor(oProveedor);
+        limpiaCampos();
     }
     
     return bValido;
@@ -1044,6 +1047,7 @@ function validarCamposTextoMaterial(){
         oProveedor=oClinica.buscaProveedor(oProveedor);
         var oMaterial=new Material(sId, sTipo, iCantidad, oProveedor);
         oClinica.altaMaterial(oMaterial);
+        limpiaCampos();
     }
     return bValido;
 }
@@ -1157,6 +1161,7 @@ function validarCamposTextoPersonal(){
                 oBloque.className='form-group';
                 var oPersonal=new Administrativo(sId, sNombre, sApellidos, sFecha, iDepart);
                 oClinica.altaPersonal(oPersonal);
+                limpiaCampos();
             }   
 
         }
@@ -1174,6 +1179,7 @@ function validarCamposTextoPersonal(){
                     oBloque.className='form-group';
                     var oPersonal=new Dentista(sId, sNombre, sApellidos, sFecha, iNumCol);
                     oClinica.altaPersonal(oPersonal);
+                    limpiaCampos();
                     actualizarSelectDentista(sNombre,sApellidos,sId);
                 }
             }
@@ -1262,6 +1268,7 @@ function validarCamposTextoPago(){
          oCliente=oClinica.buscaCliente(oCliente.value);
         var oPago=new Pago(sId, iCantidad, bPagada, oCliente);
         oClinica.altaPago(oPago);
+        limpiaCampos();
     }
     
     return bValido;
@@ -1965,5 +1972,24 @@ function ocultarMensaje(){
 
 /*LIMPIA CAMPOS*/
 function limpiaCampos(){
-    document.querySelector("input[type='text']").value="";
+    var textInputs=document.querySelectorAll("input[type='text']");
+    var i;
+    for(i=0;i<textInputs.length;i++){
+        textInputs[i].value="";
+    }
+    var selectInputs=document.querySelectorAll("select");
+    var j;
+    for(j=0;j<selectInputs.length;j++){
+        selectInputs[j].selectedIndex=0;
+    }
+    var checkInputs=document.querySelectorAll("input[type='checkbox']");
+    var k;
+    for(k=0;k<checkInputs.length;k++){
+        checkInputs[k].checked=false;
+    }
+    var textAreas=document.querySelectorAll("textarea");
+    var l;
+    for(l=0;l<textAreas.length;l++){
+        textAreas[l].value="";
+    }
 }
