@@ -1,26 +1,9 @@
 var oClinica=new Clinica();
-
 window.addEventListener('load',asignarEventos,false);
 window.addEventListener('load',calendario1,false);
 window.addEventListener('load',calendario2,false);
 actualizarSelectSalas();
 actualizarSelectMateriales();
-
-/*CALENDARIOS*/
-function calendario1(){
-    Calendar.setup({
-    inputField: "fecha",
-    ifFormat:   "%d / %m / %Y",
-    button:     "selector"
-  });
-}
-function calendario2(){   
-    Calendar.setup({
-    inputField: "fechaCita",
-    ifFormat:   "%d / %m / %Y",
-    button:     "selector2"
-  });
-}
 
 /*COMPROBAR RADIO*/
 function comprobarRadio(){
@@ -2002,4 +1985,11 @@ function limpiaCampos(){
             radioInputs[m].checked=false;
         }
     }
+}
+
+/*CALENDARIOS*/
+function calendario1(){
+    Calendar.setup({inputField: "fecha", ifFormat: "%d / %m / %Y", button: "selector"});
+}
+function calendario2(){Calendar.setup({inputField: "fechaCita", ifFormat: "%d / %m / %Y", button: "selector2"});
 }
