@@ -22,7 +22,7 @@ Clinica.prototype.altaPersonal=function(oPersonal){
         
         mensaje("Ya existe un miembro con ese ID");
     }
-}
+};
 
 Clinica.prototype.buscaPersonal=function(sId){
     
@@ -43,7 +43,7 @@ Clinica.prototype.buscaPersonal=function(sId){
     }
     
     return oPersonal;
-}
+};
 
 Clinica.prototype.altaCliente=function(oCliente){
     
@@ -58,7 +58,7 @@ Clinica.prototype.altaCliente=function(oCliente){
         
         mensaje("Ya existe un cliente con ese ID");
     }
-}
+};
 
 Clinica.prototype.buscaCliente=function(sId){
     
@@ -79,20 +79,20 @@ Clinica.prototype.buscaCliente=function(sId){
     }
     
     return oCliente;
-}
+};
 
 Clinica.prototype.bajaCliente=function(oCliente){
     
     for(var i=0;i<this.clientes.length;i++){
         
-        if(oCliente==this.clientes[i]){
+        if(oCliente===this.clientes[i]){
             
             this.clientes.splice(i,1);
             actualizarSelectCliente();
             mensaje("Cliente borrado");
         }
     }
-}
+};
 
 Clinica.prototype.altaProveedor=function(oProveedor){
     
@@ -107,7 +107,7 @@ Clinica.prototype.altaProveedor=function(oProveedor){
         
         mensaje("Ya existe un proveedor con ese ID");
     }
-}
+};
 
 Clinica.prototype.buscaProveedor=function(sId){
     
@@ -128,7 +128,7 @@ Clinica.prototype.buscaProveedor=function(sId){
     }
     
     return oProveedor;
-}
+};
 
 Clinica.prototype.altaMaterial=function(oMaterial){ 
     var oMaterialExistente=this.buscaMaterial(oMaterial.id);
@@ -161,7 +161,7 @@ Clinica.prototype.altaCita=function(oCita,oCliente,oDentista){
     
     for(var i=0;i<this.clientes.length;i++){
         
-        if(this.clientes[i]==oCliente){
+        if(this.clientes[i]===oCliente){
             
             this.clientes[i].citas.push(oCita);
         }
@@ -169,14 +169,14 @@ Clinica.prototype.altaCita=function(oCita,oCliente,oDentista){
     
     for(var i=0;i<this.personal.length;i++){
         
-        if(this.personal[i]==oDentista){
+        if(this.personal[i]===oDentista){
             
             this.personal[i].citas.push(oCita);
         }
     }
     
     mensaje("Cita añadida");
-}
+};
 
 Clinica.prototype.altaPago=function(oPago){
     
@@ -191,7 +191,7 @@ Clinica.prototype.altaPago=function(oPago){
         
         mensaje("Ya existe un pago con ese ID");
     }
-}
+};
 
 Clinica.prototype.buscaPago=function(sId){
     
@@ -212,7 +212,7 @@ Clinica.prototype.buscaPago=function(sId){
     }
     
     return oPago;
-}
+};
 
 
 //1. PERSONAL
@@ -263,7 +263,7 @@ Administrativo.prototype.toHTMLRow=function(){
     oFila.appendChild(celda6);
     
     return oFila;
-}
+};
 
 Administrativo.prototype.toHTMLRowSeparado=function(){
     
@@ -293,7 +293,7 @@ Administrativo.prototype.toHTMLRowSeparado=function(){
     oFila.appendChild(celda5);
     
     return oFila;
-}
+};
 
 //1.2. PERSONAL DENTISTA
 function Dentista(iId, sNombre, sApellidos, dFechaAlta, iNumero){
@@ -336,7 +336,7 @@ Dentista.prototype.toHTMLRow=function(){
     oFila.appendChild(celda6);
     
     return oFila;
-}
+};
 
 Dentista.prototype.toHTMLRowSeparado=function(){
     
@@ -366,7 +366,7 @@ Dentista.prototype.toHTMLRowSeparado=function(){
     oFila.appendChild(celda6);
     
     return oFila;
-}
+};
 
 //2. CITA
 function Cita(oDentista, oCliente, dFechaCita, iSala, sProcedimiento, sDescripcion, bAtendida){
@@ -425,7 +425,7 @@ Cita.prototype.toHTMLRow=function(){
     oFila.appendChild(celda7);
     
     return oFila;
-}
+};
 
 //3. CLIENTE
 function Cliente(iId, sNombre, sApellidos, sTelefono){
@@ -459,7 +459,7 @@ Cliente.prototype.toHTMLRow=function(){
     oFila.appendChild(celda4);
     
     return oFila;
-}
+};
 
 //4. PAGO
 function Pago(iId, fImporte, bPagado, oCliente){
@@ -501,7 +501,7 @@ Pago.prototype.toHTMLRow=function(){
     oFila.appendChild(celda4);
     
     return oFila;
-}
+};
 
 //5. SALA
 function Sala(iId, sNombre, sTipo){
@@ -529,7 +529,7 @@ Sala.prototype.toHTMLRow=function(){
     oFila.appendChild(celda3);
     
     return oFila;
-}
+};
 
 //6. PROVEEDOR
 function Proveedor(iId, sNombre, sTelefono){
@@ -557,7 +557,7 @@ Proveedor.prototype.toHTMLRow=function(){
     oFila.appendChild(celda3);
     
     return oFila;
-}
+};
 
 
 //7. MATERIAL
@@ -591,4 +591,4 @@ Material.prototype.toHTMLRow=function(){
     oFila.appendChild(celda4);
     
     return oFila;
-}
+};
