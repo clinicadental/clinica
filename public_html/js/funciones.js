@@ -11,14 +11,14 @@ function comprobarRadio(){
     var sTipo=document.formPersonal.tipo.value;
     
     
-    if(sTipo==="1"){
+    if(sTipo=="1"){
         
         document.getElementById("bloqueAdmin").style.display="block";
 	document.getElementById("bloqueDentista").style.display="none";
     }
     else{
         
-        if(sTipo==="2"){
+        if(sTipo=="2"){
             
             document.getElementById("bloqueAdmin").style.display="none";
             document.getElementById("bloqueDentista").style.display="block";
@@ -549,9 +549,9 @@ function validarSinNumeros(evento){
 		
     var caracter = String.fromCharCode(codigoChar);
     
-    if (caracter === "0" || caracter === "1" || caracter === "2" ||caracter === "3" || 
-        caracter === "4" || caracter === "5" || caracter === "6" || caracter === "7" || 
-        caracter === "8" ||caracter === "9"){			
+    if (caracter == "0" || caracter == "1" || caracter == "2" ||caracter == "3" || 
+        caracter == "4" || caracter == "5" || caracter == "6" || caracter == "7" || 
+        caracter == "8" ||caracter == "9"){			
             oEvento.preventDefault();
     }
 }
@@ -598,7 +598,7 @@ function validarCamposTextoCliente(){
 
     }
     
-    if(sNombre===""){
+    if(sNombre==""){
         
         var oBloque=document.getElementById("bloqueNombreCliente");
         oBloque.className='form-group has-error';
@@ -611,7 +611,7 @@ function validarCamposTextoCliente(){
 
     }
     
-    if(sApellidos===""){
+    if(sApellidos==""){
         
         var oBloque=document.getElementById("bloqueApellidosCliente");
         oBloque.className='form-group has-error';
@@ -671,7 +671,7 @@ function validarCamposBajaCliente(){
     var oCliente=document.getElementById("bajaCliente");
     var bValido=true;
     
-    if(oCliente.selectedIndex==="0"){
+    if(oCliente.selectedIndex=="0"){
         
         var oBloque=document.getElementById("bloqueBajaCliente");
         oBloque.className='form-group has-error';
@@ -781,7 +781,7 @@ function validarCamposTextoCita(){
     var bAtendida=document.getElementById("atendidaCita").checked;
     var bValido=true;
     
-    if(oDentista.selectedIndex==="0"){
+    if(oDentista.selectedIndex=="0"){
         
         var oBloque=document.getElementById("bloqueDentistaCita");
         oBloque.className='form-group has-error';
@@ -793,7 +793,7 @@ function validarCamposTextoCita(){
         oBloque.className='form-group';
     }
     
-    if(oCliente.selectedIndex==="0"){
+    if(oCliente.selectedIndex=="0"){
         
         var oBloque=document.getElementById("bloqueClienteCita");
         oBloque.className='form-group has-error';
@@ -805,7 +805,7 @@ function validarCamposTextoCita(){
         oBloque.className='form-group';
     }
     
-    if(sFecha===""){
+    if(sFecha==""){
         
         var oBloque=document.getElementById("bloqueFechaCita");
         oBloque.className='form-group has-error';
@@ -817,7 +817,7 @@ function validarCamposTextoCita(){
         oBloque.className='form-group';
     }
     
-    if(sSala.selectedIndex==="0"){
+    if(sSala.selectedIndex=="0"){
         
         var oBloque=document.getElementById("bloqueSalaCita");
         oBloque.className='form-group has-error';
@@ -829,7 +829,7 @@ function validarCamposTextoCita(){
         oBloque.className='form-group';
     }
     
-    if(sProcedimiento===""){
+    if(sProcedimiento==""){
         
         var oBloque=document.getElementById("bloqueProcedimiento");
         oBloque.className='form-group has-error';
@@ -841,7 +841,7 @@ function validarCamposTextoCita(){
         oBloque.className='form-group';
     }
     
-    if(sDescripcion===""){
+    if(sDescripcion==""){
         
         var oBloque=document.getElementById("bloqueDescripcion");
         oBloque.className='form-group has-error';
@@ -907,7 +907,7 @@ function validarCamposTextoProveedor(){
 
     }
     
-    if(sNombre===""){
+    if(sNombre==""){
         
         var oBloque=document.getElementById("bloqueNombreProveedor");
         oBloque.className='form-group has-error';
@@ -996,7 +996,7 @@ function validarCamposTextoMaterial(){
         oBloque.className='form-group';
     }
     
-    if(oProveedor.selectedIndex==="0"){
+    if(oProveedor.selectedIndex=="0"){
         
         var oBloque=document.getElementById("bloqueProveedorMaterial");
         oBloque.className='form-group has-error';
@@ -1009,7 +1009,7 @@ function validarCamposTextoMaterial(){
         oProveedor=oProveedor.value;
     }
     
-    if(sTipo.selectedIndex==="0"){
+    if(sTipo.selectedIndex=="0"){
         
         var oBloque=document.getElementById("bloqueTipoMaterial");
         oBloque.className='form-group has-error';
@@ -1098,7 +1098,7 @@ function validarCamposTextoPersonal(){
 
     }
     
-    if(sNombre===""){
+    if(sNombre==""){
         
         var oBloque=document.getElementById("bloque-alta-nombre");
         oBloque.className='form-group has-error';
@@ -1111,7 +1111,7 @@ function validarCamposTextoPersonal(){
 
     }
     
-    if(sApellidos===""){
+    if(sApellidos==""){
         
         var oBloque=document.getElementById("bloque-alta-apellido");
         oBloque.className='form-group has-error';
@@ -1124,13 +1124,13 @@ function validarCamposTextoPersonal(){
 
     }
     
-    if(sFecha===""){
+    if(sFecha==""){
         
         bValido=false;
     }
     
     if (bValido){
-        if(sTipo==="1"){
+        if(sTipo=="1"){
 
             if(isNaN(iDepart) || iDepart===""){
 
@@ -1149,7 +1149,7 @@ function validarCamposTextoPersonal(){
 
         }
         else{
-            if(sTipo==="2"){
+            if(sTipo=="2"){
                 if(!patronNum.test(iNumCol)){
 
                     var oBloque=document.getElementById("bloqueNumColeg");
@@ -1209,7 +1209,7 @@ function validarCamposTextoPago(){
     
     var patronId=/([A-Z]{1})+([0-9]{5})/;
     
-    if(oCliente.selectedIndex==="0"){
+    if(oCliente.selectedIndex=="0"){
         
         var oBloque=document.getElementById("bloqueClientePago");
         oBloque.className='form-group has-error';
@@ -1234,7 +1234,7 @@ function validarCamposTextoPago(){
 
     }
     
-    if(isNaN(iCantidad) || iCantidad===""){
+    if(isNaN(iCantidad) || iCantidad==""){
         var oBloque=document.getElementById("bloqueCantidadPago");
         oBloque.className='form-group has-error';
         bValido=false;
@@ -1291,7 +1291,7 @@ function listarClientes(){
         oBloque.removeChild(oBloque.firstChild);
     }
     
-    if(oClinica.clientes.length!=="0"){
+    if(oClinica.clientes.length!="0"){
     
         var titulo=document.createElement("h2");
         titulo.setAttribute("class","text-center");
@@ -1358,7 +1358,7 @@ function listarCitas(){
         oBloque.removeChild(oBloque.firstChild);
     }
     
-    if(oClinica.citas.length!=="0"){
+    if(oClinica.citas.length!="0"){
         
     
         var titulo=document.createElement("h2");
@@ -1438,7 +1438,7 @@ function listarProveedores(){
         oBloque.removeChild(oBloque.firstChild);
     }
     
-    if(oClinica.proveedores.length!=="0"){
+    if(oClinica.proveedores.length!="0"){
         
         var titulo=document.createElement("h2");
         titulo.setAttribute("class","text-center");
@@ -1501,7 +1501,7 @@ function listarMateriales(){
         oBloque.removeChild(oBloque.firstChild);
     }
     
-    if(oClinica.materiales.length!=="0"){
+    if(oClinica.materiales.length!="0"){
         
         var titulo=document.createElement("h2");
         titulo.setAttribute("class","text-center");
@@ -1574,9 +1574,9 @@ function listarPersonal(evento){
         oBloque.removeChild(oBloque.firstChild);
     }
     
-    if(oClinica.personal.length!=="0"){
+    if(oClinica.personal.length!="0"){
         
-        if(oFiltro==="1"){
+        if(oFiltro=="1"){
 
             var titulo=document.createElement("h2");
             titulo.setAttribute("class","text-center");
@@ -1652,7 +1652,7 @@ function listarPersonal(evento){
         }
         else{
 
-            if(oFiltro==="2"){
+            if(oFiltro=="2"){
                 
                 var iCont=0;
                 var titulo=document.createElement("h2");
@@ -1811,7 +1811,7 @@ function listarPago(){
         oBloque.removeChild(oBloque.firstChild);
     }
     
-    if(oClinica.pagos.length!=="0"){
+    if(oClinica.pagos.length!="0"){
         
         var titulo=document.createElement("h2");
         titulo.setAttribute("class","text-center");
@@ -1978,7 +1978,7 @@ function limpiaCampos(){
     var radioInputs=document.querySelectorAll("input[type='radio']");
     var m;
     for(m=0;m<radioInputs.length;m++){
-        if(radioInputs[m].value==="1"){
+        if(radioInputs[m].value=="1"){
             radioInputs[m].checked=true;
         }
         else{
