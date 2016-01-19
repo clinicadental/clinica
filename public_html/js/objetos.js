@@ -178,6 +178,40 @@ Clinica.prototype.altaCita=function(oCita,oCliente,oDentista){
     mensaje("Cita añadida");
 };
 
+Clinica.prototype.buscaCita=function(procedimiento){
+    
+    var oCita;
+    
+    if(this.citas.length<1){
+        
+    }
+    else{
+        
+        for(var i=0;i<this.citas.length;i++){
+            
+            if(this.citas[i].procedimiento===procedimiento){
+                
+                oCita=this.citas[i];
+            }
+        }
+    }
+    
+    return oCita;
+};
+
+Clinica.prototype.bajaCita=function(oCita){
+    
+    for(var i=0;i<this.citas.length;i++){
+        
+        if(oCita===this.citas[i]){
+            
+            this.citas.splice(i,1);
+            actualizarSelectCita();
+            mensaje("Cita borrada");
+        }
+    }
+};
+
 Clinica.prototype.altaPago=function(oPago){
     
     var oPagoExistente=this.buscaPago(oPago.id);

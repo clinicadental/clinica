@@ -45,6 +45,10 @@ function asignarEventos(){
     oAltaCita.addEventListener('click',mostrarFormAltaCita,false);
     var oListadoCitas=document.getElementById("listaCitas");
     oListadoCitas.addEventListener('click',listarCitas,false);
+    var oBajaCita=document.getElementById("bajaCitas");
+    oBajaCita.addEventListener('click',mostrarFormBajaCita,false);
+    var oFormBajaCita=document.getElementById("btnBajaCita");
+    oFormBajaCita.addEventListener('click', validarBajaCita, false);
     
     var oFormProveedor=document.getElementById("btnAltaProveedor");
     oFormProveedor.addEventListener('click', validarProveedor, false);
@@ -106,6 +110,8 @@ function mostrarFormAltaCliente(){
     oFormularioPag.style.display="none";
     var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
     oFormularioBajaCliente.style.display="none";
+    var oFormularioBajaCita=document.querySelector("#form-baja-citas");
+    oFormularioBajaCita.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -138,6 +144,8 @@ function mostrarFormBajaCliente(){
     oFormularioPag.style.display="none";
     var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
     oFormularioBajaCliente.style.display="block";
+    var oFormularioBajaCita=document.querySelector("#form-baja-citas");
+    oFormularioBajaCita.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -170,6 +178,42 @@ function mostrarFormAltaCita(){
     oFormularioPag.style.display="none";
     var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
     oFormularioBajaCliente.style.display="none";
+    var oFormularioBajaCita=document.querySelector("#form-baja-citas");
+    oFormularioBajaCita.style.display="none";
+    
+    var oListado=document.querySelector("#listadoClientes");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoCitas");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoProveedores");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoPersonal");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoSalas");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoPagos");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoMateriales");
+    oListado.style.display="none";
+}
+
+function mostrarFormBajaCita(){
+    var oFormularioCli=document.querySelector("#form-alta-clientes");
+    oFormularioCli.style.display="none";
+    var oFormularioCit=document.querySelector("#form-alta-citas");
+    oFormularioCit.style.display="none";
+    var oFormularioPro=document.querySelector("#form-alta-proveedores");
+    oFormularioPro.style.display="none";
+    var oFormularioMat=document.querySelector("#form-alta-materiales");
+    oFormularioMat.style.display="none";
+    var oFormularioPer=document.querySelector("#form-alta-personal");
+    oFormularioPer.style.display="none";
+    var oFormularioPag=document.querySelector("#form-alta-pagos");
+    oFormularioPag.style.display="none";
+    var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
+    oFormularioBajaCliente.style.display="none";
+    var oFormularioBajaCita=document.querySelector("#form-baja-citas");
+    oFormularioBajaCita.style.display="block";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -202,6 +246,8 @@ function mostrarFormAltaProveedor(){
     oFormularioPag.style.display="none";
     var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
     oFormularioBajaCliente.style.display="none";
+    var oFormularioBajaCita=document.querySelector("#form-baja-citas");
+    oFormularioBajaCita.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -234,6 +280,8 @@ function mostrarFormAltaMaterial(){
     oFormularioPag.style.display="none";
     var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
     oFormularioBajaCliente.style.display="none";
+    var oFormularioBajaCita=document.querySelector("#form-baja-citas");
+    oFormularioBajaCita.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -268,6 +316,8 @@ function mostrarFormAltaPersonal(){
     oListado.style.display="none";
     var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
     oFormularioBajaCliente.style.display="none";
+    var oFormularioBajaCita=document.querySelector("#form-baja-citas");
+    oFormularioBajaCita.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -300,6 +350,8 @@ function mostrarFormAltaPago(){
     oFormularioPag.style.display="block";
     var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
     oFormularioBajaCliente.style.display="none";
+    var oFormularioBajaCita=document.querySelector("#form-baja-citas");
+    oFormularioBajaCita.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -333,6 +385,8 @@ function mostrarListadoClientes(){
     oFormularioPag.style.display="none";
     var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
     oFormularioBajaCliente.style.display="none";
+    var oFormularioBajaCita=document.querySelector("#form-baja-citas");
+    oFormularioBajaCita.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="block";
@@ -365,6 +419,8 @@ function mostrarListadoCitas(){
     oFormularioPag.style.display="none";
     var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
     oFormularioBajaCliente.style.display="none";
+    var oFormularioBajaCita=document.querySelector("#form-baja-citas");
+    oFormularioBajaCita.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -397,6 +453,8 @@ function mostrarListadoProveedores(){
     oFormularioPag.style.display="none";
     var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
     oFormularioBajaCliente.style.display="none";
+    var oFormularioBajaCita=document.querySelector("#form-baja-citas");
+    oFormularioBajaCita.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -429,6 +487,8 @@ function mostrarListadoMateriales(){
     oFormularioPag.style.display="none";
     var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
     oFormularioBajaCliente.style.display="none";
+    var oFormularioBajaCita=document.querySelector("#form-baja-citas");
+    oFormularioBajaCita.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -461,6 +521,8 @@ function mostrarListadoPersonal(){
     oFormularioPag.style.display="none";
     var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
     oFormularioBajaCliente.style.display="none";
+    var oFormularioBajaCita=document.querySelector("#form-baja-citas");
+    oFormularioBajaCita.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -493,6 +555,8 @@ function mostrarListadoPagos(){
     oFormularioPag.style.display="none";
     var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
     oFormularioBajaCliente.style.display="none";
+    var oFormularioBajaCita=document.querySelector("#form-baja-citas");
+    oFormularioBajaCita.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -525,6 +589,8 @@ function mostrarListadoSalas(){
     oFormularioPag.style.display="none";
     var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
     oFormularioBajaCliente.style.display="none";
+    var oFormularioBajaCita=document.querySelector("#form-baja-citas");
+    oFormularioBajaCita.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -860,7 +926,106 @@ function validarCamposTextoCita(){
         sSala=sSala.value;
         var oCita=new Cita(oDentista,oCliente,sFecha,sSala,sProcedimiento,sDescripcion,bAtendida);
         oClinica.altaCita(oCita,oCliente,oDentista);
+        actualizarSelectCita();
         limpiaCampos();
+    }
+    
+    return bValido;
+}
+
+function actualizarSelectCita(){
+    
+    var oSelect=document.getElementById("bajaCita");
+    
+    while (oSelect.firstChild) {
+        oSelect.removeChild(oSelect.firstChild);
+    }
+    
+    var oOptionIni=document.createElement("option");
+
+    oOptionIni.text="--seleccione una cita--";
+   
+    oSelect.appendChild(oOptionIni);
+    
+    
+    if(oClinica.citas.length>0){
+        
+        for(var i=0;i<oClinica.citas.length;i++){
+            
+            var oOption=document.createElement("option");
+            
+            oOption.value=oClinica.citas[i].procedimiento;
+            oOption.text=oClinica.citas[i].procedimiento+"->"+oClinica.citas[i].dentista.apellidos+", "+oClinica.citas[i].dentista.nombre;
+            oSelect.appendChild(oOption);
+        }
+    }
+    
+}
+
+function validarBajaCita(evento){
+    
+    var oEvento = evento || window.event;  
+    
+    oEvento.preventDefault(); 
+    
+    if(validarCamposBajaCita()){
+       
+       return true;
+    }
+    else{
+          
+       mensaje("error");
+       return false;
+    } 
+}
+
+function validarCamposBajaCita(){
+    
+    var oCita=document.getElementById("bajaCita");
+    var bValido=true;
+    
+    if(oCita.selectedIndex=="0"){
+        
+        var oBloque=document.getElementById("bloqueBajaCita");
+        oBloque.className='form-group has-error';
+        bValido=false;
+    }
+    else{
+        
+        var oBloque=document.getElementById("bloqueBajaCita");
+        oBloque.className='form-group';
+    }
+    
+    if(bValido){
+        
+        oCita=oCita.value;
+        
+        oCita=oClinica.buscaCita(oCita);
+        var atendida;
+        
+        if(oCita.atendida){
+            
+            atendida="Sí";
+        }
+        else{
+            
+            atendida="No";
+        }
+        
+       
+        if(confirm("Cliente a borrar \n\
+                Dentista: "+oCita.dentista.apellidos+", "+oCita.dentista.nombre+"\n\
+                Cliente: "+oCita.cliente.apellidos+", "+oCita.cliente.nombre+"\n\
+                Fecha: "+oCita.fechacita+"\n\
+                Sala: "+oCita.sala+"\n\
+                Procedimiento: "+oCita.procedimiento+"\n\
+                Descripción: "+oCita.descripcion+"\n\
+                Atendida: "+atendida+"\n\
+                Está seguro de borrar?")){
+            
+                oClinica.bajaCita(oCita);
+            limpiaCampos();
+        }
     }
     
     return bValido;
@@ -1926,6 +2091,11 @@ function mensaje(sMensaje){
     var oTextoMensaje = document.getElementById("textoMensaje");
 			
     var texto = document.createTextNode(sMensaje);
+    
+    while(oTextoMensaje.firstChild){
+        
+        oTextoMensaje.removeChild(oTextoMensaje.firstChild);
+    }
     
     oTextoMensaje.appendChild(texto);
 			
