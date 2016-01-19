@@ -47,7 +47,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="#" id='altaProveedor'>Añadir</a></li>
                             <li><a href="#">Modificar</a></li>
-                            <li><a href="#">Eliminar</a></li>
+                            <li><a href="#" id="bajaProveedores">Eliminar</a></li>
                             <li class="divider"></li>
                             <li><a href="#" id="listaProveedores">Listado</a></li>
                         </ul>
@@ -358,6 +358,23 @@
                     </div>
                     <div class='form-group'>
                         <input type='submit' class='btn btn-primary' value='Enviar' id='btnBajaCita'/>
+                        <input type='reset' class='btn btn-warning' value='Borrar'/>
+                    </div>
+                </form>
+        </div>
+        
+        <!--BAJA PROVEEDOR-->
+        <div class='col-xs-4 col-xs-offset-4' id='form-baja-proveedores'>
+                    <h2>Borrar proveedor</h2>
+                <form method='post' class='form-horizontal' name='formBajaProveedor'>
+                     <div class='form-group' id="bloqueBajaProveedor">
+                        <label class='control-label' for='bajaProveedor'>Proveedor</label>
+                        <select class='form-control' id='bajaProveedor'>
+                            <option>--seleccione un proveedor--</option>
+                        </select>
+                    </div>
+                    <div class='form-group'>
+                        <input type='submit' class='btn btn-primary' value='Enviar' id='btnBajaProveedor'/>
                         <input type='reset' class='btn btn-warning' value='Borrar'/>
                     </div>
                 </form>

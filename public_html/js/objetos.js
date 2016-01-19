@@ -130,6 +130,19 @@ Clinica.prototype.buscaProveedor=function(sId){
     return oProveedor;
 };
 
+Clinica.prototype.bajaProveedor=function(oProveedor){
+    
+    for(var i=0;i<this.proveedores.length;i++){
+        
+        if(oProveedor===this.proveedores[i]){
+            
+            this.proveedores.splice(i,1);
+            actualizarSelectProveedores();
+            mensaje("Proveedor borrado");
+        }
+    }
+};
+
 Clinica.prototype.altaMaterial=function(oMaterial){ 
     var oMaterialExistente=this.buscaMaterial(oMaterial.id);
     if(typeof oMaterialExistente==="undefined"){   
