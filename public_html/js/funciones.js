@@ -66,7 +66,11 @@ function asignarEventos(){
     var oAltaMaterial=document.getElementById('altaMaterial');
     oAltaMaterial.addEventListener('click',mostrarFormAltaMaterial,false);
     var oListadoMateriales=document.getElementById("listaMateriales");
-    oListadoMateriales.addEventListener('click',listarMateriales,false);
+    oListadoMateriales.addEventListener('click', listarMateriales, false);
+    var oBajaMaterial=document.getElementById("bajaMateriales");
+    oBajaMaterial.addEventListener('click',mostrarFormBajaMaterial,false);
+    var oFormBajaMaterial=document.getElementById("btnBajaMaterial");
+    oFormBajaMaterial.addEventListener('click', validarBajaMaterial, false)
    
     var oFormPersonal=document.getElementById("btnAltaPersonal");
     oFormPersonal.addEventListener('click', validarPersonal, false);
@@ -118,6 +122,8 @@ function mostrarFormAltaCliente(){
     oFormularioBajaCita.style.display="none";
     var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
     oFormularioBajaProveedor.style.display="none";
+    var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
+    oFormularioBajaMaterial.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -154,6 +160,8 @@ function mostrarFormBajaCliente(){
     oFormularioBajaCita.style.display="none";
     var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
     oFormularioBajaProveedor.style.display="none";
+    var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
+    oFormularioBajaMaterial.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -190,6 +198,8 @@ function mostrarFormAltaCita(){
     oFormularioBajaCita.style.display="none";
     var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
     oFormularioBajaProveedor.style.display="none";
+    var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
+    oFormularioBajaMaterial.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -226,6 +236,8 @@ function mostrarFormBajaCita(){
     oFormularioBajaCita.style.display="block";
     var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
     oFormularioBajaProveedor.style.display="none";
+    var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
+    oFormularioBajaMaterial.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -262,6 +274,8 @@ function mostrarFormAltaProveedor(){
     oFormularioBajaCita.style.display="none";
     var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
     oFormularioBajaProveedor.style.display="none";
+    var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
+    oFormularioBajaMaterial.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -298,6 +312,8 @@ function mostrarFormBajaProveedor(){
     oFormularioBajaCita.style.display="none";
     var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
     oFormularioBajaProveedor.style.display="block";
+    var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
+    oFormularioBajaMaterial.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -334,6 +350,46 @@ function mostrarFormAltaMaterial(){
     oFormularioBajaCita.style.display="none";
     var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
     oFormularioBajaProveedor.style.display="none";
+    var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
+    oFormularioBajaMaterial.style.display="none";
+    
+    var oListado=document.querySelector("#listadoClientes");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoCitas");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoProveedores");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoPersonal");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoSalas");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoPagos");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoMateriales");
+    oListado.style.display="none";
+}
+
+function mostrarFormBajaMaterial(){
+    var oFormularioCli=document.querySelector("#form-alta-clientes");
+    oFormularioCli.style.display="none";
+    var oFormularioCit=document.querySelector("#form-alta-citas");
+    oFormularioCit.style.display="none";
+    var oFormularioPro=document.querySelector("#form-alta-proveedores");
+    oFormularioPro.style.display="none";
+    var oFormularioMat=document.querySelector("#form-alta-materiales");
+    oFormularioMat.style.display="none";
+    var oFormularioPer=document.querySelector("#form-alta-personal");
+    oFormularioPer.style.display="none";
+    var oFormularioPag=document.querySelector("#form-alta-pagos");
+    oFormularioPag.style.display="none";
+    var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
+    oFormularioBajaCliente.style.display="none";
+    var oFormularioBajaCita=document.querySelector("#form-baja-citas");
+    oFormularioBajaCita.style.display="none";
+    var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
+    oFormularioBajaProveedor.style.display="none";
+    var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
+    oFormularioBajaMaterial.style.display="block";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -372,6 +428,8 @@ function mostrarFormAltaPersonal(){
     oFormularioBajaCita.style.display="none";
     var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
     oFormularioBajaProveedor.style.display="none";
+    var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
+    oFormularioBajaMaterial.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -408,6 +466,8 @@ function mostrarFormAltaPago(){
     oFormularioBajaCita.style.display="none";
     var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
     oFormularioBajaProveedor.style.display="none";
+    var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
+    oFormularioBajaMaterial.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -445,6 +505,8 @@ function mostrarListadoClientes(){
     oFormularioBajaCita.style.display="none";
     var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
     oFormularioBajaProveedor.style.display="none";
+    var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
+    oFormularioBajaMaterial.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="block";
@@ -481,6 +543,8 @@ function mostrarListadoCitas(){
     oFormularioBajaCita.style.display="none";
     var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
     oFormularioBajaProveedor.style.display="none";
+    var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
+    oFormularioBajaMaterial.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -517,6 +581,8 @@ function mostrarListadoProveedores(){
     oFormularioBajaCita.style.display="none";
     var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
     oFormularioBajaProveedor.style.display="none";
+    var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
+    oFormularioBajaMaterial.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -553,6 +619,8 @@ function mostrarListadoMateriales(){
     oFormularioBajaCita.style.display="none";
     var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
     oFormularioBajaProveedor.style.display="none";
+    var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
+    oFormularioBajaMaterial.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -589,6 +657,8 @@ function mostrarListadoPersonal(){
     oFormularioBajaCita.style.display="none";
     var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
     oFormularioBajaProveedor.style.display="none";
+    var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
+    oFormularioBajaMaterial.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -625,6 +695,8 @@ function mostrarListadoPagos(){
     oFormularioBajaCita.style.display="none";
     var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
     oFormularioBajaProveedor.style.display="none";
+    var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
+    oFormularioBajaMaterial.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -661,6 +733,8 @@ function mostrarListadoSalas(){
     oFormularioBajaCita.style.display="none";
     var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
     oFormularioBajaProveedor.style.display="none";
+    var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
+    oFormularioBajaMaterial.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -1367,6 +1441,65 @@ function actualizarSelectMateriales(){
         oSelect.appendChild(oOption);
     }
 
+}
+
+function validarBajaMaterial(evento){
+    var oEvento=evento||window.event;  
+    oEvento.preventDefault(); 
+    if(validarCamposBajaMaterial()){
+       return true;
+    }
+    else{
+       mensaje("error");
+       return false;
+    } 
+}
+
+function validarCamposBajaMaterial(){
+    var oMaterial=document.getElementById("bajaMaterial");
+    var bValido=true;
+    var bUpdate=false;
+    if(oMaterial.selectedIndex=="0"){
+        var oBloque=document.getElementById("bloqueBajaMaterial");
+        oBloque.className='form-group has-error';
+        bValido=false;
+    }
+    else{
+        var oBloque=document.getElementById("bloqueBajaMaterial");
+        oBloque.className='form-group';
+    }
+    if(bValido){
+        oMaterial=oMaterial.value;
+        oMaterial=oClinica.buscaMaterial(oMaterial);
+        if(confirm("Material a borrar \n\
+            ID: "+oMaterial.id+"\n\
+            Tipo: "+oMaterial.tipo+"\n\
+            Cantidad: "+oMaterial.cantidad+"\n\
+            Proveedor: "+oMaterial.proveedor.nombre+"\n\
+            ¿Está seguro que desea borrar?")){
+            oClinica.bajaMaterial(oMaterial);
+            limpiaCampos();
+        }
+    }
+    return bValido;
+}
+
+function actualizarSelectMateriales2(){
+    var oSelect=document.getElementById("bajaMaterial");
+    while(oSelect.firstChild){
+        oSelect.removeChild(oSelect.firstChild);
+    }
+    var oOptionIni=document.createElement("option");
+    oOptionIni.text="--seleccione un material--";
+    oSelect.appendChild(oOptionIni);
+    if(oClinica.materiales.length>0){
+        for(var i=0;i<oClinica.materiales.length;i++){
+            var oOption=document.createElement("option");
+            oOption.value=oClinica.materiales[i].id;
+            oOption.text=oClinica.materiales[i].tipo;
+            oSelect.appendChild(oOption);
+        }
+    }
 }
 
 /*VALIDAR PERSONAL*/

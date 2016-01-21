@@ -143,31 +143,6 @@ Clinica.prototype.bajaProveedor=function(oProveedor){
     }
 };
 
-Clinica.prototype.altaMaterial=function(oMaterial){ 
-    var oMaterialExistente=this.buscaMaterial(oMaterial.id);
-    if(typeof oMaterialExistente==="undefined"){   
-        this.materiales.push(oMaterial);
-        mensaje("Material añadido.");
-    }
-    else{
-        mensaje("Ya existe un material con este ID.");
-    }
-};
-Clinica.prototype.buscaMaterial=function(sId){
-    var oMaterial;
-    if(this.materiales.length<1){
-        
-    }
-    else{
-        for(var i=0;i<this.materiales.length;i++){
-            if(this.materiales[i].id===sId){
-                oMaterial=this.materiales[i];
-            }
-        }
-    }
-    return oMaterial;
-};
-
 Clinica.prototype.altaCita=function(oCita,oCliente,oDentista){
     
     this.citas.push(oCita);
@@ -614,11 +589,42 @@ function Material(sId, sTipo, iCantidad, oProveedor){
     this.cantidad=iCantidad;
     this.proveedor=oProveedor;
 }
-
+Clinica.prototype.altaMaterial=function(oMaterial){ 
+    var oMaterialExistente=this.buscaMaterial(oMaterial.id);
+    if(typeof oMaterialExistente==="undefined"){   
+        this.materiales.push(oMaterial);
+        actualizarSelectMateriales2();
+        mensaje("Material añadido.");
+    }
+    else{
+        mensaje("Ya existe un material con este ID.");
+    }
+};
+Clinica.prototype.buscaMaterial=function(sId){
+    var oMaterial;
+    if(this.materiales.length<1){
+        
+    }
+    else{
+        for(var i=0;i<this.materiales.length;i++){
+            if(this.materiales[i].id===sId){
+                oMaterial=this.materiales[i];
+            }
+        }
+    }
+    return oMaterial;
+};
+Clinica.prototype.bajaMaterial=function(oMaterial){
+    for(var i=0;i<this.materiales.length;i++){
+        if(oMaterial===this.materiales[i]){
+            this.materiales.splice(i,1);
+            actualizarSelectMateriales2();
+            mensaje("Material borrado.");
+        }
+    }
+};
 Material.prototype.toHTMLRow=function(){
-    
     var oFila = document.createElement("tr");
-    
     var celda1 = document.createElement("td");
     var textoCelda1 = document.createTextNode(this.id);
     var celda2 = document.createElement("td");
@@ -636,6 +642,6 @@ Material.prototype.toHTMLRow=function(){
     oFila.appendChild(celda2);
     oFila.appendChild(celda3);
     oFila.appendChild(celda4);
-    
+
     return oFila;
 };
