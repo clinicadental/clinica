@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<datos>
+    <clientes>
+
+        <cliente id="">
+            <nombre></nombre>
+            <apellidos></apellidos>
+            <telefono></telefono>
+        </cliente>
+        
+        <cliente id="">
+            <nombre></nombre>
+            <apellidos></apellidos>
+            <telefono></telefono>
+        </cliente>
+        
+        <cliente id="">
+            <nombre></nombre>
+            <apellidos></apellidos>
+            <telefono></telefono>
+        </cliente>
+        
+        <cliente id="">
+            <nombre></nombre>
+            <apellidos></apellidos>
+            <telefono></telefono>
+        </cliente>
+        
+    </clientes>
+    
+    <proveedores>
+        
+        <proveedor id="">
+            <nombre></nombre>
+            <apellidos></apellidos>
+            <telefono></telefono>
+        </proveedor>
+        
+        <proveedor id="">
+            <nombre></nombre>
+            <apellidos></apellidos>
+            <telefono></telefono>
+        </proveedor>
+        
+        <proveedor id="">
+            <nombre></nombre>
+            <apellidos></apellidos>
+            <telefono></telefono>
+        </proveedor>
+        
+    </proveedores>
+    
+    <personal>
+        
+        <administrativos>
+            
+            <administrativo id="">
+                <nombre></nombre>
+                <apellidos></apellidos>
+                <fecha></fecha>
+                <departamento></departamento>
+            </administrativo>
+            
+            <administrativo id="">
+                <nombre></nombre>
+                <apellidos></apellidos>
+                <fecha></fecha>
+                <departamento></departamento>
+            </administrativo>
+            
+        </administrativos>
+        
+        <dentistas>
+            
+            <dentista id="">
+                <nombre></nombre>
+                <apellidos></apellidos>
+                <fecha></fecha>
+                <colegiado></colegiado>
+            </dentista>
+            
+            <dentista id="">
+                <nombre></nombre>
+                <apellidos></apellidos>
+                <fecha></fecha>
+                <colegiado></colegiado>
+            </dentista>
+            
+            <dentista id="">
+                <nombre></nombre>
+                <apellidos></apellidos>
+                <fecha></fecha>
+                <colegiado></colegiado>
+            </dentista>
+            
+        </dentistas>
+        
+    </personal>
+    
+    <pagos>
+        <pago id="">
+            <cantidad></cantidad>
+            <pagada></pagada>
+            <cliente></cliente>
+        </pago>
+        
+        <pago id="">
+            <cantidad></cantidad>
+            <pagada></pagada>
+            <cliente></cliente>
+        </pago>
+        
+        <pago id="">
+            <cantidad></cantidad>
+            <pagada></pagada>
+            <cliente></cliente>
+        </pago>
+        
+        <pago id="">
+            <cantidad></cantidad>
+            <pagada></pagada>
+            <cliente></cliente>
+        </pago>
+    </pagos>
+    
+    <materiales>
+        
+        <material id="">
+            <tipo></tipo>
+            <cantidad></cantidad>
+            <proveedor></proveedor>
+        </material>
+        
+        <material id="">
+            <tipo></tipo>
+            <cantidad></cantidad>
+            <proveedor></proveedor>
+        </material>
+        
+        <material id="">
+            <tipo></tipo>
+            <cantidad></cantidad>
+            <proveedor></proveedor>
+        </material>
+        
+        <material id="">
+            <tipo></tipo>
+            <cantidad></cantidad>
+            <proveedor></proveedor>
+        </material>
+    </materiales>
+    
+    <citas>
+        
+        <cita>
+            <dentista></dentista>
+            <cliente></cliente>
+            <fecha></fecha>
+            <sala></sala>
+            <procedimiento></procedimiento>
+            <descripcion></descripcion>
+            <atendida></atendida>
+        </cita>
+        
+        <cita>
+            <dentista></dentista>
+            <cliente></cliente>
+            <fecha></fecha>
+            <sala></sala>
+            <procedimiento></procedimiento>
+            <descripcion></descripcion>
+            <atendida></atendida>
+        </cita>
+        
+        <cita>
+            <dentista></dentista>
+            <cliente></cliente>
+            <fecha></fecha>
+            <sala></sala>
+            <procedimiento></procedimiento>
+            <descripcion></descripcion>
+            <atendida></atendida>
+        </cita>
+        
+        <cita>
+            <dentista></dentista>
+            <cliente></cliente>
+            <fecha></fecha>
+            <sala></sala>
+            <procedimiento></procedimiento>
+            <descripcion></descripcion>
+            <atendida></atendida>
+        </cita>
+        
+        <cita>
+            <dentista></dentista>
+            <cliente></cliente>
+            <fecha></fecha>
+            <sala></sala>
+            <procedimiento></procedimiento>
+            <descripcion></descripcion>
+            <atendida></atendida>
+        </cita>
+        
+    </citas>
+    
+</datos>
+
