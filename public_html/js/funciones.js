@@ -1496,7 +1496,7 @@ function actualizarSelectMateriales2(){
         for(var i=0;i<oClinica.materiales.length;i++){
             var oOption=document.createElement("option");
             oOption.value=oClinica.materiales[i].id;
-            oOption.text=oClinica.materiales[i].tipo;
+            oOption.text=oClinica.materiales[i].id+" - Tipo: "+oClinica.materiales[i].tipo+" - Prov.: "+oClinica.materiales[i].proveedor.nombre+" - "+oClinica.materiales[i].cantidad+" unidades";
             oSelect.appendChild(oOption);
         }
     }
@@ -2440,6 +2440,21 @@ function limpiaCampos(){
         }
     }
 }
+
+/*XML*/
+var oXML=loadXMLDoc("datosprueba.xml");
+function loadXMLDoc(filename){
+	if(window.XMLHttpRequest){
+		xhttp=new XMLHttpRequest();
+	}
+	else{ //code for IE5 and IE6
+		xhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xhttp.open("GET",filename,false);
+	xhttp.send();
+	return xhttp.responseXML;
+}
+
 
 /*CALENDARIOS*/
 function calendario1(){
