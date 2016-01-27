@@ -26,10 +26,15 @@
 
 body{
     background-color:#43ECFF;
+    background-image:url(../images/fondo.jpg);
+    background-position: center;
 }
 #contenido{
     background-color:#fff;
     margin-top:50px;
+    -webkit-box-shadow:0px 5px 6px 0px rgba(50, 50, 50, 0.56);
+    -moz-box-shadow:0px 5px 6px 0px rgba(50, 50, 50, 0.56);
+    box-shadow:0px 5px 6px 0px rgba(50, 50, 50, 0.56);
 }
 footer{
     background-color:#22767F;
