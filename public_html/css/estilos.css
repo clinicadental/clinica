@@ -19,17 +19,20 @@
 #logo{
     height:25px;
 }
+#logo2{
+    padding-top:10px;
+    height:100px;
+}
 
 body{
     background-color:#43ECFF;
-    background-image:url(../images/fondo.jpg);
 }
 #contenido{
     background-color:#fff;
     margin-top:50px;
 }
 footer{
-    background-color:#607C7F;
+    background-color:#22767F;
     padding:5%;
     color:#fff;
 }
