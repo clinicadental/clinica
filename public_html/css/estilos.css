@@ -4,14 +4,25 @@
 .navbar{
     background-color:#43ECFF;
 }
-#navbar li{
-    color:#fff;
-}
 #navbar{
     background-color:#43ECFF;
 }
+#navbar li a{
+	color:#22767F;
+}
+#navbar li a:hover{
+	color:#607C7F;
+}
+#navbar li a:active{
+	color:#36BDCC;
+}
+#logo{
+    height:25px;
+}
+
 body{
     background-color:#43ECFF;
+    background-image:url(../images/fondo.jpg);
 }
 #contenido{
     background-color:#fff;
