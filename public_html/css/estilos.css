@@ -1,10 +1,31 @@
-#form-alta-clientes{display: none;}
-#form-alta-citas{display: none;}
-#form-alta-proveedores{display: none;}
-#form-alta-materiales{display: none;}
-#form-alta-personal{display: none;}
-#form-alta-pagos{display: none;}
-#bloqueDentista{display: none;}
+/*CELESTE CLARO: 86F3FF; CELESTE MEDIO: 43ECFF; CELESTE OSCURO: 36BDCC; AZUL OSCURO: 22767F; GRIS AZULADO: 607C7F;*/
+
+/*CUERPO*/
+.navbar{
+    background-color:#36BDCC;
+}
+#navbar{
+    background-color:#36BDCC;
+}
+body{
+    background-color:#43ECFF;
+}
+#contenido{
+    background-color:#fff;
+    margin-top:50px;
+}
+footer{
+    background-color:#607C7F;
+}
+
+/*DISPLAYS*/
+#form-alta-clientes{display:none;}
+#form-alta-citas{display:none;}
+#form-alta-proveedores{display:none;}
+#form-alta-materiales{display:none;}
+#form-alta-personal{display:none;}
+#form-alta-pagos{display:none;}
+#bloqueDentista{display:none;}
 #listadoClientes{display:none;}
 #listadoCitas{display:none;}
 #listadoProveedores{display:none;}
@@ -15,67 +36,62 @@
 #form-baja-proveedores{display:none;}
 #form-baja-materiales{display:none;}
 
-
-.dropdown-menu .sub-menu {
-    
-    width: 50px;
-    left: 100%;
-    position: absolute;
-    top: 0;
-    visibility: hidden;
-    margin-top: -1px;
-    padding-left: 20px;
+/*DROPDOWN MENUS & MENUS*/
+.dropdown-menu .sub-menu{
+    width:50px;
+    left:100%;
+    position:absolute;
+    top:0;
+    visibility:hidden;
+    margin-top:-1px;
+    padding-left:20px;
 }
-
 .dropdown-menu .sub-menu .btn{
-    
-    margin-left: 25px;
+    margin-left:25px;
+}
+.dropdown-menu li:hover .sub-menu{
+    visibility:visible;
+    display:block;
+}
+.navbar .sub-menu:before{
+    border-bottom:7px solid transparent;
+    border-left:none;
+    border-right:7px solid rgba(0, 0, 0, 0.2);
+    border-top:7px solid transparent;
+    left:-7px;
+    top:10px;
+}
+.navbar .sub-menu:after{
+    border-top:6px solid transparent;
+    border-left:none;
+    border-right:6px solid #fff;
+    border-bottom:6px solid transparent;
+    left:10px;
+    top:11px;
+    left:-6px;
 }
 
-.dropdown-menu li:hover .sub-menu {
-    visibility: visible;
-    display: block;
+/*CAPAS*/
+#capaTransparente{
+    position:fixed;
+    top:0px;
+    left:0px;
+    height:100%;
+    width:100%;
+    background-color:white;
+    opacity:0.5;
+    z-index:-1;
 }
-
-.navbar .sub-menu:before {
-    border-bottom: 7px solid transparent;
-    border-left: none;
-    border-right: 7px solid rgba(0, 0, 0, 0.2);
-    border-top: 7px solid transparent;
-    left: -7px;
-    top: 10px;
+#mensajes{
+    display:none;
+    border:thin black solid;
+    border-radius:15px;
+    background-color:#2ECCFA;
+    width:30%;
+    height:150px;
+    top:100px;
+    left:37%;
+    position:fixed;
+    text-align:center;
+    z-index:2;
 }
-.navbar .sub-menu:after {
-    border-top: 6px solid transparent;
-    border-left: none;
-    border-right: 6px solid #fff;
-    border-bottom: 6px solid transparent;
-    left: 10px;
-    top: 11px;
-    left: -6px;
-}
-
-#capaTransparente {
-				position:fixed;
-				top:0px;
-				left:0px;
-				height:100%;
-				width:100%;
-				background-color:white;
-				opacity:0.5;
-				z-index:-1;
-			}
-			#mensajes {
-				display:none;
-				border:thin black solid;
-				border-radius: 15px;
-				background-color:#2ECCFA;
-				width:30%;
-				height:150px;
-				top:100px;
-				left:37%;
-				position: fixed;
-				text-align:center;
-				z-index: 2;
-				
-			}

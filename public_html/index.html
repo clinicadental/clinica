@@ -10,114 +10,116 @@
     </head>
     <body>
         <!--NAVBAR-->
-        <nav class="navbar navbar-default" role="navigation">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Desplegar navegación</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">CLINICA DENTAL</a>
-            </div>
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Clientes<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" id='altaCliente'>Añadir</a></li>
-                            <li><a href="#" id="bajaClientes">Eliminar</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#" id="listaClientes">Listado</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Citas<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" id='altaCita'>Añadir</a></li>
-                            <li><a href="#" id="bajaCitas">Eliminar</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#" id="listaCitas">Listado</a></li>
-                        </ul>
-                    </li>    
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Proveedores<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" id='altaProveedor'>Añadir</a></li>
-                            <li><a href="#" id="bajaProveedores">Eliminar</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#" id="listaProveedores">Listado</a></li>
-                        </ul>
-                    </li>    
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Materiales<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" id="altaMaterial">Añadir</a></li>
-                            <li><a href="#" id="bajaMateriales">Eliminar</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#" id="listaMateriales">Listado</a></li>
-                        </ul>   
-                    </li>    
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Personal<b class="caret"></b></a>
-                        <ul class="dropdown-menu" id="menu-personal">
-                            <li><a href="#" class="alta">Añadir</a></li>
-                            <li><a href="#">Eliminar</a></li>
-                            <li class="divider"></li>
-                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Listado</a>
-                                <ul class="dropdown-menu sub-menu">
-                                    <li id="filtros">
-                                        <form name="formFiltros">
-                                        <div class="form-group" id="formFiltros">
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="filtro" id="todos" value="1" checked="checked">Todos
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="filtro" id="admin" value="2">Administrativos
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="filtro" id="dentist" value="3">Dentistas
-                                                </label>
-                                            </div>
-                                        </div> 
-                                        <div class='form-group'>
-                                            <input type='submit' class='btn btn-primary' value='Enviar' id='listaPersonal'/>
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container" id="navbar">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Desplegar navegación</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">CLINICA DENTAL</a>
+                </div>
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Clientes<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" id='altaCliente'>Añadir</a></li>
+                                <li><a href="#" id="bajaClientes">Eliminar</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#" id="listaClientes">Listado</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Citas<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" id='altaCita'>Añadir</a></li>
+                                <li><a href="#" id="bajaCitas">Eliminar</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#" id="listaCitas">Listado</a></li>
+                            </ul>
+                        </li>    
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Proveedores<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" id='altaProveedor'>Añadir</a></li>
+                                <li><a href="#" id="bajaProveedores">Eliminar</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#" id="listaProveedores">Listado</a></li>
+                            </ul>
+                        </li>    
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Materiales<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" id="altaMaterial">Añadir</a></li>
+                                <li><a href="#" id="bajaMateriales">Eliminar</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#" id="listaMateriales">Listado</a></li>
+                            </ul>   
+                        </li>    
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Personal<b class="caret"></b></a>
+                            <ul class="dropdown-menu" id="menu-personal">
+                                <li><a href="#" class="alta">Añadir</a></li>
+                                <li><a href="#">Eliminar</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Listado</a>
+                                    <ul class="dropdown-menu sub-menu">
+                                        <li id="filtros">
+                                            <form name="formFiltros">
+                                            <div class="form-group" id="formFiltros">
+                                                <div class="radio">
+                                                    <label>
+                                                        <input type="radio" name="filtro" id="todos" value="1" checked="checked">Todos
+                                                    </label>
+                                                </div>
+                                                <div class="radio">
+                                                    <label>
+                                                        <input type="radio" name="filtro" id="admin" value="2">Administrativos
+                                                    </label>
+                                                </div>
+                                                <div class="radio">
+                                                    <label>
+                                                        <input type="radio" name="filtro" id="dentist" value="3">Dentistas
+                                                    </label>
+                                                </div>
+                                            </div> 
+                                            <div class='form-group'>
+                                                <input type='submit' class='btn btn-primary' value='Enviar' id='listaPersonal'/>
 
-                                        </div>
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>    
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pagos<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" id="altaPago">Añadir</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#" id="listaPagos">Listado</a></li>
-                        </ul>
-                    </li>    
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Salas<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" id="listaSalas">Listado</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <div class='form-group'>
-                            <input type='button' name='datosPrueba' class='btn btn-info' value='Cargar datos'/>
-                        </div>
-                    </li>
-                </ul>
+                                            </div>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>    
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pagos<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" id="altaPago">Añadir</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#" id="listaPagos">Listado</a></li>
+                            </ul>
+                        </li>    
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Salas<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" id="listaSalas">Listado</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class='form-group'>
+                                <input type='button' name='datosPrueba' class='btn btn-info' value='Cargar datos'/>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
-        <div class='container'>
+        <div class='container' id="contenido">
             <!--ALTA CLIENTES-->
             <div class='col-xs-4 col-xs-offset-4' id='form-alta-clientes'>
                 <h2>Alta cliente</h2>
@@ -330,122 +332,125 @@
                     </div>
                 </form>
             </div>
-        </div>
-        <!--BAJA CLIENTE-->
-        <div class='col-xs-4 col-xs-offset-4' id='form-baja-clientes'>
-                    <h2>Borrar cliente</h2>
-                <form method='post' class='form-horizontal' name='formBajaCliente'>
-                     <div class='form-group' id="bloqueBajaCliente">
-                        <label class='control-label' for='bajaCliente'>Cliente</label>
-                        <select class='form-control' id='bajaCliente'>
-                            <option>--seleccione un cliente--</option>
+            <!--BAJA CLIENTE-->
+            <div class='col-xs-4 col-xs-offset-4' id='form-baja-clientes'>
+                        <h2>Borrar cliente</h2>
+                    <form method='post' class='form-horizontal' name='formBajaCliente'>
+                         <div class='form-group' id="bloqueBajaCliente">
+                            <label class='control-label' for='bajaCliente'>Cliente</label>
+                            <select class='form-control' id='bajaCliente'>
+                                <option>--seleccione un cliente--</option>
+                            </select>
+                        </div>
+                        <div class='form-group'>
+                            <input type='submit' class='btn btn-primary' value='Enviar' id='btnBajaCliente'/>
+                            <input type='reset' class='btn btn-warning' value='Borrar'/>
+                        </div>
+                    </form>
+            </div>
+            <!--BAJA CITA-->
+            <div class='col-xs-4 col-xs-offset-4' id='form-baja-citas'>
+                        <h2>Borrar cita</h2>
+                    <form method='post' class='form-horizontal' name='formBajaCita'>
+                         <div class='form-group' id="bloqueBajaCita">
+                            <label class='control-label' for='bajaCita'>Cita</label>
+                            <select class='form-control' id='bajaCita'>
+                                <option>--seleccione una cita--</option>
+                            </select>
+                        </div>
+                        <div class='form-group'>
+                            <input type='submit' class='btn btn-primary' value='Enviar' id='btnBajaCita'/>
+                            <input type='reset' class='btn btn-warning' value='Borrar'/>
+                        </div>
+                    </form>
+            </div>
+            <!--BAJA PROVEEDOR-->
+            <div class='col-xs-4 col-xs-offset-4' id='form-baja-proveedores'>
+                        <h2>Borrar proveedor</h2>
+                    <form method='post' class='form-horizontal' name='formBajaProveedor'>
+                         <div class='form-group' id="bloqueBajaProveedor">
+                            <label class='control-label' for='bajaProveedor'>Proveedor</label>
+                            <select class='form-control' id='bajaProveedor'>
+                                <option>--seleccione un proveedor--</option>
+                            </select>
+                        </div>
+                        <div class='form-group'>
+                            <input type='submit' class='btn btn-primary' value='Enviar' id='btnBajaProveedor'/>
+                            <input type='reset' class='btn btn-warning' value='Borrar'/>
+                        </div>
+                    </form>
+            </div>
+            <!--BAJA MATERIAL-->
+            <div class='col-xs-4 col-xs-offset-4' id='form-baja-materiales'>
+                <h2>Borrar material</h2>
+                <form method='post' class='form-horizontal' name='formBajaMaterial'>
+                    <div class='form-group' id="bloqueBajaMaterial">
+                        <label class='control-label' for='bajaMaterial'>Material</label>
+                        <select class='form-control' id='bajaMaterial'>
+                            <option>--seleccione un material--</option>
                         </select>
                     </div>
                     <div class='form-group'>
-                        <input type='submit' class='btn btn-primary' value='Enviar' id='btnBajaCliente'/>
+                        <input type='submit' class='btn btn-primary' value='Enviar' id='btnBajaMaterial'/>
                         <input type='reset' class='btn btn-warning' value='Borrar'/>
                     </div>
                 </form>
-        </div>
+            </div>
         
-        <!--BAJA CITA-->
-        <div class='col-xs-4 col-xs-offset-4' id='form-baja-citas'>
-                    <h2>Borrar cita</h2>
-                <form method='post' class='form-horizontal' name='formBajaCita'>
-                     <div class='form-group' id="bloqueBajaCita">
-                        <label class='control-label' for='bajaCita'>Cita</label>
-                        <select class='form-control' id='bajaCita'>
-                            <option>--seleccione una cita--</option>
-                        </select>
-                    </div>
-                    <div class='form-group'>
-                        <input type='submit' class='btn btn-primary' value='Enviar' id='btnBajaCita'/>
-                        <input type='reset' class='btn btn-warning' value='Borrar'/>
-                    </div>
-                </form>
+            <!--LISTADO CLIENTES-->
+            <div class="col-xs-6 col-xs-offset-3" id="listadoClientes">
+
+            </div>
+
+            <!--LISTADO CITAS-->
+            <div class="col-xs-6 col-xs-offset-3" id="listadoCitas">
+
+            </div>
+
+            <!--LISTADO PROVEEDORES-->
+            <div class="col-xs-4 col-xs-offset-4" id="listadoProveedores">
+
+            </div>
+
+            <!--LISTADO MATERIALES-->
+            <div class="col-xs-6 col-xs-offset-3" id="listadoMateriales">
+
+            </div>
+
+            <!--LISTADO PERSONAL-->
+            <div class="col-xs-6 col-xs-offset-3" id="listadoPersonal">
+
+            </div>
+
+            <!--LISTADO PAGOS-->
+            <div class="col-xs-6 col-xs-offset-3" id="listadoPagos">
+
+            </div>
+
+            <!--LISTADO SALAS-->
+            <div class="col-xs-4 col-xs-offset-4" id="listadoSalas">
+
+            </div>
+
+            <div id="mensajes">
+                <h2 id="textoMensaje"></h2>
+                <input type="button" class="btn btn-default" id="btnMensaje" value="Aceptar"/>
+            </div>
+
+            <div id="capaTransparente"></div>
+
+            <script type="text/javascript" src="js/objetos.js"></script>
+            <script type="text/javascript" src="js/funciones.js"></script>
+            <script type="text/javascript" src="jscalendar-1.0/calendar.js"></script>
+            <script type="text/javascript" src="jscalendar-1.0/lang/calendar-es.js"></script>
+            <script type="text/javascript" src="jscalendar-1.0/calendar-setup.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+            <script src="js/bootstrap.min.js"></script>
         </div>
-        
-        <!--BAJA PROVEEDOR-->
-        <div class='col-xs-4 col-xs-offset-4' id='form-baja-proveedores'>
-                    <h2>Borrar proveedor</h2>
-                <form method='post' class='form-horizontal' name='formBajaProveedor'>
-                     <div class='form-group' id="bloqueBajaProveedor">
-                        <label class='control-label' for='bajaProveedor'>Proveedor</label>
-                        <select class='form-control' id='bajaProveedor'>
-                            <option>--seleccione un proveedor--</option>
-                        </select>
-                    </div>
-                    <div class='form-group'>
-                        <input type='submit' class='btn btn-primary' value='Enviar' id='btnBajaProveedor'/>
-                        <input type='reset' class='btn btn-warning' value='Borrar'/>
-                    </div>
-                </form>
-        </div>
-        <!--BAJA MATERIAL-->
-        <div class='col-xs-4 col-xs-offset-4' id='form-baja-materiales'>
-            <h2>Borrar material</h2>
-            <form method='post' class='form-horizontal' name='formBajaMaterial'>
-                <div class='form-group' id="bloqueBajaMaterial">
-                    <label class='control-label' for='bajaMaterial'>Material</label>
-                    <select class='form-control' id='bajaMaterial'>
-                        <option>--seleccione un material--</option>
-                    </select>
-                </div>
-                <div class='form-group'>
-                    <input type='submit' class='btn btn-primary' value='Enviar' id='btnBajaMaterial'/>
-                    <input type='reset' class='btn btn-warning' value='Borrar'/>
-                </div>
-            </form>
-        </div>
-        
-        <!--LISTADO CLIENTES-->
-        <div class="col-xs-6 col-xs-offset-3" id="listadoClientes">
-            
-        </div>
-        
-        <!--LISTADO CITAS-->
-        <div class="col-xs-6 col-xs-offset-3" id="listadoCitas">
-            
-        </div>
-        
-        <!--LISTADO PROVEEDORES-->
-        <div class="col-xs-4 col-xs-offset-4" id="listadoProveedores">
-            
-        </div>
-        
-        <!--LISTADO MATERIALES-->
-        <div class="col-xs-6 col-xs-offset-3" id="listadoMateriales">
-            
-        </div>
-        
-        <!--LISTADO PERSONAL-->
-        <div class="col-xs-6 col-xs-offset-3" id="listadoPersonal">
-            
-        </div>
-        
-        <!--LISTADO PAGOS-->
-        <div class="col-xs-6 col-xs-offset-3" id="listadoPagos">
-            
-        </div>
-        
-        <!--LISTADO SALAS-->
-        <div class="col-xs-4 col-xs-offset-4" id="listadoSalas">
-            
-        </div>
-        
-        <div id="mensajes">
-            <h2 id="textoMensaje"></h2>
-            <input type="button" class="btn btn-default" id="btnMensaje" value="Aceptar"/>
-	</div>
-		
-	<div id="capaTransparente"></div>
-        
-        <script type="text/javascript" src="js/objetos.js"></script>
-        <script type="text/javascript" src="js/funciones.js"></script>
-        <script type="text/javascript" src="jscalendar-1.0/calendar.js"></script>
-        <script type="text/javascript" src="jscalendar-1.0/lang/calendar-es.js"></script>
-        <script type="text/javascript" src="jscalendar-1.0/calendar-setup.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
+        <footer>
+            <div class="container">
+                <h1>FOOTER</h1>
+            </div>
+        </footer>
     </body>
 </html>
