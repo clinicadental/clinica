@@ -16,6 +16,11 @@ body{
 }
 footer{
     background-color:#607C7F;
+    padding:5%;
+    color:#fff;
+}
+footer a{
+    color:#fff;
 }
 
 /*DISPLAYS*/
