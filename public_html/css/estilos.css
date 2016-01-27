@@ -2,10 +2,13 @@
 
 /*CUERPO*/
 .navbar{
-    background-color:#36BDCC;
+    background-color:#43ECFF;
+}
+#navbar li{
+    color:#fff;
 }
 #navbar{
-    background-color:#36BDCC;
+    background-color:#43ECFF;
 }
 body{
     background-color:#43ECFF;
