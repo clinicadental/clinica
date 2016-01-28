@@ -1786,10 +1786,10 @@ function validarCamposBajaPago(){
     }
     if(bValido){
         oPago=oPago.value;
-        oPago=oClinica.buscaPago(oPago.id);
+        oPago=oClinica.buscaPago(oPago);
         if(confirm("Pago a borrar \n\
             ID: "+oPago.id+"\n\
-            Importe: "+oPago.importe+"\n\
+            Importe: "+oPago.importe+" €"+"\n\
             Cliente: "+oPago.cliente.nombre+"\n\
             ¿Está seguro que desea borrar?")){
             oClinica.bajaPago(oPago);
