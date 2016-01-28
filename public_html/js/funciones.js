@@ -1535,7 +1535,6 @@ function validarBajaMaterial(evento){
 function validarCamposBajaMaterial(){
     var oMaterial=document.getElementById("bajaMaterial");
     var bValido=true;
-    var bUpdate=false;
     if(oMaterial.selectedIndex=="0"){
         var oBloque=document.getElementById("bloqueBajaMaterial");
         oBloque.className='form-group has-error';
@@ -1811,7 +1810,7 @@ function actualizarSelectPagos(){
         for(var i=0;i<oClinica.pagos.length;i++){
             var oOption=document.createElement("option");
             oOption.value=oClinica.pagos[i].id;
-            oOption.text=oClinica.pagos[i].id+" - Importe: "+oClinica.pagos[i].importe+" - Cliente: "+oClinica.pagos[i].cliente.nombre;
+            oOption.text=oClinica.pagos[i].id+" - Importe: "+oClinica.pagos[i].importe+" € - Cliente: "+oClinica.pagos[i].cliente.nombre;
             oSelect.appendChild(oOption);
         }
     }

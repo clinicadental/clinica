@@ -278,7 +278,7 @@ function Material(sId, sTipo, iCantidad, oProveedor){
 }
 Clinica.prototype.altaMaterial=function(oMaterial){ 
     var oMaterialExistente=this.buscaMaterial(oMaterial.id);
-    if(typeof oMaterialExistente==="undefined"){   
+    if(typeof oMaterialExistente=="undefined"){   
         this.materiales.push(oMaterial);
         actualizarSelectMateriales2();
         mensaje("Material añadido.");
@@ -294,7 +294,7 @@ Clinica.prototype.buscaMaterial=function(sId){
     }
     else{
         for(var i=0;i<this.materiales.length;i++){
-            if(this.materiales[i].id===sId){
+            if(this.materiales[i].id==sId){
                 oMaterial=this.materiales[i];
             }
         }
@@ -303,7 +303,7 @@ Clinica.prototype.buscaMaterial=function(sId){
 };
 Clinica.prototype.bajaMaterial=function(oMaterial){
     for(var i=0;i<this.materiales.length;i++){
-        if(oMaterial===this.materiales[i]){
+        if(oMaterial==this.materiales[i]){
             this.materiales.splice(i,1);
             actualizarSelectMateriales2();
             mensaje("Material borrado.");
@@ -526,7 +526,7 @@ function Pago(iId,fImporte,bPagado,oCliente){
 }
 Clinica.prototype.altaPago=function(oPago){
     var oPagoExistente=this.buscaPago(oPago.id);
-    if(typeof oPagoExistente==="undefined"){
+    if(typeof oPagoExistente=="undefined"){
         this.pagos.push(oPago);
         actualizarSelectPagos();
         mensaje("Pago añadido");
@@ -542,7 +542,7 @@ Clinica.prototype.buscaPago=function(sId){
     }
     else{    
         for(var i=0;i<this.pagos.length;i++){   
-            if(this.pagos[i].id===sId){  
+            if(this.pagos[i].id==sId){  
                 oPago=this.pagos[i];
             }
         }
@@ -551,7 +551,7 @@ Clinica.prototype.buscaPago=function(sId){
 };
 Clinica.prototype.bajaPago=function(oPago){
     for(var i=0;i<this.pagos.length;i++){
-        if(oPago===this.pagos[i]){
+        if(oPago==this.pagos[i]){
             this.pagos.splice(i,1);
             actualizarSelectPagos();
             mensaje("Pago borrado.");
