@@ -53,15 +53,18 @@ footer a{
 #form-alta-personal{display:none;}
 #form-alta-pagos{display:none;}
 #bloqueDentista{display:none;}
+
+#form-baja-clientes{display:none;}
+#form-baja-citas{display:none;}
+#form-baja-proveedores{display:none;}
+#form-baja-materiales{display:none;}
+#form-baja-pagos{display:none;}
+
 #listadoClientes{display:none;}
 #listadoCitas{display:none;}
 #listadoProveedores{display:none;}
 #listadoPersonal{display:none;}
 #listadoSalas{display:none;}
-#form-baja-clientes{display:none;}
-#form-baja-citas{display:none;}
-#form-baja-proveedores{display:none;}
-#form-baja-materiales{display:none;}
 
 /*DROPDOWN MENUS & MENUS*/
 .dropdown-menu .sub-menu{

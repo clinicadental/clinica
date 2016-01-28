@@ -100,6 +100,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pagos<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#" id="altaPago">Añadir</a></li>
+                                <li><a href="#" id="bajaPago">Eliminar</a></li>
                                 <li class="divider"></li>
                                 <li><a href="#" id="listaPagos">Listado</a></li>
                             </ul>
@@ -392,6 +393,22 @@
                     </div>
                     <div class='form-group'>
                         <input type='submit' class='btn btn-primary' value='Enviar' id='btnBajaMaterial'/>
+                        <input type='reset' class='btn btn-warning' value='Borrar'/>
+                    </div>
+                </form>
+            </div>
+            <!--BAJA PAGOS-->
+            <div class='col-xs-4 col-xs-offset-4' id='form-baja-pagos'>
+                <h2>Borrar pago</h2>
+                <form method='post' class='form-horizontal' name='formBajaPago'>
+                    <div class='form-group' id="bloqueBajaPago">
+                        <label class='control-label' for='bajaPago'>Pago</label>
+                        <select class='form-control' id='bajaPago'>
+                            <option>--seleccione un pago--</option>
+                        </select>
+                    </div>
+                    <div class='form-group'>
+                        <input type='submit' class='btn btn-primary' value='Enviar' id='btnBajaPago'/>
                         <input type='reset' class='btn btn-warning' value='Borrar'/>
                     </div>
                 </form>
