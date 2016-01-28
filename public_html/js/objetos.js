@@ -237,7 +237,6 @@ Clinica.prototype.buscaProveedor=function(sId){
     
     return oProveedor;
 };
-
 Clinica.prototype.bajaProveedor=function(oProveedor){
     
     for(var i=0;i<this.proveedores.length;i++){
@@ -529,6 +528,7 @@ Clinica.prototype.altaPago=function(oPago){
     var oPagoExistente=this.buscaPago(oPago.id);
     if(typeof oPagoExistente==="undefined"){
         this.pagos.push(oPago);
+        actualizarSelectPagos();
         mensaje("Pago añadido");
     }
     else{
@@ -548,6 +548,15 @@ Clinica.prototype.buscaPago=function(sId){
         }
     }
     return oPago;
+};
+Clinica.prototype.bajaPago=function(oPago){
+    for(var i=0;i<this.pagos.length;i++){
+        if(oPago===this.pagos[i]){
+            this.pagos.splice(i,1);
+            actualizarSelectPagos();
+            mensaje("Pago borrado.");
+        }
+    }
 };
 Pago.prototype.toHTMLRow=function(){
     var oFila = document.createElement("tr");
