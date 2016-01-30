@@ -89,7 +89,8 @@ Cliente.prototype.toHTMLRow=function(){
 
 
 /*----CITAS----*/
-function Cita(oDentista, oCliente, dFechaCita, iSala, sProcedimiento, sDescripcion, bAtendida){
+function Cita(sId,oDentista, oCliente, dFechaCita, iSala, sProcedimiento, sDescripcion, bAtendida){
+    this.id=sId;
     this.dentista=oDentista;
     this.cliente=oCliente;
     this.fechacita=dFechaCita;
@@ -100,27 +101,35 @@ function Cita(oDentista, oCliente, dFechaCita, iSala, sProcedimiento, sDescripci
 }
 Clinica.prototype.altaCita=function(oCita,oCliente,oDentista){
     
-    this.citas.push(oCita);
+    var oCitaExistente=this.buscaCita(oCita.id);
     
-    for(var i=0;i<this.clientes.length;i++){
+    if(typeof oCitaExistente==="undefined"){
         
-        if(this.clientes[i]===oCliente){
-            
-            this.clientes[i].citas.push(oCita);
+        this.citas.push(oCita);
+        mensaje("Cita añadida");
+        
+        for(var i=0;i<this.clientes.length;i++){
+        
+            if(this.clientes[i]===oCliente){
+
+                this.clientes[i].citas.push(oCita);
+            }
+        }
+    
+        for(var i=0;i<this.personal.length;i++){
+
+            if(this.personal[i]===oDentista){
+
+                this.personal[i].citas.push(oCita);
+            }
         }
     }
-    
-    for(var i=0;i<this.personal.length;i++){
+    else{
         
-        if(this.personal[i]===oDentista){
-            
-            this.personal[i].citas.push(oCita);
-        }
+        mensaje("Ya existe una cita con ese ID");
     }
-    
-    mensaje("Cita añadida");
 };
-Clinica.prototype.buscaCita=function(procedimiento){
+Clinica.prototype.buscaCita=function(sId){
     
     var oCita;
     
@@ -131,7 +140,7 @@ Clinica.prototype.buscaCita=function(procedimiento){
         
         for(var i=0;i<this.citas.length;i++){
             
-            if(this.citas[i].procedimiento===procedimiento){
+            if(this.citas[i].id===sId){
                 
                 oCita=this.citas[i];
             }

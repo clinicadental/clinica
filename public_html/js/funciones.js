@@ -1059,6 +1059,7 @@ function validarCita(evento){
 
 function validarCamposTextoCita(){
     
+    var sId=document.getElementById('idCita').value;
     var oDentista=document.getElementById("dentistaCita");
     var oCliente=document.getElementById("clienteCita");
     var sFecha=document.getElementById("fechaCita").value;
@@ -1068,6 +1069,20 @@ function validarCamposTextoCita(){
     var bAtendida=document.getElementById("atendidaCita").checked;
     var bValido=true;
     
+    var patronId=/([A-Z]{1})+([0-9]{5})/;
+    
+    if(!patronId.test(sId)){
+        
+        var oBloque=document.getElementById("bloqueIdCita");
+        oBloque.className='form-group has-error';
+        bValido=false;
+    }
+    else{
+        
+        var oBloque=document.getElementById("bloqueIdCita");
+        oBloque.className='form-group';
+
+    }
     if(oDentista.selectedIndex=="0"){
         
         var oBloque=document.getElementById("bloqueDentistaCita");
@@ -1145,7 +1160,7 @@ function validarCamposTextoCita(){
         oDentista=oClinica.buscaPersonal(oDentista.value);
         oCliente=oClinica.buscaCliente(oCliente.value);
         sSala=sSala.value;
-        var oCita=new Cita(oDentista,oCliente,sFecha,sSala,sProcedimiento,sDescripcion,bAtendida);
+        var oCita=new Cita(sId,oDentista,oCliente,sFecha,sSala,sProcedimiento,sDescripcion,bAtendida);
         oClinica.altaCita(oCita,oCliente,oDentista);
         actualizarSelectCita();
         limpiaCampos();
@@ -1175,8 +1190,8 @@ function actualizarSelectCita(){
             
             var oOption=document.createElement("option");
             
-            oOption.value=oClinica.citas[i].procedimiento;
-            oOption.text=oClinica.citas[i].procedimiento+"->"+oClinica.citas[i].dentista.apellidos+", "+oClinica.citas[i].dentista.nombre;
+            oOption.value=oClinica.citas[i].id;
+            oOption.text=oClinica.citas[i].id+"->"+oClinica.citas[i].dentista.apellidos+", "+oClinica.citas[i].dentista.nombre;
             oSelect.appendChild(oOption);
         }
     }
@@ -1688,7 +1703,7 @@ function validarCamposTextoPersonal(){
                     var oPersonal=new Dentista(sId, sNombre, sApellidos, sFecha, iNumCol);
                     oClinica.altaPersonal(oPersonal);
                     limpiaCampos();
-                    actualizarSelectDentista(sNombre,sApellidos,sId);
+                    actualizarSelectDentista();
                 }
             }
         }
@@ -1696,13 +1711,27 @@ function validarCamposTextoPersonal(){
     return bValido;
 }
 
-function actualizarSelectDentista(sNombre,sApellidos,sId){
-    
+function actualizarSelectDentista(){
+  
     var oSelect=document.getElementById("dentistaCita");
-    var oOption=document.createElement("option");
-    oOption.value=sId;
-    oOption.text=sApellidos+", "+sNombre;
-    oSelect.appendChild(oOption);
+    while(oSelect.firstChild){
+        oSelect.removeChild(oSelect.firstChild);
+    }
+    var oOptionIni=document.createElement("option");
+    oOptionIni.text="--seleccione un dentista--";
+    oSelect.appendChild(oOptionIni);
+    if(oClinica.personal.length>0){
+        
+        for(var i=0;i<oClinica.personal.length;i++){
+            
+            if(oClinica.personal[i] instanceof Dentista){
+                var oOption=document.createElement("option");
+                oOption.value=oClinica.personal[i].id;
+                oOption.text=oClinica.personal[i].apellidos+", "+oClinica.personal[i].nombre;
+                oSelect.appendChild(oOption);
+            }
+        }
+    }
  
 }
 
@@ -2571,6 +2600,7 @@ var oAdministrativos=oXML.querySelectorAll("personal administrativos administrat
 var oDentistas=oXML.querySelectorAll("personal dentistas dentista");
 var oPagos=oXML.querySelectorAll("pagos pago");
 var oMateriales=oXML.querySelectorAll("materiales material");
+var oCitas=oXML.querySelectorAll("citas cita");
 
 for(var i=0;i<oClientes.length;i++){
     
@@ -2619,7 +2649,7 @@ for(var i=0;i<oDentistas.length;i++){
     var oDentista=new Dentista(sId,sNombre,sApellidos,sFecha,iColegiado);
     
     oClinica.altaPersonal(oDentista);
-    //actualizarSelectDentista
+    actualizarSelectDentista();
     //actualizarSelectPersonal
 }
 
@@ -2648,6 +2678,26 @@ for(var i=0;i<oMateriales.length;i++){
     var oMaterial=new Material(sId,sTipo,iCantidad,oProveedor);
     
     oClinica.altaMaterial(oMaterial);
+
+}
+
+for(var i=0;i<oCitas.length;i++){
+    
+    var sId=oCitas[i].getAttribute("id");
+    var oDentista=oCitas[i].getElementsByTagName("dentista")[0].textContent;
+    var oCliente=oCitas[i].getElementsByTagName("cliente")[0].textContent;
+    var sFecha=oCitas[i].getElementsByTagName("fecha")[0].textContent;
+    var sSala=oCitas[i].getElementsByTagName("sala")[0].textContent;
+    var sProcedimiento=oCitas[i].getElementsByTagName("procedimiento")[0].textContent;
+    var sDescripcion=oCitas[i].getElementsByTagName("descripcion")[0].textContent;
+    var sAtendida=oCitas[i].getElementsByTagName("atendida")[0].textContent;
+    oDentista=oClinica.buscaPersonal(oDentista);
+    oCliente=oClinica.buscaCliente(oCliente);
+    
+    var oCita=new Cita(sId,oDentista,oCliente,sFecha,sSala,sProcedimiento,sDescripcion,sAtendida);
+    
+    oClinica.altaCita(oCita,oDentista,oCliente);
+    actualizarSelectCita();
 
 }
 

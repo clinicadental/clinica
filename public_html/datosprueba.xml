@@ -153,54 +153,54 @@
     
     <citas>
         
-        <cita>
-            <dentista></dentista>
-            <cliente></cliente>
-            <fecha></fecha>
-            <sala></sala>
-            <procedimiento></procedimiento>
+        <cita id="C22334">
+            <dentista>D01145</dentista>
+            <cliente>C00113</cliente>
+            <fecha>22/07/2015</fecha>
+            <sala>Gabinete 1</sala>
+            <procedimiento>Limpieza bucodental</procedimiento>
             <descripcion></descripcion>
-            <atendida></atendida>
+            <atendida>Sí</atendida>
         </cita>
         
-        <cita>
-            <dentista></dentista>
-            <cliente></cliente>
-            <fecha></fecha>
-            <sala></sala>
-            <procedimiento></procedimiento>
+        <cita id="C37756">
+            <dentista>D01112</dentista>
+            <cliente>C00112</cliente>
+            <fecha>01/03/2016</fecha>
+            <sala>Consulta 2</sala>
+            <procedimiento>Consulta</procedimiento>
             <descripcion></descripcion>
-            <atendida></atendida>
+            <atendida>No</atendida>
         </cita>
         
-        <cita>
-            <dentista></dentista>
-            <cliente></cliente>
-            <fecha></fecha>
-            <sala></sala>
-            <procedimiento></procedimiento>
+        <cita id="C93466">
+            <dentista>D01145</dentista>
+            <cliente>C00115</cliente>
+            <fecha>29/11/2015</fecha>
+            <sala>Consulta 1</sala>
+            <procedimiento>Consulta</procedimiento>
             <descripcion></descripcion>
-            <atendida></atendida>
+            <atendida>Sí</atendida>
         </cita>
         
-        <cita>
-            <dentista></dentista>
-            <cliente></cliente>
-            <fecha></fecha>
-            <sala></sala>
-            <procedimiento></procedimiento>
+        <cita id="C85644">
+            <dentista>D01112</dentista>
+            <cliente>C00114</cliente>
+            <fecha>03/02/2016</fecha>
+            <sala>Rayos</sala>
+            <procedimiento>Radiografía</procedimiento>
             <descripcion></descripcion>
-            <atendida></atendida>
+            <atendida>No</atendida>
         </cita>
         
-        <cita>
-            <dentista></dentista>
-            <cliente></cliente>
-            <fecha></fecha>
-            <sala></sala>
-            <procedimiento></procedimiento>
+        <cita id="C45334">
+            <dentista>D01123</dentista>
+            <cliente>C00112</cliente>
+            <fecha>28/02/2016</fecha>
+            <sala>Gabinete 2</sala>
+            <procedimiento>Reparación pieza dental</procedimiento>
             <descripcion></descripcion>
-            <atendida></atendida>
+            <atendida>No</atendida>
         </cita>
         
     </citas>
