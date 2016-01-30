@@ -2565,6 +2565,96 @@ function loadXMLDoc(filename){
 	return xhttp.responseXML;
 }
 
+var oClientes=oXML.querySelectorAll("clientes cliente");
+var oProveedores=oXML.querySelectorAll("proveedores proveedor");
+var oAdministrativos=oXML.querySelectorAll("personal administrativos administrativo");
+var oDentistas=oXML.querySelectorAll("personal dentistas dentista");
+var oPagos=oXML.querySelectorAll("pagos pago");
+var oMateriales=oXML.querySelectorAll("materiales material");
+
+for(var i=0;i<oClientes.length;i++){
+    
+    var sId=oClientes[i].getAttribute("id");
+    var sNombre=oClientes[i].getElementsByTagName("nombre")[0].textContent;
+    var sApellidos=oClientes[i].getElementsByTagName("apellidos")[0].textContent;
+    var iTelefono=oClientes[i].getElementsByTagName("telefono")[0].textContent;
+    var oCliente=new Cliente(sId,sNombre,sApellidos,iTelefono);
+    
+    oClinica.altaCliente(oCliente);
+    actualizarSelectCliente();
+}
+
+for(var i=0;i<oProveedores.length;i++){
+    
+    var sId=oProveedores[i].getAttribute("id");
+    var sNombre=oProveedores[i].getElementsByTagName("nombre")[0].textContent;
+    var sApellidos=oProveedores[i].getElementsByTagName("apellidos")[0].textContent;
+    var iTelefono=oProveedores[i].getElementsByTagName("telefono")[0].textContent;
+    var oProveedor=new Proveedor(sId,sNombre,sApellidos,iTelefono);
+    
+    oClinica.altaProveedor(oProveedor);
+    actualizarSelectProveedores();
+}
+
+for(var i=0;i<oAdministrativos.length;i++){
+    
+    var sId=oAdministrativos[i].getAttribute("id");
+    var sNombre=oAdministrativos[i].getElementsByTagName("nombre")[0].textContent;
+    var sApellidos=oAdministrativos[i].getElementsByTagName("apellidos")[0].textContent;
+    var sFecha=oAdministrativos[i].getElementsByTagName("fecha")[0].textContent;
+    var iDepartamento=oAdministrativos[i].getElementsByTagName("departamento")[0].textContent;
+    var oAdministrativo=new Administrativo(sId,sNombre,sApellidos,sFecha,iDepartamento);
+    
+    oClinica.altaPersonal(oAdministrativo);
+    //actualizarSelectPersonal
+}
+
+for(var i=0;i<oDentistas.length;i++){
+    
+    var sId=oDentistas[i].getAttribute("id");
+    var sNombre=oDentistas[i].getElementsByTagName("nombre")[0].textContent;
+    var sApellidos=oDentistas[i].getElementsByTagName("apellidos")[0].textContent;
+    var sFecha=oDentistas[i].getElementsByTagName("fecha")[0].textContent;
+    var iColegiado=oDentistas[i].getElementsByTagName("colegiado")[0].textContent;
+    var oDentista=new Dentista(sId,sNombre,sApellidos,sFecha,iColegiado);
+    
+    oClinica.altaPersonal(oDentista);
+    //actualizarSelectDentista
+    //actualizarSelectPersonal
+}
+
+for(var i=0;i<oPagos.length;i++){
+    
+    var sId=oPagos[i].getAttribute("id");
+    var sCantidad=oPagos[i].getElementsByTagName("cantidad")[0].textContent;
+    var sPagada=oPagos[i].getElementsByTagName("pagada")[0].textContent;
+    var oCliente=oPagos[i].getElementsByTagName("cliente")[0].textContent;
+    oCliente=oClinica.buscaCliente(oCliente);
+    
+    var oPago=new Pago(sId,sCantidad,sPagada,oCliente);
+    
+    oClinica.altaPago(oPago);
+
+}
+
+for(var i=0;i<oMateriales.length;i++){
+    
+    var sId=oMateriales[i].getAttribute("id");
+    var sTipo=oMateriales[i].getElementsByTagName("tipo")[0].textContent;
+    var iCantidad=oMateriales[i].getElementsByTagName("cantidad")[0].textContent;
+    var oProveedor=oMateriales[i].getElementsByTagName("proveedor")[0].textContent;
+    oProveedor=oClinica.buscaProveedor(oProveedor);
+    
+    var oMaterial=new Material(sId,sTipo,iCantidad,oProveedor);
+    
+    oClinica.altaMaterial(oMaterial);
+
+}
+
+
+
+
+
 
 /*CALENDARIOS*/
 function calendario1(){

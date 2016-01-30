@@ -3,50 +3,50 @@
 <datos>
     <clientes>
 
-        <cliente id="">
-            <nombre></nombre>
-            <apellidos></apellidos>
-            <telefono></telefono>
+        <cliente id="C00112">
+            <nombre>Raúl</nombre>
+            <apellidos>González Blanco</apellidos>
+            <telefono>982334576</telefono>
         </cliente>
         
-        <cliente id="">
-            <nombre></nombre>
-            <apellidos></apellidos>
-            <telefono></telefono>
+        <cliente id="C00113">
+            <nombre>Arturo</nombre>
+            <apellidos>Reina Pérez</apellidos>
+            <telefono>954726686</telefono>
         </cliente>
         
-        <cliente id="">
-            <nombre></nombre>
-            <apellidos></apellidos>
-            <telefono></telefono>
+        <cliente id="C00114">
+            <nombre>Juan Carlos</nombre>
+            <apellidos>Ramirez Dominguez</apellidos>
+            <telefono>966789554</telefono>
         </cliente>
         
-        <cliente id="">
-            <nombre></nombre>
-            <apellidos></apellidos>
-            <telefono></telefono>
+        <cliente id="C00115">
+            <nombre>Esteban</nombre>
+            <apellidos>Gómez Caballero</apellidos>
+            <telefono>943366711</telefono>
         </cliente>
         
     </clientes>
     
     <proveedores>
         
-        <proveedor id="">
-            <nombre></nombre>
-            <apellidos></apellidos>
-            <telefono></telefono>
+        <proveedor id="P00123">
+            <nombre>Francisco</nombre>
+            <apellidos>Carmona Franco</apellidos>
+            <telefono>976787968</telefono>
         </proveedor>
         
-        <proveedor id="">
-            <nombre></nombre>
-            <apellidos></apellidos>
-            <telefono></telefono>
+        <proveedor id="P00124">
+            <nombre>Ruperto</nombre>
+            <apellidos>del Valle Macías</apellidos>
+            <telefono>955667898</telefono>
         </proveedor>
         
-        <proveedor id="">
-            <nombre></nombre>
-            <apellidos></apellidos>
-            <telefono></telefono>
+        <proveedor id="P00125">
+            <nombre>Gumersindo</nombre>
+            <apellidos>Fuentes Ordóñez</apellidos>
+            <telefono>988733445</telefono>
         </proveedor>
         
     </proveedores>
@@ -55,43 +55,43 @@
         
         <administrativos>
             
-            <administrativo id="">
-                <nombre></nombre>
-                <apellidos></apellidos>
-                <fecha></fecha>
-                <departamento></departamento>
+            <administrativo id="A00212">
+                <nombre>Roberto</nombre>
+                <apellidos>Lama Bretón</apellidos>
+                <fecha>07/08/2015</fecha>
+                <departamento>14</departamento>
             </administrativo>
             
-            <administrativo id="">
-                <nombre></nombre>
-                <apellidos></apellidos>
-                <fecha></fecha>
-                <departamento></departamento>
+            <administrativo id="A00233">
+                <nombre>Domingo</nombre>
+                <apellidos>Arenas Ruiz</apellidos>
+                <fecha>24/02/2015</fecha>
+                <departamento>14</departamento>
             </administrativo>
             
         </administrativos>
         
         <dentistas>
             
-            <dentista id="">
-                <nombre></nombre>
-                <apellidos></apellidos>
-                <fecha></fecha>
-                <colegiado></colegiado>
+            <dentista id="D01112">
+                <nombre>Emilio</nombre>
+                <apellidos>Regalado Trujillo</apellidos>
+                <fecha>14/06/2015</fecha>
+                <colegiado>75689</colegiado>
             </dentista>
             
-            <dentista id="">
-                <nombre></nombre>
-                <apellidos></apellidos>
-                <fecha></fecha>
-                <colegiado></colegiado>
+            <dentista id="D01145">
+                <nombre>Juan Ramón</nombre>
+                <apellidos>Gutierrez Padilla</apellidos>
+                <fecha>06/09/2015</fecha>
+                <colegiado>33335</colegiado>
             </dentista>
             
-            <dentista id="">
-                <nombre></nombre>
-                <apellidos></apellidos>
-                <fecha></fecha>
-                <colegiado></colegiado>
+            <dentista id="D01123">
+                <nombre>Justo</nombre>
+                <apellidos>Robles Castaño</apellidos>
+                <fecha>27/09/2014</fecha>
+                <colegiado>55677</colegiado>
             </dentista>
             
         </dentistas>
@@ -99,55 +99,55 @@
     </personal>
     
     <pagos>
-        <pago id="">
-            <cantidad></cantidad>
-            <pagada></pagada>
-            <cliente></cliente>
+        <pago id="P01234">
+            <cantidad>1.200,00€</cantidad>
+            <pagada>Sí</pagada>
+            <cliente>C00112</cliente>
         </pago>
         
-        <pago id="">
-            <cantidad></cantidad>
-            <pagada></pagada>
-            <cliente></cliente>
+        <pago id="P01237">
+            <cantidad>900,50€</cantidad>
+            <pagada>Sí</pagada>
+            <cliente>C00115</cliente>
         </pago>
         
-        <pago id="">
-            <cantidad></cantidad>
-            <pagada></pagada>
-            <cliente></cliente>
+        <pago id="P01255">
+            <cantidad>355,95€</cantidad>
+            <pagada>No</pagada>
+            <cliente>C00113</cliente>
         </pago>
         
-        <pago id="">
-            <cantidad></cantidad>
-            <pagada></pagada>
-            <cliente></cliente>
+        <pago id="P01247">
+            <cantidad>769,90€</cantidad>
+            <pagada>No</pagada>
+            <cliente>C00114</cliente>
         </pago>
     </pagos>
     
     <materiales>
         
-        <material id="">
-            <tipo></tipo>
-            <cantidad></cantidad>
-            <proveedor></proveedor>
+        <material id="M12344">
+            <tipo>Anestesia</tipo>
+            <cantidad>15</cantidad>
+            <proveedor>P00123</proveedor>
         </material>
         
-        <material id="">
-            <tipo></tipo>
-            <cantidad></cantidad>
-            <proveedor></proveedor>
+        <material id="M16612">
+            <tipo>Material para prótesis</tipo>
+            <cantidad>200</cantidad>
+            <proveedor>P00125</proveedor>
         </material>
         
-        <material id="">
-            <tipo></tipo>
-            <cantidad></cantidad>
-            <proveedor></proveedor>
+        <material id="M15432">
+            <tipo>Utensilios</tipo>
+            <cantidad>100</cantidad>
+            <proveedor>P00124</proveedor>
         </material>
         
-        <material id="">
-            <tipo></tipo>
-            <cantidad></cantidad>
-            <proveedor></proveedor>
+        <material id="M13344">
+            <tipo>Instrumental para profilaxis</tipo>
+            <cantidad>20</cantidad>
+            <proveedor>P00123</proveedor>
         </material>
     </materiales>
     
