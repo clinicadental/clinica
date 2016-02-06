@@ -605,6 +605,10 @@ function validarCamposTextoCita(){
         oClinica.altaCita(oCita,oCliente,oDentista);
         actualizarSelectCita();
         limpiaCampos();
+        var titulo=document.querySelector("#form-alta-citas h2");
+        titulo.removeChild(titulo.firstChild);
+        var oTexto=document.createTextNode("Alta cita");
+        titulo.appendChild(oTexto);
     }
     
     return bValido;
@@ -659,6 +663,7 @@ function validarBajaCita(evento){
 function validarCamposBajaCita(){
     
     var oCita=document.getElementById("bajaCita");
+    var opcion=document.querySelector("#form-baja-citas input[name='opcion']:checked");
     var bValido=true;
     
     if(oCita.selectedIndex=="0"){
@@ -678,31 +683,60 @@ function validarCamposBajaCita(){
         oCita=oCita.value;
         
         oCita=oClinica.buscaCita(oCita);
-        var atendida;
         
-        if(oCita.atendida){
-            
-            atendida="Sí";
+        if(opcion.value=="2"){
+            var atendida;
+
+            if(oCita.atendida){
+
+                atendida="Sí";
+            }
+            else{
+
+                atendida="No";
+            }
+
+
+            if(confirm("Cita a borrar \n\
+                    Dentista: "+oCita.dentista.apellidos+", "+oCita.dentista.nombre+"\n\
+                    Cliente: "+oCita.cliente.apellidos+", "+oCita.cliente.nombre+"\n\
+                    Fecha: "+oCita.fechacita+"\n\
+                    Sala: "+oCita.sala+"\n\
+                    Procedimiento: "+oCita.procedimiento+"\n\
+                    Descripción: "+oCita.descripcion+"\n\
+                    Atendida: "+atendida+"\n\
+                    Está seguro de borrar?")){
+
+                    oClinica.bajaCita(oCita);
+                limpiaCampos();
+            }
         }
         else{
             
-            atendida="No";
+            oClinica.bajaCita(oCita);
+            actualizarSelectCita();
+            limpiaCampos();
+            mostrarFormAltaCita();
+            var titulo=document.querySelector("#form-alta-citas h2");
+            titulo.removeChild(titulo.firstChild);
+            var oTexto=document.createTextNode("Modificar cita");
+            titulo.appendChild(oTexto);
+            document.getElementById('idCita').value=oCita.id;
+            document.getElementById('dentistaCita').value=oCita.dentista.id;
+            document.getElementById('clienteCita').value=oCita.cliente.id;
+            document.getElementById('fechaCita').value=oCita.fechacita;
+            document.getElementById('salaCita').value=oCita.sala;
+            document.getElementById('procedimientoCita').value=oCita.procedimiento;
+            document.getElementById('descripcionCita').value=oCita.descripcion;
+            
+            if(oCita.atendida){
+                
+                document.getElementById('atendidaCita').checked=true;
+            }
+            
+            
         }
         
-       
-        if(confirm("Cita a borrar \n\
-                Dentista: "+oCita.dentista.apellidos+", "+oCita.dentista.nombre+"\n\
-                Cliente: "+oCita.cliente.apellidos+", "+oCita.cliente.nombre+"\n\
-                Fecha: "+oCita.fechacita+"\n\
-                Sala: "+oCita.sala+"\n\
-                Procedimiento: "+oCita.procedimiento+"\n\
-                Descripción: "+oCita.descripcion+"\n\
-                Atendida: "+atendida+"\n\
-                Está seguro de borrar?")){
-            
-                oClinica.bajaCita(oCita);
-            limpiaCampos();
-        }
     }
     
     return bValido;

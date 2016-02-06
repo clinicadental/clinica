@@ -27,7 +27,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Clientes<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#" id='altaCliente'>Añadir</a></li>
-                                <li><a href="#" id="bajaClientes">Eliminar</a></li>
+                                <li><a href="#" id="bajaClientes">Editar</a></li>
                                 <li class="divider"></li>
                                 <li><a href="#" id="listaClientes">Listado</a></li>
                             </ul>
@@ -36,7 +36,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Citas<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#" id='altaCita'>Añadir</a></li>
-                                <li><a href="#" id="bajaCitas">Eliminar</a></li>
+                                <li><a href="#" id="bajaCitas">Editar</a></li>
                                 <li class="divider"></li>
                                 <li><a href="#" id="listaCitas">Listado</a></li>
                             </ul>
@@ -45,7 +45,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Proveedores<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#" id='altaProveedor'>Añadir</a></li>
-                                <li><a href="#" id="bajaProveedores">Eliminar</a></li>
+                                <li><a href="#" id="bajaProveedores">Editar</a></li>
                                 <li class="divider"></li>
                                 <li><a href="#" id="listaProveedores">Listado</a></li>
                             </ul>
@@ -54,7 +54,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Materiales<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#" id="altaMaterial">Añadir</a></li>
-                                <li><a href="#" id="bajaMateriales">Eliminar</a></li>
+                                <li><a href="#" id="bajaMateriales">Editar</a></li>
                                 <li class="divider"></li>
                                 <li><a href="#" id="listaMateriales">Listado</a></li>
                             </ul>   
@@ -63,7 +63,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Personal<b class="caret"></b></a>
                             <ul class="dropdown-menu" id="menu-personal">
                                 <li><a href="#" class="alta">Añadir</a></li>
-                                <li><a href="#" class="baja">Eliminar</a></li>
+                                <li><a href="#" class="baja">Editar</a></li>
                                 <li class="divider"></li>
                                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Listado</a>
                                     <ul class="dropdown-menu sub-menu">
@@ -100,7 +100,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pagos<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#" id="altaPago">Añadir</a></li>
-                                <li><a href="#" id="bajaPagos">Eliminar</a></li>
+                                <li><a href="#" id="bajaPagos">Editar</a></li>
                                 <li class="divider"></li>
                                 <li><a href="#" id="listaPagos">Listado</a></li>
                             </ul>
@@ -350,12 +350,12 @@
                             <div class="form-group">
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" name="opcion" id="modificar" value="1" checked="checked">Modificar
+                                        <input type="radio" name="opcion" value="1" checked="checked">Modificar
                                     </label>
                                 </div>
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" name="opcion" id="borrar" value="2">Borrar
+                                        <input type="radio" name="opcion" value="2">Borrar
                                     </label>
                                 </div>
                             </div>
@@ -375,6 +375,18 @@
                             <select class='form-control' id='bajaCita'>
                                 <option>--seleccione una cita--</option>
                             </select>
+                            <div class="form-group">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="opcion" value="1" checked="checked">Modificar
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="opcion" value="2">Borrar
+                                    </label>
+                                </div>
+                            </div>
                         </div>
                         <div class='form-group'>
                             <input type='submit' class='btn btn-primary' value='Enviar' id='btnBajaCita'/>
@@ -391,6 +403,18 @@
                             <select class='form-control' id='bajaProveedor'>
                                 <option>--seleccione un proveedor--</option>
                             </select>
+                            <div class="form-group">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="opcion" value="1" checked="checked">Modificar
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="opcion" value="2">Borrar
+                                    </label>
+                                </div>
+                            </div>
                         </div>
                         <div class='form-group'>
                             <input type='submit' class='btn btn-primary' value='Enviar' id='btnBajaProveedor'/>
@@ -407,6 +431,18 @@
                         <select class='form-control' id='bajaMaterial'>
                             <option>--seleccione un material--</option>
                         </select>
+                        <div class="form-group">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="opcion" value="1" checked="checked">Modificar
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="opcion" value="2">Borrar
+                                </label>
+                            </div>
+                        </div>
                     </div>
                     <div class='form-group'>
                         <input type='submit' class='btn btn-primary' value='Enviar' id='btnBajaMaterial'/>
@@ -423,6 +459,18 @@
                         <select class='form-control' id='bajaPersonal'>
                             <option>--seleccione un miembro del personal--</option>
                         </select>
+                        <div class="form-group">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="opcion" value="1" checked="checked">Modificar
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="opcion" value="2">Borrar
+                                </label>
+                            </div>
+                        </div>
                     </div>
                     <div class='form-group'>
                         <input type='submit' class='btn btn-primary' value='Enviar' id='btnBajaPersonal'/>
@@ -439,6 +487,18 @@
                         <select class='form-control' id='bajaPago'>
                             <option>--seleccione un pago--</option>
                         </select>
+                        <div class="form-group">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="opcion" value="1" checked="checked">Modificar
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="opcion" value="2">Borrar
+                                </label>
+                            </div>
+                        </div>
                     </div>
                     <div class='form-group'>
                         <input type='submit' class='btn btn-primary' value='Enviar' id='btnBajaPago'/>
