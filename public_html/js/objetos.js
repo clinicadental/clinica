@@ -358,6 +358,7 @@ Clinica.prototype.altaPersonal=function(oPersonal){
         
         this.personal.push(oPersonal);
         mensaje("Personal añadido");
+        actualizarSelectPersonal();
     }
     else{
         
@@ -384,6 +385,16 @@ Clinica.prototype.buscaPersonal=function(sId){
     }
     
     return oPersonal;
+};
+
+Clinica.prototype.bajaPersonal=function(oPersonal){
+    for(var i=0;i<this.materiales.length;i++){
+        if(oPersonal==this.personal[i]){
+            this.personal.splice(i,1);
+            actualizarSelectPersonal();
+            mensaje("Miembro de personal borrado.");
+        }
+    }
 };
 
 

@@ -81,6 +81,13 @@ function asignarEventos(){
     radioDentista.addEventListener('click', comprobarRadio, false);
     var oListadoPersonal=document.getElementById("listaPersonal");
     oListadoPersonal.addEventListener('click',listarPersonal,false);
+   
+    var oBajaPersonal=document.querySelector("#menu-personal .baja");
+    oBajaPersonal.addEventListener('click',mostrarFormBajaPersonal,false);
+    var oFormBajaPersonal=document.getElementById("btnBajaPersonal");
+    oFormBajaPersonal.addEventListener('click', validarBajaPersonal, false);
+    
+    
     document.getElementById("nombre-alta-dentista").addEventListener('keypress',validarSinNumeros,false);
     document.getElementById("apellido-alta-dentista").addEventListener('keypress',validarSinNumeros,false);
     document.getElementById("nombreCliente").addEventListener('keypress',validarSinNumeros,false);
@@ -129,6 +136,8 @@ function mostrarFormAltaCliente(){
     oFormularioBajaMaterial.style.display="none";
     var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
     oFormularioBajaPago.style.display="none";
+    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
+    oFormularioBajaPersonal.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -169,6 +178,8 @@ function mostrarFormBajaCliente(){
     oFormularioBajaMaterial.style.display="none";
     var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
     oFormularioBajaPago.style.display="none";
+    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
+    oFormularioBajaPersonal.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -209,6 +220,8 @@ function mostrarFormAltaCita(){
     oFormularioBajaMaterial.style.display="none";
     var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
     oFormularioBajaPago.style.display="none";
+    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
+    oFormularioBajaPersonal.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -249,6 +262,8 @@ function mostrarFormBajaCita(){
     oFormularioBajaMaterial.style.display="none";
     var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
     oFormularioBajaPago.style.display="none";
+    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
+    oFormularioBajaPersonal.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -289,6 +304,8 @@ function mostrarFormAltaProveedor(){
     oFormularioBajaMaterial.style.display="none";
     var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
     oFormularioBajaPago.style.display="none";
+    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
+    oFormularioBajaPersonal.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -329,6 +346,8 @@ function mostrarFormBajaProveedor(){
     oFormularioBajaMaterial.style.display="none";
     var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
     oFormularioBajaPago.style.display="none";
+    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
+    oFormularioBajaPersonal.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -369,6 +388,8 @@ function mostrarFormAltaMaterial(){
     oFormularioBajaMaterial.style.display="none";
     var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
     oFormularioBajaPago.style.display="none";
+    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
+    oFormularioBajaPersonal.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -409,6 +430,8 @@ function mostrarFormBajaMaterial(){
     oFormularioBajaMaterial.style.display="block";
     var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
     oFormularioBajaPago.style.display="none";
+    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
+    oFormularioBajaPersonal.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -451,6 +474,52 @@ function mostrarFormAltaPersonal(){
     oFormularioBajaMaterial.style.display="none";
     var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
     oFormularioBajaPago.style.display="none";
+    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
+    oFormularioBajaPersonal.style.display="none";
+    
+    var oListado=document.querySelector("#listadoClientes");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoCitas");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoProveedores");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoPersonal");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoSalas");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoPagos");
+    oListado.style.display="none";
+    var oListado=document.querySelector("#listadoMateriales");
+    oListado.style.display="none";
+}
+
+function mostrarFormBajaPersonal(){ 
+    var oFormularioCli=document.querySelector("#form-alta-clientes");
+    oFormularioCli.style.display="none";
+    var oFormularioCit=document.querySelector("#form-alta-citas");
+    oFormularioCit.style.display="none";
+    var oFormularioPro=document.querySelector("#form-alta-proveedores");
+    oFormularioPro.style.display="none";
+    var oFormularioMat=document.querySelector("#form-alta-materiales");
+    oFormularioMat.style.display="none";
+    var oFormularioPer=document.querySelector("#form-alta-personal");
+    oFormularioPer.style.display="none";
+    var oFormularioPag=document.querySelector("#form-alta-pagos");
+    oFormularioPag.style.display="none";
+    var oListado=document.querySelector("#listadoMateriales");
+    oListado.style.display="none";
+    var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
+    oFormularioBajaCliente.style.display="none";
+    var oFormularioBajaCita=document.querySelector("#form-baja-citas");
+    oFormularioBajaCita.style.display="none";
+    var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
+    oFormularioBajaProveedor.style.display="none";
+    var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
+    oFormularioBajaMaterial.style.display="none";
+    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
+    oFormularioBajaPersonal.style.display="block";
+    var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
+    oFormularioBajaPago.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -491,6 +560,8 @@ function mostrarFormAltaPago(){
     oFormularioBajaMaterial.style.display="none";
     var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
     oFormularioBajaPago.style.display="none";
+    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
+    oFormularioBajaPersonal.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -531,6 +602,8 @@ function mostrarFormBajaPago(){
     oFormularioBajaMaterial.style.display="none";
     var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
     oFormularioBajaPago.style.display="block";
+    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
+    oFormularioBajaPersonal.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -572,6 +645,8 @@ function mostrarListadoClientes(){
     oFormularioBajaMaterial.style.display="none";
     var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
     oFormularioBajaPago.style.display="none";
+    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
+    oFormularioBajaPersonal.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="block";
@@ -612,6 +687,8 @@ function mostrarListadoCitas(){
     oFormularioBajaMaterial.style.display="none";
     var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
     oFormularioBajaPago.style.display="none";
+    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
+    oFormularioBajaPersonal.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -652,6 +729,8 @@ function mostrarListadoProveedores(){
     oFormularioBajaMaterial.style.display="none";
     var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
     oFormularioBajaPago.style.display="none";
+    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
+    oFormularioBajaPersonal.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -692,6 +771,8 @@ function mostrarListadoMateriales(){
     oFormularioBajaMaterial.style.display="none";
     var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
     oFormularioBajaPago.style.display="none";
+    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
+    oFormularioBajaPersonal.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -732,6 +813,8 @@ function mostrarListadoPersonal(){
     oFormularioBajaMaterial.style.display="none";
     var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
     oFormularioBajaPago.style.display="none";
+    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
+    oFormularioBajaPersonal.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -772,6 +855,8 @@ function mostrarListadoPagos(){
     oFormularioBajaMaterial.style.display="none";
     var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
     oFormularioBajaPago.style.display="none";
+    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
+    oFormularioBajaPersonal.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -812,6 +897,8 @@ function mostrarListadoSalas(){
     oFormularioBajaMaterial.style.display="none";
     var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
     oFormularioBajaPago.style.display="none";
+    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
+    oFormularioBajaPersonal.style.display="none";
     
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="none";
@@ -1707,6 +1794,101 @@ function validarCamposTextoPersonal(){
                 }
             }
         }
+    }
+    return bValido;
+}
+
+function actualizarSelectPersonal(){
+  
+    var oSelect=document.getElementById("bajaPersonal");
+    while(oSelect.firstChild){
+        oSelect.removeChild(oSelect.firstChild);
+    }
+    var oOptionIni=document.createElement("option");
+    oOptionIni.text="--seleccione un miembro del personal--";
+    oSelect.appendChild(oOptionIni);
+    if(oClinica.personal.length>0){
+        
+        for(var i=0;i<oClinica.personal.length;i++){
+            
+            if(oClinica.personal[i] instanceof Administrativo){
+                var oOption=document.createElement("option");
+                oOption.value=oClinica.personal[i].id;
+                oOption.text="Administrativo: "+oClinica.personal[i].apellidos+", "+oClinica.personal[i].nombre;
+                oSelect.appendChild(oOption);
+            }
+        }
+        
+        for(var i=0;i<oClinica.personal.length;i++){
+            
+            if(oClinica.personal[i] instanceof Dentista){
+                var oOption=document.createElement("option");
+                oOption.value=oClinica.personal[i].id;
+                oOption.text="Dentista: "+oClinica.personal[i].apellidos+", "+oClinica.personal[i].nombre;
+                oSelect.appendChild(oOption);
+            }
+        }
+    }
+ 
+}
+
+
+function validarBajaPersonal(evento){
+    var oEvento=evento||window.event;  
+    oEvento.preventDefault(); 
+    if(validarCamposBajaPersonal()){
+       return true;
+    }
+    else{
+       mensaje("error");
+       return false;
+    } 
+}
+
+function validarCamposBajaPersonal(){
+    var oPersonal=document.getElementById("bajaPersonal");
+    var bValido=true;
+    if(oPersonal.selectedIndex=="0"){
+        var oBloque=document.getElementById("bloqueBajaPersonal");
+        oBloque.className='form-group has-error';
+        bValido=false;
+    }
+    else{
+        var oBloque=document.getElementById("bloqueBajaPersonal");
+        oBloque.className='form-group';
+    }
+    if(bValido){
+        oPersonal=oPersonal.value;
+        oPersonal=oClinica.buscaPersonal(oPersonal);
+        
+        if(oPersonal instanceof Administrativo){
+            
+            if(confirm("Administrativo a borrar \n\
+            ID: "+oPersonal.id+"\n\
+            Nombre: "+oPersonal.nombre+"\n\
+            Apellidos: "+oPersonal.apellidos+"\n\
+            Fecha: "+oPersonal.fechaalta+"\n\
+            Departamento: "+oPersonal.departamento+"\n\
+            ¿Está seguro que desea borrar?")){
+            oClinica.bajaPersonal(oPersonal);
+            limpiaCampos();
+            }
+        }
+        else{
+            
+            if(confirm("Dentista a borrar \n\
+            ID: "+oPersonal.id+"\n\
+            Nombre: "+oPersonal.nombre+"\n\
+            Apellidos: "+oPersonal.apellidos+"\n\
+            Fecha: "+oPersonal.fechaalta+"\n\
+            Departamento: "+oPersonal.numero+"\n\
+            ¿Está seguro que desea borrar?")){
+            oClinica.bajaPersonal(oPersonal);
+            limpiaCampos();
+            }
+            
+        }
+        
     }
     return bValido;
 }
