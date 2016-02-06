@@ -371,6 +371,7 @@ function validarBajaCliente(evento){
 function validarCamposBajaCliente(){
     
     var oCliente=document.getElementById("bajaCliente");
+    var opcion=document.querySelector("#form-baja-clientes input[name='opcion']:checked");
     var bValido=true;
     
     if(oCliente.selectedIndex=="0"){
@@ -387,21 +388,29 @@ function validarCamposBajaCliente(){
     
     if(bValido){
         
-        oCliente=oCliente.value;
-        
-        oCliente=oClinica.buscaCliente(oCliente);
-        
-        if(confirm("Cliente a borrar \n\
-                ID: "+oCliente.id+"\n\
-                Nombre: "+oCliente.nombre+"\n\
-                Apellidos: "+oCliente.apellidos+"\n\
-                Teléfono: "+oCliente.telefono+"\n\
-                Está seguro de borrar?")){
+        if(opcion.value=="2"){
             
-            oClinica.bajaCliente(oCliente);
-            actualizarSelectCliente(oCliente);
-            limpiaCampos();
+            oCliente=oCliente.value;
+        
+            oCliente=oClinica.buscaCliente(oCliente);
+
+            if(confirm("Cliente a borrar \n\
+                    ID: "+oCliente.id+"\n\
+                    Nombre: "+oCliente.nombre+"\n\
+                    Apellidos: "+oCliente.apellidos+"\n\
+                    Teléfono: "+oCliente.telefono+"\n\
+                    Está seguro de borrar?")){
+
+                oClinica.bajaCliente(oCliente);
+                actualizarSelectCliente(oCliente);
+                limpiaCampos();
+            }
         }
+        else{
+            
+            
+        }
+        
     }
     
     return bValido;
