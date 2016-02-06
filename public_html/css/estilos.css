@@ -115,14 +115,10 @@ footer a{
 }
 #mensajes{
     display:none;
-    border:thin black solid;
-    border-radius:15px;
-    background-color:#2ECCFA;
     width:30%;
     height:150px;
     top:100px;
-    left:37%;
+    left:35%;
     position:fixed;
-    text-align:center;
     z-index:2;
 }
