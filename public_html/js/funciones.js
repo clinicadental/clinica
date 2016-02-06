@@ -345,6 +345,10 @@ function validarCamposTextoCliente(){
         oClinica.altaCliente(oCliente);
         limpiaCampos();
         actualizarSelectCliente();
+        var titulo=document.querySelector("#form-alta-clientes h2");
+        titulo.removeChild(titulo.firstChild);
+        var oTexto=document.createTextNode("Alta cliente");
+        titulo.appendChild(oTexto);
         
     }
     
@@ -388,12 +392,13 @@ function validarCamposBajaCliente(){
     
     if(bValido){
         
-        if(opcion.value=="2"){
+        
             
             oCliente=oCliente.value;
         
             oCliente=oClinica.buscaCliente(oCliente);
-
+        
+        if(opcion.value=="2"){
             if(confirm("Cliente a borrar \n\
                     ID: "+oCliente.id+"\n\
                     Nombre: "+oCliente.nombre+"\n\
@@ -408,7 +413,18 @@ function validarCamposBajaCliente(){
         }
         else{
             
-            
+            oClinica.bajaCliente(oCliente);
+            actualizarSelectCliente(oCliente);
+            limpiaCampos();
+            mostrarFormAltaCliente();
+            var titulo=document.querySelector("#form-alta-clientes h2");
+            titulo.removeChild(titulo.firstChild);
+            var oTexto=document.createTextNode("Modificar cliente");
+            titulo.appendChild(oTexto);
+            document.getElementById('idCliente').value=oCliente.id;
+            document.getElementById('nombreCliente').value=oCliente.nombre;
+            document.getElementById('apellidosCliente').value=oCliente.apellidos;
+            document.getElementById('telefonoCliente').value=oCliente.telefono;
         }
         
     }
