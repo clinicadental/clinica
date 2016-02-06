@@ -32,20 +32,17 @@
     <proveedores>
         
         <proveedor id="P00123">
-            <nombre>Francisco</nombre>
-            <apellidos>Carmona Franco</apellidos>
+            <nombre>Francisco Carmona Franco</nombre>
             <telefono>976787968</telefono>
         </proveedor>
         
         <proveedor id="P00124">
-            <nombre>Ruperto</nombre>
-            <apellidos>del Valle Macías</apellidos>
+            <nombre>Ruperto del Valle Macías</nombre>
             <telefono>955667898</telefono>
         </proveedor>
         
         <proveedor id="P00125">
-            <nombre>Gumersindo</nombre>
-            <apellidos>Fuentes Ordóñez</apellidos>
+            <nombre>Gumersindo Fuentes Ordóñez</nombre>
             <telefono>988733445</telefono>
         </proveedor>
         

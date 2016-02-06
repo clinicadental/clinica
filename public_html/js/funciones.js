@@ -820,6 +820,10 @@ function validarCamposTextoProveedor(){
         oClinica.altaProveedor(oProveedor);
         actualizarSelectProveedores();
         limpiaCampos();
+        var titulo=document.querySelector("#form-alta-proveedores h2");
+        titulo.removeChild(titulo.firstChild);
+        var oTexto=document.createTextNode("Alta proveedor");
+        titulo.appendChild(oTexto);
     }
     
     return bValido;
@@ -882,6 +886,7 @@ function validarBajaProveedor(evento){
 function validarCamposBajaProveedor(){
     
     var oProveedor=document.getElementById("bajaProveedor");
+    var opcion=document.querySelector("#form-baja-proveedores input[name='opcion']:checked");
     var bValido=true;
     
     if(oProveedor.selectedIndex=="0"){
@@ -901,16 +906,36 @@ function validarCamposBajaProveedor(){
         oProveedor=oProveedor.value;
         
         oProveedor=oClinica.buscaProveedor(oProveedor);
-
-        if(confirm("Proveedor a borrar \n\
+        
+        if(opcion.value=="2"){
+            
+            if(confirm("Proveedor a borrar \n\
                 ID: "+oProveedor.id+"\n\
                 Nombre: "+oProveedor.nombre+"\n\
                 Teléfono: "+oProveedor.telefono+"\n\
                 Está seguro de borrar?")){
             
                 oClinica.bajaProveedor(oProveedor);
-            limpiaCampos();
+                limpiaCampos();
+            }
+            
         }
+        else{
+            
+            oClinica.bajaProveedor(oProveedor);
+            actualizarSelectProveedores();
+            limpiaCampos();
+            mostrarFormAltaProveedor();
+            var titulo=document.querySelector("#form-alta-proveedores h2");
+            titulo.removeChild(titulo.firstChild);
+            var oTexto=document.createTextNode("Modificar proveedor");
+            titulo.appendChild(oTexto);
+            document.getElementById('idProveedor').value=oProveedor.id;
+            document.getElementById('nombreProveedor').value=oProveedor.nombre;
+            document.getElementById('telefonoProveedor').value=oProveedor.telefono;
+        }
+
+        
     }
     
     return bValido;
@@ -2205,9 +2230,8 @@ for(var i=0;i<oProveedores.length;i++){
     
     var sId=oProveedores[i].getAttribute("id");
     var sNombre=oProveedores[i].getElementsByTagName("nombre")[0].textContent;
-    var sApellidos=oProveedores[i].getElementsByTagName("apellidos")[0].textContent;
     var iTelefono=oProveedores[i].getElementsByTagName("telefono")[0].textContent;
-    var oProveedor=new Proveedor(sId,sNombre,sApellidos,iTelefono);
+    var oProveedor=new Proveedor(sId,sNombre,iTelefono);
     
     oClinica.altaProveedor(oProveedor);
     actualizarSelectProveedores();
