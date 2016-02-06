@@ -951,6 +951,7 @@ function validarBajaMaterial(evento){
 
 function validarCamposBajaMaterial(){
     var oMaterial=document.getElementById("bajaMaterial");
+    var opcion=document.querySelector("#form-baja-materiales input[name='opcion']:checked");
     var bValido=true;
     if(oMaterial.selectedIndex=="0"){
         var oBloque=document.getElementById("bloqueBajaMaterial");
@@ -964,14 +965,29 @@ function validarCamposBajaMaterial(){
     if(bValido){
         oMaterial=oMaterial.value;
         oMaterial=oClinica.buscaMaterial(oMaterial);
-        if(confirm("Material a borrar \n\
-            ID: "+oMaterial.id+"\n\
-            Tipo: "+oMaterial.tipo+"\n\
-            Cantidad: "+oMaterial.cantidad+"\n\
-            Proveedor: "+oMaterial.proveedor.nombre+"\n\
-            ¿Está seguro que desea borrar?")){
+        if(opcion.value=="2"){
+            if(confirm("Material a borrar \n\
+                ID: "+oMaterial.id+"\n\
+                Tipo: "+oMaterial.tipo+"\n\
+                Cantidad: "+oMaterial.cantidad+"\n\
+                Proveedor: "+oMaterial.proveedor.nombre+"\n\
+                ¿Está seguro que desea borrar?")){
+                oClinica.bajaMaterial(oMaterial);
+                limpiaCampos();
+            }
+        }
+        else{
             oClinica.bajaMaterial(oMaterial);
             limpiaCampos();
+            mostrarFormAltaMaterial();
+            var titulo=document.querySelector("#form-alta-materiales h2");
+            titulo.removeChild(titulo.firstChild);
+            var oTexto=document.createTextNode("Modificar material");
+            titulo.appendChild(oTexto);
+            document.getElementById('idMaterial').value=oMaterial.id;
+            document.getElementById('tipoMaterial').value=oMaterial.tipo;
+            document.getElementById('cantidadMaterial').value=oMaterial.cantidad;
+            document.getElementById('proveedorMaterial').value=oMaterial.proveedor.id;
         }
     }
     return bValido;
@@ -1243,14 +1259,7 @@ function validarCamposBajaPersonal(){
                 
                 document.getElementById("departamento").value=oPersonal.departamento;
             }
-            
-            
-            
-
         }
-        
-        
-        
     }
     return bValido;
 }
@@ -1352,6 +1361,7 @@ function validarBajaPago(evento){
 }
 function validarCamposBajaPago(){
     var oPago=document.getElementById("bajaPago");
+    var opcion=document.querySelector("#form-baja-pagos input[name='opcion']:checked");
     var bValido=true;
     var oBloque=document.getElementById("bloqueBajaPago");
     if(oPago.selectedIndex=="0"){
@@ -1364,13 +1374,28 @@ function validarCamposBajaPago(){
     if(bValido){
         oPago=oPago.value;
         oPago=oClinica.buscaPago(oPago);
-        if(confirm("Pago a borrar \n\
-            ID: "+oPago.id+"\n\
-            Importe: "+oPago.importe+" €"+"\n\
-            Cliente: "+oPago.cliente.nombre+"\n\
-            ¿Está seguro que desea borrar?")){
+        if(opcion.value=="2"){
+            if(confirm("Pago a borrar \n\
+                ID: "+oPago.id+"\n\
+                Importe: "+oPago.importe+" €"+"\n\
+                Cliente: "+oPago.cliente.nombre+"\n\
+                ¿Está seguro que desea borrar?")){
+                oClinica.bajaPago(oPago);
+                limpiaCampos();
+            }
+        }
+        else{
             oClinica.bajaPago(oPago);
             limpiaCampos();
+            mostrarFormAltaPago();
+            var titulo=document.querySelector("#form-alta-pagos h2");
+            titulo.removeChild(titulo.firstChild);
+            var oTexto=document.createTextNode("Modificar pago");
+            titulo.appendChild(oTexto);
+            document.getElementById('idPago').value=oPago.id;
+            document.getElementById('cantidadPago').value=oPago.importe;
+            document.getElementById('citaPagada').value=oPago.pagado;
+            document.getElementById('clientePago').value=oPago.cliente.id;
         }
     }
     return bValido;
@@ -2247,10 +2272,6 @@ for(var i=0;i<oCitas.length;i++){
     actualizarSelectCita();
 
 }
-
-
-
-
 
 
 /*CALENDARIOS*/
