@@ -110,6 +110,11 @@ function asignarEventos(){
     
     var oBotonMensaje=document.getElementById("btnMensaje");
     oBotonMensaje.addEventListener('click', ocultarMensaje, false);
+    
+    var oBotonConfirmar=document.getElementById("btnConfirmar");
+    oBotonConfirmar.addEventListener('click', ocultarConfirmar, false);
+    var oBotonCancelar=document.getElementById("btnCancelar");
+    oBotonCancelar.addEventListener('click', ocultarConfirmar, false);
 }
 
 /*MOSTRAR FORMULARIOS*/
@@ -1063,7 +1068,7 @@ function validarCamposBajaCliente(){
         
         oCliente=oClinica.buscaCliente(oCliente);
         
-        if(confirm("Cliente a borrar \n\
+        if(confirmar("Cliente a borrar \n\
                 ID: "+oCliente.id+"\n\
                 Nombre: "+oCliente.nombre+"\n\
                 Apellidos: "+oCliente.apellidos+"\n\
@@ -1071,6 +1076,7 @@ function validarCamposBajaCliente(){
                 Está seguro de borrar?")){
             
             oClinica.bajaCliente(oCliente);
+            actualizarSelectCliente(oCliente);
             limpiaCampos();
         }
     }
