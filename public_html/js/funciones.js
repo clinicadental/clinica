@@ -121,7 +121,8 @@ function asignarEventos(){
     oBotonCancelar.addEventListener('click', ocultarConfirmar, false);*/
 }
 
-/*MOSTRAR FORMULARIOS*/
+
+/*----MOSTRAR FORMULARIOS Y LISTADOS----*/
 function ocultarTodo(){
     var oFormularios=document.getElementsByClassName("bloque");
     for(var i=0;i<oFormularios.length;i++){
@@ -138,119 +139,98 @@ function mostrarFormBajaCliente(){
     var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
     oFormularioBajaCliente.style.display="block";
 }
-
 function mostrarFormAltaCita(){
     ocultarTodo();
     var oFormularioCit=document.querySelector("#form-alta-citas");
     oFormularioCit.style.display="block";
 }
-
 function mostrarFormBajaCita(){
     ocultarTodo();
     var oFormularioBajaCita=document.querySelector("#form-baja-citas");
     oFormularioBajaCita.style.display="block";
 }
-
 function mostrarFormAltaProveedor(){
     ocultarTodo();
     var oFormularioPro=document.querySelector("#form-alta-proveedores");
     oFormularioPro.style.display="block";
 }
-
 function mostrarFormBajaProveedor(){
     ocultarTodo();
     var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
     oFormularioBajaProveedor.style.display="block";
 }
-
 function mostrarFormAltaMaterial(){
     ocultarTodo();
     var oFormularioMat=document.querySelector("#form-alta-materiales");
     oFormularioMat.style.display="block";
 }
-
 function mostrarFormBajaMaterial(){
     ocultarTodo();
     var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
     oFormularioBajaMaterial.style.display="block";
 }
-
 function mostrarFormAltaPersonal(){ 
     ocultarTodo();
     var oFormularioPer=document.querySelector("#form-alta-personal");
     oFormularioPer.style.display="block";
 }
-
 function mostrarFormBajaPersonal(){ 
     ocultarTodo();
     var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
     oFormularioBajaPersonal.style.display="block";
 }
-
 function mostrarFormAltaPago(){
     ocultarTodo();
     var oFormularioPag=document.querySelector("#form-alta-pagos");
     oFormularioPag.style.display="block";
 }
-
 function mostrarFormBajaPago(){
     ocultarTodo();
     var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
     oFormularioBajaPago.style.display="block";
 }
-
-/*MOSTRAR LISTADOS*/
 function mostrarListadoClientes(){
     ocultarTodo();
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="block";
 }
-
 function mostrarListadoCitas(){
     ocultarTodo();
     var oListado=document.querySelector("#listadoCitas");
     oListado.style.display="block";
 }
-
 function mostrarListadoProveedores(){
     ocultarTodo();
     var oListado=document.querySelector("#listadoProveedores");
     oListado.style.display="block";
 }
-
 function mostrarListadoMateriales(){
     ocultarTodo();
     var oListado=document.querySelector("#listadoMateriales");
     oListado.style.display="block";
 }
-
 function mostrarListadoPersonal(){
     ocultarTodo();
     var oListado=document.querySelector("#listadoPersonal");
     oListado.style.display="block";
 }
-
 function mostrarListadoPagos(){
     ocultarTodo();
     var oListado=document.querySelector("#listadoPagos");
     oListado.style.display="block";
 }
-
 function mostrarListadoSalas(){
     ocultarTodo();
     var oListado=document.querySelector("#listadoSalas");
     oListado.style.display="block";
 }
 
-/*VALIDACIONES*/
+
+/*----VALIDAR SIN NÚMEROS----*/
 function validarSinNumeros(evento){
-    
     var oEvento = evento || window.event;
-	
     var codigoChar = oEvento.charCode || oEvento.keyCode; 
-		
     var caracter = String.fromCharCode(codigoChar);
-    
     if (caracter == "0" || caracter == "1" || caracter == "2" ||caracter == "3" || 
         caracter == "4" || caracter == "5" || caracter == "6" || caracter == "7" || 
         caracter == "8" ||caracter == "9"){			
@@ -258,15 +238,12 @@ function validarSinNumeros(evento){
     }
 }
 
-/*VALIDAR CLIENTE*/
+
+/*----VALIDAR CLIENTE----*/
 function validarCliente(evento){
-    
     var oEvento = evento || window.event;  
-    
-    oEvento.preventDefault(); 
-    
+    oEvento.preventDefault();
     if(validarCamposTextoCliente()){
-       
        return true;
     }
     else{
@@ -283,7 +260,6 @@ function validarCamposTextoCliente(){
     var sApellidos=document.getElementById('apellidosCliente').value;
     var iTelefono=document.getElementById('telefonoCliente').value;
     var bValido=true;
-    
     var patronId=/(^[A-Z]{1})([0-9]{5}$)/;
     var patronCadena=/[a-zA-Z]+\s?/;
     var patronTelef=/^([0-9]{2,3})?(-|\s)?[0-9]{6,7}$/;
@@ -338,13 +314,9 @@ function validarCamposTextoCliente(){
 }
 
 function validarBajaCliente(evento){
-    
     var oEvento = evento || window.event;  
-    
     oEvento.preventDefault(); 
-    
     if(validarCamposBajaCliente()){
-       
        return true;
     }
     else{
@@ -356,31 +328,21 @@ function validarBajaCliente(evento){
 }
 
 function validarCamposBajaCliente(){
-    
     var oCliente=document.getElementById("bajaCliente");
     var opcion=document.querySelector("#form-baja-clientes input[name='opcion']:checked");
     var bValido=true;
-    
     if(oCliente.selectedIndex=="0"){
-        
         var oBloque=document.getElementById("bloqueBajaCliente");
         oBloque.className='form-group has-error';
         bValido=false;
     }
     else{
-        
         var oBloque=document.getElementById("bloqueBajaCliente");
         oBloque.className='form-group';
     }
-    
-    if(bValido){
-        
-        
-            
+    if(bValido){       
             oCliente=oCliente.value;
-        
             oCliente=oClinica.buscaCliente(oCliente);
-        
         if(opcion.value=="2"){
             if(confirm("Cliente a borrar \n\
                     ID: "+oCliente.id+"\n\
@@ -388,14 +350,12 @@ function validarCamposBajaCliente(){
                     Apellidos: "+oCliente.apellidos+"\n\
                     Teléfono: "+oCliente.telefono+"\n\
                     Está seguro de borrar?")){
-
                 oClinica.bajaCliente(oCliente);
                 actualizarSelectCliente(oCliente);
                 limpiaCampos();
             }
         }
         else{
-            
             oClinica.bajaCliente(oCliente);
             actualizarSelectCliente(oCliente);
             limpiaCampos();
@@ -409,9 +369,7 @@ function validarCamposBajaCliente(){
             document.getElementById('apellidosCliente').value=oCliente.apellidos;
             document.getElementById('telefonoCliente').value=oCliente.telefono;
         }
-        
     }
-    
     return bValido;
 }
 
@@ -463,15 +421,11 @@ function actualizarSelectCliente(){
     
 }
 
-/*VALIDAR CITA*/
+/*----VALIDAR CITA----*/
 function validarCita(evento){
-    
-    var oEvento = evento || window.event;
-    
-    oEvento.preventDefault(); 
-    
-    if(validarCamposTextoCita()){
-       
+    var oEvento = evento || window.event;   
+    oEvento.preventDefault();     
+    if(validarCamposTextoCita()){      
        return true;
     }
     else{
@@ -482,8 +436,7 @@ function validarCita(evento){
     } 
 }
 
-function validarCamposTextoCita(){
-    
+function validarCamposTextoCita(){  
     var sId=document.getElementById('idCita').value;
     var oDentista=document.getElementById("dentistaCita");
     var oCliente=document.getElementById("clienteCita");
@@ -493,95 +446,73 @@ function validarCamposTextoCita(){
     var sDescripcion=document.getElementById("descripcionCita").value;
     var bAtendida=document.getElementById("atendidaCita").checked;
     var bValido=true;
-    
-    var patronId=/([A-Z]{1})+([0-9]{5})/;
+    var patronId=/(^[A-Z]{1})([0-9]{5}$)/;
+    var patronCadena=/[a-zA-Z]+\s?/;
     
     if(!patronId.test(sId)){
-        
         var oBloque=document.getElementById("bloqueIdCita");
         oBloque.className='form-group has-error';
         bValido=false;
     }
     else{
-        
         var oBloque=document.getElementById("bloqueIdCita");
         oBloque.className='form-group';
-
     }
     if(oDentista.selectedIndex=="0"){
-        
         var oBloque=document.getElementById("bloqueDentistaCita");
         oBloque.className='form-group has-error';
         bValido=false;
     }
-    else{
-        
+    else{ 
         var oBloque=document.getElementById("bloqueDentistaCita");
         oBloque.className='form-group';
-    }
-    
-    if(oCliente.selectedIndex=="0"){
-        
+    }    
+    if(oCliente.selectedIndex=="0"){        
         var oBloque=document.getElementById("bloqueClienteCita");
         oBloque.className='form-group has-error';
         bValido=false;
     }
-    else{
-        
+    else{       
         var oBloque=document.getElementById("bloqueClienteCita");
         oBloque.className='form-group';
-    }
-    
-    if(sFecha==""){
-        
+    }  
+    if(sFecha==""){        
         var oBloque=document.getElementById("bloqueFechaCita");
         oBloque.className='form-group has-error';
         bValido=false;
     }
-    else{
-        
+    else{       
         var oBloque=document.getElementById("bloqueFechaCita");
         oBloque.className='form-group';
-    }
-    
-    if(sSala.selectedIndex=="0"){
-        
+    }   
+    if(sSala.selectedIndex=="0"){      
         var oBloque=document.getElementById("bloqueSalaCita");
         oBloque.className='form-group has-error';
         bValido=false;
     }
-    else{
-        
+    else{        
         var oBloque=document.getElementById("bloqueSalaCita");
         oBloque.className='form-group';
-    }
-    
-    if(sProcedimiento==""){
-        
+    }    
+    if(!patronCadena.test(sProcedimiento)){       
         var oBloque=document.getElementById("bloqueProcedimiento");
         oBloque.className='form-group has-error';
         bValido=false;
     }
-    else{
-        
+    else{       
         var oBloque=document.getElementById("bloqueProcedimiento");
         oBloque.className='form-group';
-    }
-    
-    if(sDescripcion==""){
-        
+    }   
+    if(sDescripcion==""){       
         var oBloque=document.getElementById("bloqueDescripcion");
         oBloque.className='form-group has-error';
         bValido=false;
     }
-    else{
-        
+    else{      
         var oBloque=document.getElementById("bloqueDescripcion");
         oBloque.className='form-group';
-    }
-    
+    }  
     if(bValido){
-        
         oDentista=oClinica.buscaPersonal(oDentista.value);
         oCliente=oClinica.buscaCliente(oCliente.value);
         sSala=sSala.value;
@@ -594,7 +525,6 @@ function validarCamposTextoCita(){
         var oTexto=document.createTextNode("Alta cita");
         titulo.appendChild(oTexto);
     }
-    
     return bValido;
 }
 
@@ -727,15 +657,11 @@ function validarCamposBajaCita(){
     return bValido;
 }
 
-/*VALIDAR PROVEEDOR*/
+/*----VALIDAR PROVEEDOR----*/
 function validarProveedor(evento){
-    
-    var oEvento = evento || window.event;
-    
-    oEvento.preventDefault(); 
-    
-    if(validarCamposTextoProveedor()){
-       
+    var oEvento = evento || window.event;    
+    oEvento.preventDefault();    
+    if(validarCamposTextoProveedor()){       
        return true;
     }
     else{
@@ -746,57 +672,43 @@ function validarProveedor(evento){
     }
 }
 
-function validarCamposTextoProveedor(){
-    
+function validarCamposTextoProveedor(){  
     var sId=document.getElementById("idProveedor").value;
     var sNombre=document.getElementById("nombreProveedor").value;
     var iTelefono=document.getElementById('telefonoProveedor').value;
-    var bValido=true;
+    var bValido=true;   
+    var patronId=/(^[A-Z]{1})([0-9]{5}$)/;
+    var patronNombre=/[a-zA-Z]+\s?/;
+    var patronTelef=/^([0-9]{2,3})?(-|\s)?[0-9]{6,7}$/;
     
-    var patronId=/([A-Z]{1})+([0-9]{5})/;
-    var patronTelef=/[0-9]{2,3}-? ?[0-9]{6,7}/;
-    
-    if(!patronId.test(sId)){
-        
+    if(!patronId.test(sId)){        
         var oBloque=document.getElementById("bloqueIdProveedor");
         oBloque.className='form-group has-error';
         bValido=false;
     }
-    else{
-        
+    else{        
         var oBloque=document.getElementById("bloqueIdProveedor");
         oBloque.className='form-group';
-
-    }
-    
-    if(sNombre==""){
-        
+    }   
+    if(!patronNombre.test(sNombre)){       
         var oBloque=document.getElementById("bloqueNombreProveedor");
         oBloque.className='form-group has-error';
         bValido=false;
     }
-    else{
-        
+    else{        
         var oBloque=document.getElementById("bloqueNombreProveedor");
         oBloque.className='form-group';
-
-    }
-    
-    if(!patronTelef.test(iTelefono)){
-        
+    }    
+    if(!patronTelef.test(iTelefono)){       
         var oBloque=document.getElementById("bloqueTelefonoProveedor");
         oBloque.className='form-group has-error';
         bValido=false;
     }
-    else{
-        
+    else{        
         var oBloque=document.getElementById("bloqueTelefonoProveedor");
         oBloque.className='form-group';
-
-    }
-    
-    if(bValido){
-        
+    }   
+    if(bValido){       
         var oProveedor=new Proveedor(sId, sNombre, iTelefono);
         oClinica.altaProveedor(oProveedor);
         actualizarSelectProveedores();
@@ -805,8 +717,7 @@ function validarCamposTextoProveedor(){
         titulo.removeChild(titulo.firstChild);
         var oTexto=document.createTextNode("Alta proveedor");
         titulo.appendChild(oTexto);
-    }
-    
+    }   
     return bValido;
 }
 
@@ -923,7 +834,7 @@ function validarCamposBajaProveedor(){
 }
 
 
-/*VALIDAR MATERIALES*/
+/*----VALIDAR MATERIALES----*/
 function validarMaterial(evento){
     var oEvento=evento||window.event;
     oEvento.preventDefault();
@@ -945,7 +856,7 @@ function validarCamposTextoMaterial(){
     var oProveedor=document.getElementById('proveedorMaterial');
     var bValido=true;
     
-    var patronId=/([A-Z]{1})+([0-9]{5})/;
+    var patronId=/(^[A-Z]{1})([0-9]{5}$)/;
     var patronCantidad=/([1-9]{1,10})/;
     
     if(!patronId.test(sId)){
@@ -1084,7 +995,7 @@ function actualizarSelectMateriales2(){
     }
 }
 
-/*VALIDAR PERSONAL*/
+/*----VALIDAR PERSONAL----*/
 function validarPersonal(evento){
     
     var oEvento = evento || window.event;  
@@ -1114,8 +1025,9 @@ function validarCamposTextoPersonal(){
     var sTipo=document.formPersonal.tipo.value;
     var bValido=true;
     
-    var patronId=/([A-Z]{1})+([0-9]{5})/;
-    var patronNum=/([1-9]{1})+([0-9]{4})/;
+    var patronId=/(^[A-Z]{1})([0-9]{5}$)/;
+    var patronCadena=/[a-zA-Z]+\s?/;
+    var patronNum=/^([0-9]{5})$/;
        
     if(!patronId.test(sId)){
         
@@ -1130,7 +1042,7 @@ function validarCamposTextoPersonal(){
 
     }
     
-    if(sNombre==""){
+    if(!patronCadena.test(sNombre)){
         
         var oBloque=document.getElementById("bloque-alta-nombre");
         oBloque.className='form-group has-error';
@@ -1143,7 +1055,7 @@ function validarCamposTextoPersonal(){
 
     }
     
-    if(sApellidos==""){
+    if(!patronCadena.test(sApellidos)){
         
         var oBloque=document.getElementById("bloque-alta-apellido");
         oBloque.className='form-group has-error';
@@ -1164,11 +1076,10 @@ function validarCamposTextoPersonal(){
     if (bValido){
         if(sTipo=="1"){
 
-            if(isNaN(iDepart) || iDepart===""){
-
+            if(isNaN(iDepart) || iDepart==""){
                 var oBloque=document.getElementById("bloqueDepartamento");
                 oBloque.className='form-group has-error';
-                bValido=false;
+                 bValido=false;
             }
             else{
 
@@ -1368,7 +1279,7 @@ function actualizarSelectDentista(){
  
 }
 
-/*VALIDAR PAGOS*/
+/*----VALIDAR PAGOS----*/
 function validarPago(evento){
     var oEvento=evento||window.event;
     oEvento.preventDefault();
@@ -1482,7 +1393,7 @@ function actualizarSelectPagos(){
     }
 }
 
-/*VALIDAR SALAS*/
+/*----VALIDAR SALAS----*/
 function actualizarSelectSalas(){
     
     var oSala1=new Sala("01","Consulta 1","Consulta");
