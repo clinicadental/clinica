@@ -28,7 +28,8 @@ Clinica.prototype.altaCliente=function(oCliente){
         mensaje("Cliente añadido");
     }
     else{
-        
+        var oCapaMensaje=document.getElementById("mensajes");
+        oCapaMensaje.className="alert alert-danger"; 
         mensaje("Ya existe un cliente con ese ID");
     }
 };
@@ -125,7 +126,8 @@ Clinica.prototype.altaCita=function(oCita,oCliente,oDentista){
         }
     }
     else{
-        
+        var oCapaMensaje=document.getElementById("mensajes");
+        oCapaMensaje.className="alert alert-danger"; 
         mensaje("Ya existe una cita con ese ID");
     }
 };
@@ -222,7 +224,8 @@ Clinica.prototype.altaProveedor=function(oProveedor){
         mensaje("Proveedor añadido");
     }
     else{
-        
+        var oCapaMensaje=document.getElementById("mensajes");
+        oCapaMensaje.className="alert alert-danger"; 
         mensaje("Ya existe un proveedor con ese ID");
     }
 };
@@ -293,6 +296,8 @@ Clinica.prototype.altaMaterial=function(oMaterial){
         mensaje("Material añadido.");
     }
     else{
+        var oCapaMensaje=document.getElementById("mensajes");
+        oCapaMensaje.className="alert alert-danger"; 
         mensaje("Ya existe un material con este ID.");
     }
 };
@@ -361,7 +366,8 @@ Clinica.prototype.altaPersonal=function(oPersonal){
         actualizarSelectPersonal();
     }
     else{
-        
+        var oCapaMensaje=document.getElementById("mensajes");
+        oCapaMensaje.className="alert alert-danger"; 
         mensaje("Ya existe un miembro con ese ID");
     }
 };
@@ -552,6 +558,8 @@ Clinica.prototype.altaPago=function(oPago){
         mensaje("Pago añadido");
     }
     else{
+        var oCapaMensaje=document.getElementById("mensajes");
+        oCapaMensaje.className="alert alert-danger"; 
         mensaje("Ya existe un pago con ese ID");
     }
 };
