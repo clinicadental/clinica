@@ -398,6 +398,7 @@ Clinica.prototype.bajaPersonal=function(oPersonal){
         if(oPersonal==this.personal[i]){
             this.personal.splice(i,1);
             actualizarSelectPersonal();
+            actualizarSelectDentista();
             mensaje("Miembro de personal borrado.");
         }
     }

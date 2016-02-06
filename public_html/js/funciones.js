@@ -1177,6 +1177,10 @@ function validarCamposTextoPersonal(){
                 var oPersonal=new Administrativo(sId, sNombre, sApellidos, sFecha, iDepart);
                 oClinica.altaPersonal(oPersonal);
                 limpiaCampos();
+                var titulo=document.querySelector("#form-alta-personal h2");
+                titulo.removeChild(titulo.firstChild);
+                var oTexto=document.createTextNode("Alta personal");
+                titulo.appendChild(oTexto);
             }   
 
         }
@@ -1254,7 +1258,9 @@ function validarBajaPersonal(evento){
 
 function validarCamposBajaPersonal(){
     var oPersonal=document.getElementById("bajaPersonal");
+    var opcion=document.querySelector("#form-baja-personal input[name='opcion']:checked");
     var bValido=true;
+    
     if(oPersonal.selectedIndex=="0"){
         var oBloque=document.getElementById("bloqueBajaPersonal");
         oBloque.className='form-group has-error';
@@ -1268,33 +1274,71 @@ function validarCamposBajaPersonal(){
         oPersonal=oPersonal.value;
         oPersonal=oClinica.buscaPersonal(oPersonal);
         
-        if(oPersonal instanceof Administrativo){
+        if(opcion.value=="2"){
             
-            if(confirm("Administrativo a borrar \n\
-            ID: "+oPersonal.id+"\n\
-            Nombre: "+oPersonal.nombre+"\n\
-            Apellidos: "+oPersonal.apellidos+"\n\
-            Fecha: "+oPersonal.fechaalta+"\n\
-            Departamento: "+oPersonal.departamento+"\n\
-            ¿Está seguro que desea borrar?")){
-            oClinica.bajaPersonal(oPersonal);
-            limpiaCampos();
+            if(oPersonal instanceof Administrativo){
+            
+                if(confirm("Administrativo a borrar \n\
+                ID: "+oPersonal.id+"\n\
+                Nombre: "+oPersonal.nombre+"\n\
+                Apellidos: "+oPersonal.apellidos+"\n\
+                Fecha: "+oPersonal.fechaalta+"\n\
+                Departamento: "+oPersonal.departamento+"\n\
+                ¿Está seguro que desea borrar?")){
+                oClinica.bajaPersonal(oPersonal);
+                limpiaCampos();
+                }
             }
+            else{
+
+                if(confirm("Dentista a borrar \n\
+                ID: "+oPersonal.id+"\n\
+                Nombre: "+oPersonal.nombre+"\n\
+                Apellidos: "+oPersonal.apellidos+"\n\
+                Fecha: "+oPersonal.fechaalta+"\n\
+                Departamento: "+oPersonal.numero+"\n\
+                ¿Está seguro que desea borrar?")){
+                oClinica.bajaPersonal(oPersonal);
+                limpiaCampos();
+                }
+            
+            }
+            
         }
         else{
             
-            if(confirm("Dentista a borrar \n\
-            ID: "+oPersonal.id+"\n\
-            Nombre: "+oPersonal.nombre+"\n\
-            Apellidos: "+oPersonal.apellidos+"\n\
-            Fecha: "+oPersonal.fechaalta+"\n\
-            Departamento: "+oPersonal.numero+"\n\
-            ¿Está seguro que desea borrar?")){
             oClinica.bajaPersonal(oPersonal);
             limpiaCampos();
+            
+            mostrarFormAltaPersonal();
+            var titulo=document.querySelector("#form-alta-personal h2");
+            titulo.removeChild(titulo.firstChild);
+            var oTexto=document.createTextNode("Modificar personal");
+            titulo.appendChild(oTexto);
+            document.getElementById('idPersonal').value=oPersonal.id;
+            document.getElementById('nombre-alta-dentista').value=oPersonal.nombre;
+            document.getElementById('apellido-alta-dentista').value=oPersonal.apellidos;
+            document.getElementById('fecha').value=oPersonal.fechaalta;
+            document.getElementById('apellido-alta-dentista').value=oPersonal.apellidos;
+            
+            if(oPersonal instanceof Dentista){
+                
+                document.querySelectorAll("#form-alta-personal input[name='tipo']")[1].checked=true;
+                comprobarRadio();
+                document.getElementById("numColeg").value=oPersonal.numero;
+                
+            }
+            else{
+                
+                document.getElementById("departamento").value=oPersonal.departamento;
             }
             
+            
+            
+
         }
+        
+        
         
     }
     return bValido;
