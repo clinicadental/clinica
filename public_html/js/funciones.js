@@ -37,6 +37,8 @@ function asignarEventos(){
     oBajaCliente.addEventListener('click',mostrarFormBajaCliente,false);
     var oFormBajaCliente=document.getElementById("btnBajaCliente");
     oFormBajaCliente.addEventListener('click', validarBajaCliente, false);
+    document.getElementById("nombreCliente").addEventListener('keypress',validarSinNumeros,false);
+    document.getElementById("apellidosCliente").addEventListener('keypress',validarSinNumeros,false);
     
     var oFormCita=document.getElementById("btnAltaCita");
     oFormCita.addEventListener('click', validarCita, false);
@@ -48,6 +50,7 @@ function asignarEventos(){
     oBajaCita.addEventListener('click',mostrarFormBajaCita,false);
     var oFormBajaCita=document.getElementById("btnBajaCita");
     oFormBajaCita.addEventListener('click', validarBajaCita, false);
+    document.getElementById("procedimientoCita").addEventListener('keypress',validarSinNumeros,false);
     
     var oFormProveedor=document.getElementById("btnAltaProveedor");
     oFormProveedor.addEventListener('click', validarProveedor, false);
@@ -59,6 +62,7 @@ function asignarEventos(){
     oBajaProveedor.addEventListener('click',mostrarFormBajaProveedor,false);
     var oFormBajaProveedor=document.getElementById("btnBajaProveedor");
     oFormBajaProveedor.addEventListener('click', validarBajaProveedor, false);
+    document.getElementById("nombreProveedor").addEventListener('keypress',validarSinNumeros,false);
     
     var oFormMaterial=document.getElementById("btnAltaMaterial");
     oFormMaterial.addEventListener('click', validarMaterial, false);
@@ -119,804 +123,175 @@ function asignarEventos(){
 
 /*MOSTRAR FORMULARIOS*/
 function mostrarFormAltaCliente(){
+    var oFormularios=document.getElementsByClassName("bloque");
+    for(var i=0;i<oFormularios.length;i++){
+        oFormularios[i].style.display="none";
+    }
     var oFormularioCli=document.querySelector("#form-alta-clientes");
     oFormularioCli.style.display="block";
-    var oFormularioCit=document.querySelector("#form-alta-citas");
-    oFormularioCit.style.display="none";
-    var oFormularioPro=document.querySelector("#form-alta-proveedores");
-    oFormularioPro.style.display="none";
-    var oFormularioMat=document.querySelector("#form-alta-materiales");
-    oFormularioMat.style.display="none";
-    var oFormularioPer=document.querySelector("#form-alta-personal");
-    oFormularioPer.style.display="none";
-    var oFormularioPag=document.querySelector("#form-alta-pagos");
-    oFormularioPag.style.display="none";
-    var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
-    oFormularioBajaCliente.style.display="none";
-    var oFormularioBajaCita=document.querySelector("#form-baja-citas");
-    oFormularioBajaCita.style.display="none";
-    var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
-    oFormularioBajaProveedor.style.display="none";
-    var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
-    oFormularioBajaMaterial.style.display="none";
-    var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
-    oFormularioBajaPago.style.display="none";
-    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
-    oFormularioBajaPersonal.style.display="none";
-    
-    var oListado=document.querySelector("#listadoClientes");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoCitas");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoProveedores");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoPersonal");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoSalas");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoPagos");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoMateriales");
-    oListado.style.display="none";
 }
-
 function mostrarFormBajaCliente(){
-    var oFormularioCli=document.querySelector("#form-alta-clientes");
-    oFormularioCli.style.display="none";
-    var oFormularioCit=document.querySelector("#form-alta-citas");
-    oFormularioCit.style.display="none";
-    var oFormularioPro=document.querySelector("#form-alta-proveedores");
-    oFormularioPro.style.display="none";
-    var oFormularioMat=document.querySelector("#form-alta-materiales");
-    oFormularioMat.style.display="none";
-    var oFormularioPer=document.querySelector("#form-alta-personal");
-    oFormularioPer.style.display="none";
-    var oFormularioPag=document.querySelector("#form-alta-pagos");
-    oFormularioPag.style.display="none";
+    var oFormularios=document.getElementsByClassName("bloque");
+    for(var i=0;i<oFormularios.length;i++){
+        oFormularios[i].style.display="none";
+    }
     var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
     oFormularioBajaCliente.style.display="block";
-    var oFormularioBajaCita=document.querySelector("#form-baja-citas");
-    oFormularioBajaCita.style.display="none";
-    var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
-    oFormularioBajaProveedor.style.display="none";
-    var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
-    oFormularioBajaMaterial.style.display="none";
-    var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
-    oFormularioBajaPago.style.display="none";
-    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
-    oFormularioBajaPersonal.style.display="none";
-    
-    var oListado=document.querySelector("#listadoClientes");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoCitas");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoProveedores");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoPersonal");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoSalas");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoPagos");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoMateriales");
-    oListado.style.display="none";
 }
 
 function mostrarFormAltaCita(){
-    var oFormularioCli=document.querySelector("#form-alta-clientes");
-    oFormularioCli.style.display="none";
+    var oFormularios=document.getElementsByClassName("bloque");
+    for(var i=0;i<oFormularios.length;i++){
+        oFormularios[i].style.display="none";
+    }
     var oFormularioCit=document.querySelector("#form-alta-citas");
     oFormularioCit.style.display="block";
-    var oFormularioPro=document.querySelector("#form-alta-proveedores");
-    oFormularioPro.style.display="none";
-    var oFormularioMat=document.querySelector("#form-alta-materiales");
-    oFormularioMat.style.display="none";
-    var oFormularioPer=document.querySelector("#form-alta-personal");
-    oFormularioPer.style.display="none";
-    var oFormularioPag=document.querySelector("#form-alta-pagos");
-    oFormularioPag.style.display="none";
-    var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
-    oFormularioBajaCliente.style.display="none";
-    var oFormularioBajaCita=document.querySelector("#form-baja-citas");
-    oFormularioBajaCita.style.display="none";
-    var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
-    oFormularioBajaProveedor.style.display="none";
-    var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
-    oFormularioBajaMaterial.style.display="none";
-    var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
-    oFormularioBajaPago.style.display="none";
-    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
-    oFormularioBajaPersonal.style.display="none";
-    
-    var oListado=document.querySelector("#listadoClientes");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoCitas");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoProveedores");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoPersonal");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoSalas");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoPagos");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoMateriales");
-    oListado.style.display="none";
 }
 
 function mostrarFormBajaCita(){
-    var oFormularioCli=document.querySelector("#form-alta-clientes");
-    oFormularioCli.style.display="none";
-    var oFormularioCit=document.querySelector("#form-alta-citas");
-    oFormularioCit.style.display="none";
-    var oFormularioPro=document.querySelector("#form-alta-proveedores");
-    oFormularioPro.style.display="none";
-    var oFormularioMat=document.querySelector("#form-alta-materiales");
-    oFormularioMat.style.display="none";
-    var oFormularioPer=document.querySelector("#form-alta-personal");
-    oFormularioPer.style.display="none";
-    var oFormularioPag=document.querySelector("#form-alta-pagos");
-    oFormularioPag.style.display="none";
-    var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
-    oFormularioBajaCliente.style.display="none";
+    var oFormularios=document.getElementsByClassName("bloque");
+    for(var i=0;i<oFormularios.length;i++){
+        oFormularios[i].style.display="none";
+    }
     var oFormularioBajaCita=document.querySelector("#form-baja-citas");
     oFormularioBajaCita.style.display="block";
-    var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
-    oFormularioBajaProveedor.style.display="none";
-    var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
-    oFormularioBajaMaterial.style.display="none";
-    var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
-    oFormularioBajaPago.style.display="none";
-    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
-    oFormularioBajaPersonal.style.display="none";
-    
-    var oListado=document.querySelector("#listadoClientes");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoCitas");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoProveedores");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoPersonal");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoSalas");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoPagos");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoMateriales");
-    oListado.style.display="none";
+
 }
 
 function mostrarFormAltaProveedor(){
-    var oFormularioCli=document.querySelector("#form-alta-clientes");
-    oFormularioCli.style.display="none";
-    var oFormularioCit=document.querySelector("#form-alta-citas");
-    oFormularioCit.style.display="none";
+    var oFormularios=document.getElementsByClassName("bloque");
+    for(var i=0;i<oFormularios.length;i++){
+        oFormularios[i].style.display="none";
+    }
     var oFormularioPro=document.querySelector("#form-alta-proveedores");
     oFormularioPro.style.display="block";
-    var oFormularioMat=document.querySelector("#form-alta-materiales");
-    oFormularioMat.style.display="none";
-    var oFormularioPer=document.querySelector("#form-alta-personal");
-    oFormularioPer.style.display="none";
-    var oFormularioPag=document.querySelector("#form-alta-pagos");
-    oFormularioPag.style.display="none";
-    var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
-    oFormularioBajaCliente.style.display="none";
-    var oFormularioBajaCita=document.querySelector("#form-baja-citas");
-    oFormularioBajaCita.style.display="none";
-    var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
-    oFormularioBajaProveedor.style.display="none";
-    var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
-    oFormularioBajaMaterial.style.display="none";
-    var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
-    oFormularioBajaPago.style.display="none";
-    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
-    oFormularioBajaPersonal.style.display="none";
-    
-    var oListado=document.querySelector("#listadoClientes");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoCitas");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoProveedores");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoPersonal");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoSalas");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoPagos");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoMateriales");
-    oListado.style.display="none";
 }
 
 function mostrarFormBajaProveedor(){
-    var oFormularioCli=document.querySelector("#form-alta-clientes");
-    oFormularioCli.style.display="none";
-    var oFormularioCit=document.querySelector("#form-alta-citas");
-    oFormularioCit.style.display="none";
-    var oFormularioPro=document.querySelector("#form-alta-proveedores");
-    oFormularioPro.style.display="none";
-    var oFormularioMat=document.querySelector("#form-alta-materiales");
-    oFormularioMat.style.display="none";
-    var oFormularioPer=document.querySelector("#form-alta-personal");
-    oFormularioPer.style.display="none";
-    var oFormularioPag=document.querySelector("#form-alta-pagos");
-    oFormularioPag.style.display="none";
-    var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
-    oFormularioBajaCliente.style.display="none";
-    var oFormularioBajaCita=document.querySelector("#form-baja-citas");
-    oFormularioBajaCita.style.display="none";
+    var oFormularios=document.getElementsByClassName("bloque");
+    for(var i=0;i<oFormularios.length;i++){
+        oFormularios[i].style.display="none";
+    }
     var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
     oFormularioBajaProveedor.style.display="block";
-    var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
-    oFormularioBajaMaterial.style.display="none";
-    var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
-    oFormularioBajaPago.style.display="none";
-    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
-    oFormularioBajaPersonal.style.display="none";
-    
-    var oListado=document.querySelector("#listadoClientes");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoCitas");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoProveedores");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoPersonal");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoSalas");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoPagos");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoMateriales");
-    oListado.style.display="none";
 }
 
 function mostrarFormAltaMaterial(){
-    var oFormularioCli=document.querySelector("#form-alta-clientes");
-    oFormularioCli.style.display="none";
-    var oFormularioCit=document.querySelector("#form-alta-citas");
-    oFormularioCit.style.display="none";
-    var oFormularioPro=document.querySelector("#form-alta-proveedores");
-    oFormularioPro.style.display="none";
+    var oFormularios=document.getElementsByClassName("bloque");
+    for(var i=0;i<oFormularios.length;i++){
+        oFormularios[i].style.display="none";
+    }
     var oFormularioMat=document.querySelector("#form-alta-materiales");
     oFormularioMat.style.display="block";
-    var oFormularioPer=document.querySelector("#form-alta-personal");
-    oFormularioPer.style.display="none";
-    var oFormularioPag=document.querySelector("#form-alta-pagos");
-    oFormularioPag.style.display="none";
-    var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
-    oFormularioBajaCliente.style.display="none";
-    var oFormularioBajaCita=document.querySelector("#form-baja-citas");
-    oFormularioBajaCita.style.display="none";
-    var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
-    oFormularioBajaProveedor.style.display="none";
-    var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
-    oFormularioBajaMaterial.style.display="none";
-    var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
-    oFormularioBajaPago.style.display="none";
-    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
-    oFormularioBajaPersonal.style.display="none";
-    
-    var oListado=document.querySelector("#listadoClientes");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoCitas");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoProveedores");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoPersonal");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoSalas");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoPagos");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoMateriales");
-    oListado.style.display="none";
 }
 
 function mostrarFormBajaMaterial(){
-    var oFormularioCli=document.querySelector("#form-alta-clientes");
-    oFormularioCli.style.display="none";
-    var oFormularioCit=document.querySelector("#form-alta-citas");
-    oFormularioCit.style.display="none";
-    var oFormularioPro=document.querySelector("#form-alta-proveedores");
-    oFormularioPro.style.display="none";
-    var oFormularioMat=document.querySelector("#form-alta-materiales");
-    oFormularioMat.style.display="none";
-    var oFormularioPer=document.querySelector("#form-alta-personal");
-    oFormularioPer.style.display="none";
-    var oFormularioPag=document.querySelector("#form-alta-pagos");
-    oFormularioPag.style.display="none";
-    var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
-    oFormularioBajaCliente.style.display="none";
-    var oFormularioBajaCita=document.querySelector("#form-baja-citas");
-    oFormularioBajaCita.style.display="none";
-    var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
-    oFormularioBajaProveedor.style.display="none";
+    var oFormularios=document.getElementsByClassName("bloque");
+    for(var i=0;i<oFormularios.length;i++){
+        oFormularios[i].style.display="none";
+    }
     var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
     oFormularioBajaMaterial.style.display="block";
-    var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
-    oFormularioBajaPago.style.display="none";
-    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
-    oFormularioBajaPersonal.style.display="none";
-    
-    var oListado=document.querySelector("#listadoClientes");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoCitas");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoProveedores");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoPersonal");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoSalas");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoPagos");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoMateriales");
-    oListado.style.display="none";
 }
 
 function mostrarFormAltaPersonal(){ 
-    var oFormularioCli=document.querySelector("#form-alta-clientes");
-    oFormularioCli.style.display="none";
-    var oFormularioCit=document.querySelector("#form-alta-citas");
-    oFormularioCit.style.display="none";
-    var oFormularioPro=document.querySelector("#form-alta-proveedores");
-    oFormularioPro.style.display="none";
-    var oFormularioMat=document.querySelector("#form-alta-materiales");
-    oFormularioMat.style.display="none";
+    var oFormularios=document.getElementsByClassName("bloque");
+    for(var i=0;i<oFormularios.length;i++){
+        oFormularios[i].style.display="none";
+    }
     var oFormularioPer=document.querySelector("#form-alta-personal");
     oFormularioPer.style.display="block";
-    var oFormularioPag=document.querySelector("#form-alta-pagos");
-    oFormularioPag.style.display="none";
-    var oListado=document.querySelector("#listadoMateriales");
-    oListado.style.display="none";
-    var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
-    oFormularioBajaCliente.style.display="none";
-    var oFormularioBajaCita=document.querySelector("#form-baja-citas");
-    oFormularioBajaCita.style.display="none";
-    var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
-    oFormularioBajaProveedor.style.display="none";
-    var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
-    oFormularioBajaMaterial.style.display="none";
-    var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
-    oFormularioBajaPago.style.display="none";
-    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
-    oFormularioBajaPersonal.style.display="none";
-    
-    var oListado=document.querySelector("#listadoClientes");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoCitas");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoProveedores");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoPersonal");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoSalas");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoPagos");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoMateriales");
-    oListado.style.display="none";
 }
 
 function mostrarFormBajaPersonal(){ 
-    var oFormularioCli=document.querySelector("#form-alta-clientes");
-    oFormularioCli.style.display="none";
-    var oFormularioCit=document.querySelector("#form-alta-citas");
-    oFormularioCit.style.display="none";
-    var oFormularioPro=document.querySelector("#form-alta-proveedores");
-    oFormularioPro.style.display="none";
-    var oFormularioMat=document.querySelector("#form-alta-materiales");
-    oFormularioMat.style.display="none";
-    var oFormularioPer=document.querySelector("#form-alta-personal");
-    oFormularioPer.style.display="none";
-    var oFormularioPag=document.querySelector("#form-alta-pagos");
-    oFormularioPag.style.display="none";
-    var oListado=document.querySelector("#listadoMateriales");
-    oListado.style.display="none";
-    var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
-    oFormularioBajaCliente.style.display="none";
-    var oFormularioBajaCita=document.querySelector("#form-baja-citas");
-    oFormularioBajaCita.style.display="none";
-    var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
-    oFormularioBajaProveedor.style.display="none";
-    var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
-    oFormularioBajaMaterial.style.display="none";
+    var oFormularios=document.getElementsByClassName("bloque");
+    for(var i=0;i<oFormularios.length;i++){
+        oFormularios[i].style.display="none";
+    }
     var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
     oFormularioBajaPersonal.style.display="block";
-    var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
-    oFormularioBajaPago.style.display="none";
-    
-    var oListado=document.querySelector("#listadoClientes");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoCitas");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoProveedores");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoPersonal");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoSalas");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoPagos");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoMateriales");
-    oListado.style.display="none";
 }
 
 function mostrarFormAltaPago(){
-    var oFormularioCli=document.querySelector("#form-alta-clientes");
-    oFormularioCli.style.display="none";
-    var oFormularioCit=document.querySelector("#form-alta-citas");
-    oFormularioCit.style.display="none";
-    var oFormularioPro=document.querySelector("#form-alta-proveedores");
-    oFormularioPro.style.display="none";
-    var oFormularioMat=document.querySelector("#form-alta-materiales");
-    oFormularioMat.style.display="none";
-    var oFormularioPer=document.querySelector("#form-alta-personal");
-    oFormularioPer.style.display="none";
+    var oFormularios=document.getElementsByClassName("bloque");
+    for(var i=0;i<oFormularios.length;i++){
+        oFormularios[i].style.display="none";
+    }
     var oFormularioPag=document.querySelector("#form-alta-pagos");
     oFormularioPag.style.display="block";
-    var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
-    oFormularioBajaCliente.style.display="none";
-    var oFormularioBajaCita=document.querySelector("#form-baja-citas");
-    oFormularioBajaCita.style.display="none";
-    var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
-    oFormularioBajaProveedor.style.display="none";
-    var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
-    oFormularioBajaMaterial.style.display="none";
-    var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
-    oFormularioBajaPago.style.display="none";
-    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
-    oFormularioBajaPersonal.style.display="none";
-    
-    var oListado=document.querySelector("#listadoClientes");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoCitas");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoProveedores");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoPersonal");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoSalas");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoPagos");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoMateriales");
-    oListado.style.display="none";
 }
 
 function mostrarFormBajaPago(){
-    var oFormularioCli=document.querySelector("#form-alta-clientes");
-    oFormularioCli.style.display="none";
-    var oFormularioCit=document.querySelector("#form-alta-citas");
-    oFormularioCit.style.display="none";
-    var oFormularioPro=document.querySelector("#form-alta-proveedores");
-    oFormularioPro.style.display="none";
-    var oFormularioMat=document.querySelector("#form-alta-materiales");
-    oFormularioMat.style.display="none";
-    var oFormularioPer=document.querySelector("#form-alta-personal");
-    oFormularioPer.style.display="none";
-    var oFormularioPag=document.querySelector("#form-alta-pagos");
-    oFormularioPag.style.display="none";
-    var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
-    oFormularioBajaCliente.style.display="none";
-    var oFormularioBajaCita=document.querySelector("#form-baja-citas");
-    oFormularioBajaCita.style.display="none";
-    var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
-    oFormularioBajaProveedor.style.display="none";
-    var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
-    oFormularioBajaMaterial.style.display="none";
+    var oFormularios=document.getElementsByClassName("bloque");
+    for(var i=0;i<oFormularios.length;i++){
+        oFormularios[i].style.display="none";
+    }
     var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
     oFormularioBajaPago.style.display="block";
-    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
-    oFormularioBajaPersonal.style.display="none";
-    
-    var oListado=document.querySelector("#listadoClientes");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoCitas");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoProveedores");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoPersonal");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoSalas");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoPagos");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoMateriales");
-    oListado.style.display="none";
 }
 
 /*MOSTRAR LISTADOS*/
 function mostrarListadoClientes(){
-    var oFormularioCli=document.querySelector("#form-alta-clientes");
-    oFormularioCli.style.display="none";
-    var oFormularioCit=document.querySelector("#form-alta-citas");
-    oFormularioCit.style.display="none";
-    var oFormularioPro=document.querySelector("#form-alta-proveedores");
-    oFormularioPro.style.display="none";
-    var oFormularioMat=document.querySelector("#form-alta-materiales");
-    oFormularioMat.style.display="none";
-    var oFormularioPer=document.querySelector("#form-alta-personal");
-    oFormularioPer.style.display="none";
-    var oFormularioPag=document.querySelector("#form-alta-pagos");
-    oFormularioPag.style.display="none";
-    var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
-    oFormularioBajaCliente.style.display="none";
-    var oFormularioBajaCita=document.querySelector("#form-baja-citas");
-    oFormularioBajaCita.style.display="none";
-    var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
-    oFormularioBajaProveedor.style.display="none";
-    var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
-    oFormularioBajaMaterial.style.display="none";
-    var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
-    oFormularioBajaPago.style.display="none";
-    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
-    oFormularioBajaPersonal.style.display="none";
-    
+    var oFormularios=document.getElementsByClassName("bloque");
+    for(var i=0;i<oFormularios.length;i++){
+        oFormularios[i].style.display="none";
+    }
     var oListado=document.querySelector("#listadoClientes");
     oListado.style.display="block";
-    var oListado=document.querySelector("#listadoCitas");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoProveedores");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoPersonal");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoSalas");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoPagos");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoMateriales");
-    oListado.style.display="none";
 }
 
 function mostrarListadoCitas(){
-    var oFormularioCli=document.querySelector("#form-alta-clientes");
-    oFormularioCli.style.display="none";
-    var oFormularioCit=document.querySelector("#form-alta-citas");
-    oFormularioCit.style.display="none";
-    var oFormularioPro=document.querySelector("#form-alta-proveedores");
-    oFormularioPro.style.display="none";
-    var oFormularioMat=document.querySelector("#form-alta-materiales");
-    oFormularioMat.style.display="none";
-    var oFormularioPer=document.querySelector("#form-alta-personal");
-    oFormularioPer.style.display="none";
-    var oFormularioPag=document.querySelector("#form-alta-pagos");
-    oFormularioPag.style.display="none";
-    var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
-    oFormularioBajaCliente.style.display="none";
-    var oFormularioBajaCita=document.querySelector("#form-baja-citas");
-    oFormularioBajaCita.style.display="none";
-    var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
-    oFormularioBajaProveedor.style.display="none";
-    var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
-    oFormularioBajaMaterial.style.display="none";
-    var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
-    oFormularioBajaPago.style.display="none";
-    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
-    oFormularioBajaPersonal.style.display="none";
-    
-    var oListado=document.querySelector("#listadoClientes");
-    oListado.style.display="none";
+    var oFormularios=document.getElementsByClassName("bloque");
+    for(var i=0;i<oFormularios.length;i++){
+        oFormularios[i].style.display="none";
+    }
     var oListado=document.querySelector("#listadoCitas");
     oListado.style.display="block";
-    var oListado=document.querySelector("#listadoProveedores");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoPersonal");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoSalas");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoPagos");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoMateriales");
-    oListado.style.display="none";
 }
 
 function mostrarListadoProveedores(){
-    var oFormularioCli=document.querySelector("#form-alta-clientes");
-    oFormularioCli.style.display="none";
-    var oFormularioCit=document.querySelector("#form-alta-citas");
-    oFormularioCit.style.display="none";
-    var oFormularioPro=document.querySelector("#form-alta-proveedores");
-    oFormularioPro.style.display="none";
-    var oFormularioMat=document.querySelector("#form-alta-materiales");
-    oFormularioMat.style.display="none";
-    var oFormularioPer=document.querySelector("#form-alta-personal");
-    oFormularioPer.style.display="none";
-    var oFormularioPag=document.querySelector("#form-alta-pagos");
-    oFormularioPag.style.display="none";
-    var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
-    oFormularioBajaCliente.style.display="none";
-    var oFormularioBajaCita=document.querySelector("#form-baja-citas");
-    oFormularioBajaCita.style.display="none";
-    var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
-    oFormularioBajaProveedor.style.display="none";
-    var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
-    oFormularioBajaMaterial.style.display="none";
-    var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
-    oFormularioBajaPago.style.display="none";
-    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
-    oFormularioBajaPersonal.style.display="none";
-    
-    var oListado=document.querySelector("#listadoClientes");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoCitas");
-    oListado.style.display="none";
+    var oFormularios=document.getElementsByClassName("bloque");
+    for(var i=0;i<oFormularios.length;i++){
+        oFormularios[i].style.display="none";
+    }
     var oListado=document.querySelector("#listadoProveedores");
     oListado.style.display="block";
-    var oListado=document.querySelector("#listadoPersonal");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoSalas");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoPagos");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoMateriales");
-    oListado.style.display="none";
 }
 
 function mostrarListadoMateriales(){
-    var oFormularioCli=document.querySelector("#form-alta-clientes");
-    oFormularioCli.style.display="none";
-    var oFormularioCit=document.querySelector("#form-alta-citas");
-    oFormularioCit.style.display="none";
-    var oFormularioPro=document.querySelector("#form-alta-proveedores");
-    oFormularioPro.style.display="none";
-    var oFormularioMat=document.querySelector("#form-alta-materiales");
-    oFormularioMat.style.display="none";
-    var oFormularioPer=document.querySelector("#form-alta-personal");
-    oFormularioPer.style.display="none";
-    var oFormularioPag=document.querySelector("#form-alta-pagos");
-    oFormularioPag.style.display="none";
-    var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
-    oFormularioBajaCliente.style.display="none";
-    var oFormularioBajaCita=document.querySelector("#form-baja-citas");
-    oFormularioBajaCita.style.display="none";
-    var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
-    oFormularioBajaProveedor.style.display="none";
-    var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
-    oFormularioBajaMaterial.style.display="none";
-    var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
-    oFormularioBajaPago.style.display="none";
-    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
-    oFormularioBajaPersonal.style.display="none";
-    
-    var oListado=document.querySelector("#listadoClientes");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoCitas");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoProveedores");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoPersonal");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoSalas");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoPagos");
-    oListado.style.display="none";
+    var oFormularios=document.getElementsByClassName("bloque");
+    for(var i=0;i<oFormularios.length;i++){
+        oFormularios[i].style.display="none";
+    }
     var oListado=document.querySelector("#listadoMateriales");
     oListado.style.display="block";
 }
 
 function mostrarListadoPersonal(){
-    var oFormularioCli=document.querySelector("#form-alta-clientes");
-    oFormularioCli.style.display="none";
-    var oFormularioCit=document.querySelector("#form-alta-citas");
-    oFormularioCit.style.display="none";
-    var oFormularioPro=document.querySelector("#form-alta-proveedores");
-    oFormularioPro.style.display="none";
-    var oFormularioMat=document.querySelector("#form-alta-materiales");
-    oFormularioMat.style.display="none";
-    var oFormularioPer=document.querySelector("#form-alta-personal");
-    oFormularioPer.style.display="none";
-    var oFormularioPag=document.querySelector("#form-alta-pagos");
-    oFormularioPag.style.display="none";
-    var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
-    oFormularioBajaCliente.style.display="none";
-    var oFormularioBajaCita=document.querySelector("#form-baja-citas");
-    oFormularioBajaCita.style.display="none";
-    var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
-    oFormularioBajaProveedor.style.display="none";
-    var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
-    oFormularioBajaMaterial.style.display="none";
-    var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
-    oFormularioBajaPago.style.display="none";
-    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
-    oFormularioBajaPersonal.style.display="none";
-    
-    var oListado=document.querySelector("#listadoClientes");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoCitas");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoProveedores");
-    oListado.style.display="none";
+    var oFormularios=document.getElementsByClassName("bloque");
+    for(var i=0;i<oFormularios.length;i++){
+        oFormularios[i].style.display="none";
+    }
     var oListado=document.querySelector("#listadoPersonal");
     oListado.style.display="block";
-    var oListado=document.querySelector("#listadoSalas");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoPagos");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoMateriales");
-    oListado.style.display="none";
 }
 
 function mostrarListadoPagos(){
-    var oFormularioCli=document.querySelector("#form-alta-clientes");
-    oFormularioCli.style.display="none";
-    var oFormularioCit=document.querySelector("#form-alta-citas");
-    oFormularioCit.style.display="none";
-    var oFormularioPro=document.querySelector("#form-alta-proveedores");
-    oFormularioPro.style.display="none";
-    var oFormularioMat=document.querySelector("#form-alta-materiales");
-    oFormularioMat.style.display="none";
-    var oFormularioPer=document.querySelector("#form-alta-personal");
-    oFormularioPer.style.display="none";
-    var oFormularioPag=document.querySelector("#form-alta-pagos");
-    oFormularioPag.style.display="none";
-    var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
-    oFormularioBajaCliente.style.display="none";
-    var oFormularioBajaCita=document.querySelector("#form-baja-citas");
-    oFormularioBajaCita.style.display="none";
-    var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
-    oFormularioBajaProveedor.style.display="none";
-    var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
-    oFormularioBajaMaterial.style.display="none";
-    var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
-    oFormularioBajaPago.style.display="none";
-    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
-    oFormularioBajaPersonal.style.display="none";
-    
-    var oListado=document.querySelector("#listadoClientes");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoCitas");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoProveedores");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoPersonal");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoSalas");
-    oListado.style.display="none";
+    var oFormularios=document.getElementsByClassName("bloque");
+    for(var i=0;i<oFormularios.length;i++){
+        oFormularios[i].style.display="none";
+    }
     var oListado=document.querySelector("#listadoPagos");
     oListado.style.display="block";
-    var oListado=document.querySelector("#listadoMateriales");
-    oListado.style.display="none";
 }
 
 function mostrarListadoSalas(){
-    var oFormularioCli=document.querySelector("#form-alta-clientes");
-    oFormularioCli.style.display="none";
-    var oFormularioCit=document.querySelector("#form-alta-citas");
-    oFormularioCit.style.display="none";
-    var oFormularioPro=document.querySelector("#form-alta-proveedores");
-    oFormularioPro.style.display="none";
-    var oFormularioMat=document.querySelector("#form-alta-materiales");
-    oFormularioMat.style.display="none";
-    var oFormularioPer=document.querySelector("#form-alta-personal");
-    oFormularioPer.style.display="none";
-    var oFormularioPag=document.querySelector("#form-alta-pagos");
-    oFormularioPag.style.display="none";
-    var oFormularioBajaCliente=document.querySelector("#form-baja-clientes");
-    oFormularioBajaCliente.style.display="none";
-    var oFormularioBajaCita=document.querySelector("#form-baja-citas");
-    oFormularioBajaCita.style.display="none";
-    var oFormularioBajaProveedor=document.querySelector("#form-baja-proveedores");
-    oFormularioBajaProveedor.style.display="none";
-    var oFormularioBajaMaterial=document.querySelector("#form-baja-materiales");
-    oFormularioBajaMaterial.style.display="none";
-    var oFormularioBajaPago=document.querySelector("#form-baja-pagos");
-    oFormularioBajaPago.style.display="none";
-    var oFormularioBajaPersonal=document.querySelector("#form-baja-personal");
-    oFormularioBajaPersonal.style.display="none";
-    
-    var oListado=document.querySelector("#listadoClientes");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoCitas");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoProveedores");
-    oListado.style.display="none";
-    var oListado=document.querySelector("#listadoPersonal");
-    oListado.style.display="none";
+    var oFormularios=document.getElementsByClassName("bloque");
+    for(var i=0;i<oFormularios.length;i++){
+        oFormularios[i].style.display="none";
+    }
     var oListado=document.querySelector("#listadoSalas");
     oListado.style.display="block";
-    var oListado=document.querySelector("#listadoMateriales");
-    oListado.style.display="none";
 }
 
 /*VALIDACIONES*/
