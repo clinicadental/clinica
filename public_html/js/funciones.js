@@ -278,70 +278,53 @@ function validarCliente(evento){
 }
 
 function validarCamposTextoCliente(){
-    
     var sId=document.getElementById('idCliente').value;
     var sNombre=document.getElementById('nombreCliente').value;
     var sApellidos=document.getElementById('apellidosCliente').value;
     var iTelefono=document.getElementById('telefonoCliente').value;
     var bValido=true;
     
-    var patronId=/([A-Z]{1})+([0-9]{5})/;
-    var patronTelef=/[0-9]{2,3}-? ?[0-9]{6,7}/;
+    var patronId=/(^[A-Z]{1})([0-9]{5}$)/;
+    var patronCadena=/[a-zA-Z]+\s?/;
+    var patronTelef=/^([0-9]{2,3})?(-|\s)?[0-9]{6,7}$/;
     
     if(!patronId.test(sId)){
-        
         var oBloque=document.getElementById("bloqueIdCliente");
         oBloque.className='form-group has-error';
         bValido=false;
     }
     else{
-        
         var oBloque=document.getElementById("bloqueIdCliente");
         oBloque.className='form-group';
-
     }
-    
-    if(sNombre==""){
-        
+    if(!patronCadena.test(sNombre)){   
         var oBloque=document.getElementById("bloqueNombreCliente");
         oBloque.className='form-group has-error';
         bValido=false;
     }
     else{
-        
         var oBloque=document.getElementById("bloqueNombreCliente");
         oBloque.className='form-group';
-
     }
-    
-    if(sApellidos==""){
-        
+    if(!patronCadena.test(sApellidos)){   
         var oBloque=document.getElementById("bloqueApellidosCliente");
         oBloque.className='form-group has-error';
         bValido=false;
     }
     else{
-        
         var oBloque=document.getElementById("bloqueApellidosCliente");
         oBloque.className='form-group';
-
     }
-    
-    if(!patronTelef.test(iTelefono)){
-        
+    if(!patronTelef.test(iTelefono)){   
         var oBloque=document.getElementById("bloqueTelefonoCliente");
         oBloque.className='form-group has-error';
         bValido=false;
     }
     else{
-        
         var oBloque=document.getElementById("bloqueTelefonoCliente");
         oBloque.className='form-group';
-
     }
-    
     if(bValido){
-        
         var oCliente=new Cliente(sId, sNombre, sApellidos, iTelefono);
         oClinica.altaCliente(oCliente);
         limpiaCampos();
@@ -349,10 +332,8 @@ function validarCamposTextoCliente(){
         var titulo=document.querySelector("#form-alta-clientes h2");
         titulo.removeChild(titulo.firstChild);
         var oTexto=document.createTextNode("Alta cliente");
-        titulo.appendChild(oTexto);
-        
+        titulo.appendChild(oTexto);   
     }
-    
     return bValido;
 }
 
