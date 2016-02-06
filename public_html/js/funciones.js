@@ -270,7 +270,8 @@ function validarCliente(evento){
        return true;
     }
     else{
-          
+       var oCapaMensaje=document.getElementById("mensajes");
+       oCapaMensaje.className="alert alert-danger"; 
        mensaje("error");
        return false;
     } 
@@ -366,7 +367,8 @@ function validarBajaCliente(evento){
        return true;
     }
     else{
-          
+       var oCapaMensaje=document.getElementById("mensajes");
+       oCapaMensaje.className="alert alert-danger"; 
        mensaje("error");
        return false;
     } 
@@ -492,7 +494,8 @@ function validarCita(evento){
        return true;
     }
     else{
-          
+       var oCapaMensaje=document.getElementById("mensajes");
+       oCapaMensaje.className="alert alert-danger"; 
        mensaje("error");
        return false;
     } 
@@ -650,9 +653,10 @@ function validarBajaCita(evento){
        return true;
     }
     else{
-          
-       mensaje("error");
-       return false;
+        var oCapaMensaje=document.getElementById("mensajes");
+        oCapaMensaje.className="alert alert-danger"; 
+        mensaje("error");
+        return false;
     } 
 }
 
@@ -720,9 +724,10 @@ function validarProveedor(evento){
        return true;
     }
     else{
-          
-       mensaje("error");
-       return false;
+        var oCapaMensaje=document.getElementById("mensajes");
+        oCapaMensaje.className="alert alert-danger"; 
+        mensaje("error");
+        return false;
     }
 }
 
@@ -833,9 +838,10 @@ function validarBajaProveedor(evento){
        return true;
     }
     else{
-          
-       mensaje("error");
-       return false;
+        var oCapaMensaje=document.getElementById("mensajes");
+        oCapaMensaje.className="alert alert-danger"; 
+        mensaje("error");
+        return false;
     } 
 }
 
@@ -885,6 +891,8 @@ function validarMaterial(evento){
         return true;
     }
     else{
+        var oCapaMensaje=document.getElementById("mensajes");
+        oCapaMensaje.className="alert alert-danger"; 
         mensaje("error");
         return false;
     }
@@ -983,8 +991,10 @@ function validarBajaMaterial(evento){
        return true;
     }
     else{
-       mensaje("error");
-       return false;
+        var oCapaMensaje=document.getElementById("mensajes");
+        oCapaMensaje.className="alert alert-danger"; 
+        mensaje("error");
+        return false;
     } 
 }
 
@@ -1046,9 +1056,10 @@ function validarPersonal(evento){
        return true;
     }
     else{
-          
-       mensaje("error");
-       return false;
+        var oCapaMensaje=document.getElementById("mensajes");
+        oCapaMensaje.className="alert alert-danger"; 
+        mensaje("error");
+        return false;
     }
 }
 
@@ -1194,8 +1205,10 @@ function validarBajaPersonal(evento){
        return true;
     }
     else{
-       mensaje("error");
-       return false;
+        var oCapaMensaje=document.getElementById("mensajes");
+        oCapaMensaje.className="alert alert-danger"; 
+        mensaje("error");
+        return false;
     } 
 }
 
@@ -1279,8 +1292,10 @@ function validarPago(evento){
        return true;
     }
     else{
-       mensaje("error");
-       return false;
+        var oCapaMensaje=document.getElementById("mensajes");
+        oCapaMensaje.className="alert alert-danger"; 
+        mensaje("error");
+        return false;
     } 
 }
 
@@ -1334,8 +1349,10 @@ function validarBajaPago(evento){
        return true;
     }
     else{
-       mensaje("error");
-       return false;
+        var oCapaMensaje=document.getElementById("mensajes");
+        oCapaMensaje.className="alert alert-danger"; 
+        mensaje("error");
+        return false;
     } 
 }
 function validarCamposBajaPago(){
@@ -2073,8 +2090,8 @@ function mensaje(sMensaje){
 		
 function ocultarMensaje(){
     var oCapaMensaje = document.getElementById("mensajes");
-			
     oCapaMensaje.style.display = "none";
+    oCapaMensaje.className="alert alert-info";
     var oCapaTransparente = document.getElementById("capaTransparente");
     var oCapaTransparente1 = document.getElementById("capaTransparente");
 			
