@@ -913,6 +913,10 @@ function validarCamposTextoMaterial(){
         var oMaterial=new Material(sId, sTipo, iCantidad, oProveedor);
         oClinica.altaMaterial(oMaterial);
         limpiaCampos();
+        var titulo=document.querySelector("#form-alta-materiales h2");
+        titulo.removeChild(titulo.firstChild);
+        var oTexto=document.createTextNode("Alta material");
+        titulo.appendChild(oTexto);
     }
     return bValido;
 }
