@@ -1127,6 +1127,10 @@ function validarCamposTextoPersonal(){
                     oClinica.altaPersonal(oPersonal);
                     limpiaCampos();
                     actualizarSelectDentista();
+                    var titulo=document.querySelector("#form-alta-personal h2");
+                    titulo.removeChild(titulo.firstChild);
+                    var oTexto=document.createTextNode("Alta personal");
+                    titulo.appendChild(oTexto);
                 }
             }
         }
@@ -1343,6 +1347,10 @@ function validarCamposTextoPago(){
         var oPago=new Pago(sId, iCantidad, bPagada, oCliente);
         oClinica.altaPago(oPago);
         limpiaCampos();
+        var titulo=document.querySelector("#form-alta-pagos h2");
+        titulo.removeChild(titulo.firstChild);
+        var oTexto=document.createTextNode("Alta pago");
+        titulo.appendChild(oTexto);
     }   
     return bValido;
 }
@@ -1394,7 +1402,11 @@ function validarCamposBajaPago(){
             titulo.appendChild(oTexto);
             document.getElementById('idPago').value=oPago.id;
             document.getElementById('cantidadPago').value=oPago.importe;
-            document.getElementById('citaPagada').value=oPago.pagado;
+            
+            if(oPago.pagado){
+                document.getElementById('citaPagada').checked=true;
+            }
+           
             document.getElementById('clientePago').value=oPago.cliente.id;
         }
     }
@@ -2273,6 +2285,7 @@ for(var i=0;i<oCitas.length;i++){
 
 }
 
+mensaje("Datos de prueba cargados");
 
 /*CALENDARIOS*/
 function calendario1(){
