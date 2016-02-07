@@ -1318,7 +1318,7 @@ function validarCamposTextoPago(){
     var oCliente=document.getElementById("clientePago");
     var bValido=true;
     var patronId=/([A-Z]{1})+([0-9]{5})/;
-    var patronCantidad=/^([0-9]+([,]([0-9]{1,2}))?)$/;
+    var patronCantidad=/^([0-9]+([.]([0-9]{1,2}))?)$/;
     
     if(oCliente.selectedIndex=="0"){
         var oBloque=document.getElementById("bloqueClientePago");
