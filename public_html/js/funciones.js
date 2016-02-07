@@ -304,7 +304,6 @@ function validarCamposTextoCliente(){
         var oCliente=new Cliente(sId, sNombre, sApellidos, iTelefono);
         oClinica.altaCliente(oCliente);
         limpiaCampos();
-        actualizarSelectCliente();
         var titulo=document.querySelector("#form-alta-clientes h2");
         titulo.removeChild(titulo.firstChild);
         var oTexto=document.createTextNode("Alta cliente");
@@ -351,13 +350,13 @@ function validarCamposBajaCliente(){
                     Teléfono: "+oCliente.telefono+"\n\
                     Está seguro de borrar?")){
                 oClinica.bajaCliente(oCliente);
-                actualizarSelectCliente(oCliente);
+                
                 limpiaCampos();
             }
         }
         else{
             oClinica.bajaCliente(oCliente);
-            actualizarSelectCliente(oCliente);
+           
             limpiaCampos();
             mostrarFormAltaCliente();
             var titulo=document.querySelector("#form-alta-clientes h2");
@@ -2201,7 +2200,6 @@ for(var i=0;i<oClientes.length;i++){
     var oCliente=new Cliente(sId,sNombre,sApellidos,iTelefono);
     
     oClinica.altaCliente(oCliente);
-    actualizarSelectCliente();
 }
 
 for(var i=0;i<oProveedores.length;i++){
@@ -2212,7 +2210,6 @@ for(var i=0;i<oProveedores.length;i++){
     var oProveedor=new Proveedor(sId,sNombre,iTelefono);
     
     oClinica.altaProveedor(oProveedor);
-    actualizarSelectProveedores();
 }
 
 for(var i=0;i<oAdministrativos.length;i++){
@@ -2238,7 +2235,6 @@ for(var i=0;i<oDentistas.length;i++){
     var oDentista=new Dentista(sId,sNombre,sApellidos,sFecha,iColegiado);
     
     oClinica.altaPersonal(oDentista);
-    actualizarSelectDentista();
     //actualizarSelectPersonal
 }
 
@@ -2286,7 +2282,6 @@ for(var i=0;i<oCitas.length;i++){
     var oCita=new Cita(sId,oDentista,oCliente,sFecha,sSala,sProcedimiento,sDescripcion,sAtendida);
     
     oClinica.altaCita(oCita,oDentista,oCliente);
-    actualizarSelectCita();
 
 }
 

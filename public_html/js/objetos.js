@@ -26,6 +26,7 @@ Clinica.prototype.altaCliente=function(oCliente){
         
         this.clientes.push(oCliente);
         mensaje("Cliente añadido");
+        actualizarSelectCliente();
     }
     else{
         var oCapaMensaje=document.getElementById("mensajes");
@@ -108,6 +109,7 @@ Clinica.prototype.altaCita=function(oCita,oCliente,oDentista){
         
         this.citas.push(oCita);
         mensaje("Cita añadida");
+        actualizarSelectCita();
         
         for(var i=0;i<this.clientes.length;i++){
         
@@ -222,6 +224,7 @@ Clinica.prototype.altaProveedor=function(oProveedor){
         
         this.proveedores.push(oProveedor);
         mensaje("Proveedor añadido");
+        actualizarSelectProveedores();
     }
     else{
         var oCapaMensaje=document.getElementById("mensajes");
@@ -364,6 +367,7 @@ Clinica.prototype.altaPersonal=function(oPersonal){
         this.personal.push(oPersonal);
         mensaje("Personal añadido");
         actualizarSelectPersonal();
+        actualizarSelectDentista();
     }
     else{
         var oCapaMensaje=document.getElementById("mensajes");
