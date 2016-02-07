@@ -503,7 +503,7 @@ function validarCamposTextoCita(){
         var oBloque=document.getElementById("bloqueProcedimiento");
         oBloque.className='form-group';
     }   
-    if(sDescripcion==""){       
+    /*if(sDescripcion==""){       
         var oBloque=document.getElementById("bloqueDescripcion");
         oBloque.className='form-group has-error';
         bValido=false;
@@ -511,7 +511,7 @@ function validarCamposTextoCita(){
     else{      
         var oBloque=document.getElementById("bloqueDescripcion");
         oBloque.className='form-group';
-    }  
+    }*/ 
     if(bValido){
         oDentista=oClinica.buscaPersonal(oDentista.value);
         oCliente=oClinica.buscaCliente(oCliente.value);
@@ -1319,6 +1319,7 @@ function validarCamposTextoPago(){
     var oCliente=document.getElementById("clientePago");
     var bValido=true;
     var patronId=/([A-Z]{1})+([0-9]{5})/;
+    var patronCantidad=/^([0-9]+([,]([0-9]{1,2}))?)$/;
     
     if(oCliente.selectedIndex=="0"){
         var oBloque=document.getElementById("bloqueClientePago");
@@ -1338,7 +1339,7 @@ function validarCamposTextoPago(){
         var oBloque=document.getElementById("bloqueIdPago");
         oBloque.className='form-group';
     }
-    if(isNaN(iCantidad) || iCantidad==""){
+    if(!patronCantidad.test(iCantidad)){
         var oBloque=document.getElementById("bloqueCantidadPago");
         oBloque.className='form-group has-error';
         bValido=false;
