@@ -97,25 +97,25 @@
     
     <pagos>
         <pago id="P01234">
-            <cantidad>1.200,00€</cantidad>
+            <cantidad>1200.00</cantidad>
             <pagada>Sí</pagada>
             <cliente>C00112</cliente>
         </pago>
         
         <pago id="P01237">
-            <cantidad>900,50€</cantidad>
+            <cantidad>900.50</cantidad>
             <pagada>Sí</pagada>
             <cliente>C00115</cliente>
         </pago>
         
         <pago id="P01255">
-            <cantidad>355,95€</cantidad>
+            <cantidad>355.95</cantidad>
             <pagada>No</pagada>
             <cliente>C00113</cliente>
         </pago>
         
         <pago id="P01247">
-            <cantidad>769,90€</cantidad>
+            <cantidad>769.90</cantidad>
             <pagada>No</pagada>
             <cliente>C00114</cliente>
         </pago>
@@ -184,7 +184,7 @@
             <dentista>D01112</dentista>
             <cliente>C00114</cliente>
             <fecha>03/02/2016</fecha>
-            <sala>Rayos</sala>
+            <sala>Rayos X</sala>
             <procedimiento>Radiografía</procedimiento>
             <descripcion></descripcion>
             <atendida>No</atendida>
