@@ -1044,6 +1044,7 @@ function validarCamposTextoPersonal(){
     var patronId=/(^[A-Z]{1})([0-9]{5}$)/;
     var patronCadena=/[a-zA-Z]+\s?/;
     var patronNum=/^([0-9]{5})$/;
+    var patronDepart=/^([0-9]{1,5})$/;
        
     if(!patronId.test(sId)){
         
