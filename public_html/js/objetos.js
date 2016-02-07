@@ -592,7 +592,7 @@ Pago.prototype.toHTMLRow=function(){
     var celda1 = document.createElement("td");
     var textoCelda1 = document.createTextNode(this.id);
     var celda2 = document.createElement("td");
-    var textoCelda2 = document.createTextNode(this.importe);
+    var textoCelda2 = document.createTextNode(this.importe+"€");
     var celda3 = document.createElement("td");
     var textoCelda3;
     
