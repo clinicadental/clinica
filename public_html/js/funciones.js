@@ -1097,7 +1097,7 @@ function validarCamposTextoPersonal(){
     if (bValido){
         if(sTipo=="1"){
 
-            if(isNaN(iDepart) || iDepart==""){
+            if(!patronDepart.test(iDepart)){
                 var oBloque=document.getElementById("bloqueDepartamento");
                 oBloque.className='form-group has-error';
                  bValido=false;
